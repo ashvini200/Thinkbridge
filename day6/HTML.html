@@ -1,0 +1,1443 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>HTML Learning Hub</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+      }
+
+      body {
+        background-color: #f9f9f9;
+        color: #333;
+        line-height: 1.6;
+      }
+
+      header {
+        background: linear-gradient(135deg, #dd387a, #df2771);
+        color: white;
+        padding: 2rem;
+        text-align: center;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      }
+
+      h1 {
+        font-size: 2.5rem;
+        margin-bottom: 0.5rem;
+      }
+
+      .subtitle {
+        font-size: 1.2rem;
+        opacity: 0.9;
+      }
+
+      .container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 2rem;
+      }
+
+      .search-container {
+        background-color: white;
+        padding: 1.5rem;
+        border-radius: 10px;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+        margin-bottom: 2rem;
+        text-align: center;
+      }
+
+      #searchInput {
+        width: 70%;
+        padding: 12px 20px;
+        border: 2px solid #e0e0e0;
+        border-radius: 30px;
+        font-size: 1rem;
+        outline: none;
+        transition: border-color 0.3s;
+      }
+
+      #searchInput:focus {
+        border-color: #df2771;
+      }
+
+      .topics-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+        gap: 1.5rem;
+        margin-top: 2rem;
+      }
+
+      .topic-card {
+        background-color: white;
+        border-radius: 10px;
+        overflow: hidden;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+        transition: transform 0.3s, box-shadow 0.3s;
+        cursor: pointer;
+      }
+
+      .topic-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+      }
+
+      .topic-header {
+        background-color: #df2771;
+        color: white;
+        padding: 1.2rem;
+        font-size: 1.2rem;
+        font-weight: 600;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+
+      .topic-content {
+        padding: 1.5rem;
+      }
+
+      .subtopic {
+        padding: 0.8rem 1rem;
+        margin: 0.5rem 0;
+        background-color: #f5f5f5;
+        border-radius: 6px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        transition: background-color 0.2s;
+        cursor: pointer;
+      }
+
+      .subtopic:hover {
+        background-color: #e9e9e9;
+      }
+
+      .subtopic i {
+        color: #df2771;
+      }
+
+      .theory-section {
+        display: none;
+        background-color: white;
+        border-radius: 10px;
+        padding: 2rem;
+        margin-top: 2rem;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+      }
+
+      .theory-section h3 {
+        color: #df2771;
+        margin-bottom: 1rem;
+        border-bottom: 2px solid #f0f0f0;
+        padding-bottom: 0.5rem;
+      }
+
+      .code-example {
+        background-color: #2d2d2d;
+        color: #f8f8f2;
+        padding: 1rem;
+        border-radius: 6px;
+        margin: 1rem 0;
+        overflow-x: auto;
+        font-family: "Courier New", monospace;
+      }
+
+      .interactive-demo {
+        background-color: #f9f9f9;
+        border: 1px solid #e0e0e0;
+        border-radius: 6px;
+        padding: 1.5rem;
+        margin: 1rem 0;
+      }
+
+      .btn {
+        background-color: #df2771;
+        color: white;
+        border: none;
+        padding: 10px 20px;
+        border-radius: 30px;
+        cursor: pointer;
+        font-size: 1rem;
+        transition: background-color 0.3s;
+        margin: 5px;
+      }
+
+      .btn:hover {
+        background-color: #df2771;
+      }
+
+      footer {
+        text-align: center;
+        padding: 2rem;
+        margin-top: 3rem;
+        background-color: #2d2d2d;
+        color: white;
+      }
+
+      .game-container {
+        background-color: #f0f8ff;
+        padding: 1.5rem;
+        border-radius: 8px;
+        margin: 1rem 0;
+      }
+
+      .tag-match-game {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+        justify-content: center;
+        margin: 15px 0;
+      }
+
+      .tag-card {
+        background-color: #df2771;
+        color: white;
+        padding: 10px 15px;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: transform 0.2s;
+      }
+
+      .tag-card:hover {
+        transform: scale(1.05);
+      }
+
+      .tag-match-result {
+        margin-top: 15px;
+        font-weight: bold;
+        text-align: center;
+      }
+
+      .content-tabs {
+        display: flex;
+        margin-bottom: 1rem;
+        border-bottom: 1px solid #e0e0e0;
+      }
+
+      .tab {
+        padding: 8px 16px;
+        cursor: pointer;
+        border-bottom: 3px solid transparent;
+      }
+
+      .tab.active {
+        border-bottom: 3px solid #df2771;
+        color: #df2771;
+        font-weight: bold;
+      }
+
+      .tab-content {
+        display: none;
+      }
+
+      .tab-content.active {
+        display: block;
+      }
+
+      .demo-box {
+        width: 100px;
+        height: 100px;
+        background-color: #df2771;
+        margin: 10px;
+        display: inline-block;
+      }
+
+      .color-box {
+        width: 50px;
+        height: 50px;
+        display: inline-block;
+        margin: 5px;
+        border: 1px solid #ccc;
+      }
+
+      .flex-container {
+        display: flex;
+        gap: 10px;
+        margin: 10px 0;
+      }
+
+      .flex-item {
+        background-color: #df2771;
+        color: white;
+        padding: 10px;
+        border-radius: 4px;
+        flex: 1;
+        text-align: center;
+      }
+
+      .grid-container {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 10px;
+        margin: 10px 0;
+      }
+
+      .grid-item {
+        background-color: #df2771;
+        color: white;
+        padding: 10px;
+        border-radius: 4px;
+        text-align: center;
+      }
+
+      .code-editor {
+        width: 100%;
+        height: 200px;
+        font-family: "Courier New", monospace;
+        padding: 10px;
+        border: 1px solid #ddd;
+        border-radius: 4px;
+        resize: vertical;
+      }
+
+      .output-container {
+        margin-top: 15px;
+        padding: 15px;
+        background-color: #f5f5f5;
+        border-radius: 4px;
+        border-left: 4px solid #df2771;
+      }
+
+      .html-preview {
+        border: 1px solid #ddd;
+        padding: 15px;
+        margin: 10px 0;
+        min-height: 100px;
+        background-color: white;
+      }
+
+      .html-tag {
+        color: #df2771;
+        font-weight: bold;
+      }
+
+      .html-attr {
+        color: #6f42c1;
+      }
+
+      .html-comment {
+        color: #6a737d;
+      }
+
+      @media (max-width: 768px) {
+        .topics-grid {
+          grid-template-columns: 1fr;
+        }
+
+        #searchInput {
+          width: 90%;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <h1>HTML Learning Hub</h1>
+      <p class="subtitle">Master HTML with interactive tutorials</p>
+    </header>
+
+    <div class="container">
+      <div class="search-container">
+        <h2>What do you want to learn today?</h2>
+        <input
+          type="text"
+          id="searchInput"
+          placeholder="Search for topics (e.g., Forms, Tables, Semantic HTML)"
+        />
+        <button class="btn" onclick="searchTopics()">Search</button>
+      </div>
+
+      <h2>HTML Topics</h2>
+      <div class="topics-grid">
+        <!-- Basics of HTML -->
+        <div class="topic-card" onclick="showTheory('html-basics')">
+          <div class="topic-header">
+            <span>Basics of HTML</span>
+            <i class="fas fa-code"></i>
+          </div>
+          <div class="topic-content">
+            <div
+              class="subtopic"
+              onclick="event.stopPropagation(); showSubtopic('html-basics', 'what-is-html')"
+            >
+              <span>What is HTML</span>
+              <i class="fas fa-chevron-right"></i>
+            </div>
+            <div
+              class="subtopic"
+              onclick="event.stopPropagation(); showSubtopic('html-basics', 'syntax-structure')"
+            >
+              <span>HTML Syntax & Structure</span>
+              <i class="fas fa-chevron-right"></i>
+            </div>
+            <div
+              class="subtopic"
+              onclick="event.stopPropagation(); showSubtopic('html-basics', 'elements-tags')"
+            >
+              <span>HTML Elements & Tags</span>
+              <i class="fas fa-chevron-right"></i>
+            </div>
+            <div
+              class="subtopic"
+              onclick="event.stopPropagation(); showSubtopic('html-basics', 'attributes')"
+            >
+              <span>Attributes</span>
+              <i class="fas fa-chevron-right"></i>
+            </div>
+          </div>
+        </div>
+
+        <!-- Text Formatting -->
+        <div class="topic-card" onclick="showTheory('text-formatting')">
+          <div class="topic-header">
+            <span>Text Formatting</span>
+            <i class="fas fa-text-height"></i>
+          </div>
+          <div class="topic-content">
+            <div
+              class="subtopic"
+              onclick="event.stopPropagation(); showSubtopic('text-formatting', 'headings')"
+            >
+              <span>Headings</span>
+              <i class="fas fa-chevron-right"></i>
+            </div>
+            <div
+              class="subtopic"
+              onclick="event.stopPropagation(); showSubtopic('text-formatting', 'paragraphs')"
+            >
+              <span>Paragraphs & Text</span>
+              <i class="fas fa-chevron-right"></i>
+            </div>
+            <div
+              class="subtopic"
+              onclick="event.stopPropagation(); showSubtopic('text-formatting', 'text-styles')"
+            >
+              <span>Text Styles</span>
+              <i class="fas fa-chevron-right"></i>
+            </div>
+            <div
+              class="subtopic"
+              onclick="event.stopPropagation(); showSubtopic('text-formatting', 'block-inline')"
+            >
+              <span>Block vs Inline</span>
+              <i class="fas fa-chevron-right"></i>
+            </div>
+          </div>
+        </div>
+
+        <!-- Links & Navigation -->
+        <div class="topic-card" onclick="showTheory('links-navigation')">
+          <div class="topic-header">
+            <span>Links & Navigation</span>
+            <i class="fas fa-link"></i>
+          </div>
+          <div class="topic-content">
+            <div
+              class="subtopic"
+              onclick="event.stopPropagation(); showSubtopic('links-navigation', 'anchor-tags')"
+            >
+              <span>Anchor Tags</span>
+              <i class="fas fa-chevron-right"></i>
+            </div>
+            <div
+              class="subtopic"
+              onclick="event.stopPropagation(); showSubtopic('links-navigation', 'url-types')"
+            >
+              <span>URL Types</span>
+              <i class="fas fa-chevron-right"></i>
+            </div>
+            <div
+              class="subtopic"
+              onclick="event.stopPropagation(); showSubtopic('links-navigation', 'link-targets')"
+            >
+              <span>Link Targets</span>
+              <i class="fas fa-chevron-right"></i>
+            </div>
+            <div
+              class="subtopic"
+              onclick="event.stopPropagation(); showSubtopic('links-navigation', 'fragment-identifiers')"
+            >
+              <span>Fragment Identifiers</span>
+              <i class="fas fa-chevron-right"></i>
+            </div>
+          </div>
+        </div>
+
+        <!-- Lists -->
+        <div class="topic-card" onclick="showTheory('lists')">
+          <div class="topic-header">
+            <span>Lists</span>
+            <i class="fas fa-list"></i>
+          </div>
+          <div class="topic-content">
+            <div
+              class="subtopic"
+              onclick="event.stopPropagation(); showSubtopic('lists', 'ordered-lists')"
+            >
+              <span>Ordered Lists</span>
+              <i class="fas fa-chevron-right"></i>
+            </div>
+            <div
+              class="subtopic"
+              onclick="event.stopPropagation(); showSubtopic('lists', 'unordered-lists')"
+            >
+              <span>Unordered Lists</span>
+              <i class="fas fa-chevron-right"></i>
+            </div>
+            <div
+              class="subtopic"
+              onclick="event.stopPropagation(); showSubtopic('lists', 'description-lists')"
+            >
+              <span>Description Lists</span>
+              <i class="fas fa-chevron-right"></i>
+            </div>
+            <div
+              class="subtopic"
+              onclick="event.stopPropagation(); showSubtopic('lists', 'nested-lists')"
+            >
+              <span>Nested Lists</span>
+              <i class="fas fa-chevron-right"></i>
+            </div>
+          </div>
+        </div>
+
+        <!-- Images & Multimedia -->
+        <div class="topic-card" onclick="showTheory('images-multimedia')">
+          <div class="topic-header">
+            <span>Images & Multimedia</span>
+            <i class="fas fa-image"></i>
+          </div>
+          <div class="topic-content">
+            <div
+              class="subtopic"
+              onclick="event.stopPropagation(); showSubtopic('images-multimedia', 'image-tag')"
+            >
+              <span>Image Tag</span>
+              <i class="fas fa-chevron-right"></i>
+            </div>
+            <div
+              class="subtopic"
+              onclick="event.stopPropagation(); showSubtopic('images-multimedia', 'picture-element')"
+            >
+              <span>Picture Element</span>
+              <i class="fas fa-chevron-right"></i>
+            </div>
+            <div
+              class="subtopic"
+              onclick="event.stopPropagation(); showSubtopic('images-multimedia', 'audio-video')"
+            >
+              <span>Audio & Video</span>
+              <i class="fas fa-chevron-right"></i>
+            </div>
+            <div
+              class="subtopic"
+              onclick="event.stopPropagation(); showSubtopic('images-multimedia', 'lazy-loading')"
+            >
+              <span>Lazy Loading</span>
+              <i class="fas fa-chevron-right"></i>
+            </div>
+          </div>
+        </div>
+
+        <!-- Tables -->
+        <div class="topic-card" onclick="showTheory('tables')">
+          <div class="topic-header">
+            <span>Tables</span>
+            <i class="fas fa-table"></i>
+          </div>
+          <div class="topic-content">
+            <div
+              class="subtopic"
+              onclick="event.stopPropagation(); showSubtopic('tables', 'table-structure')"
+            >
+              <span>Table Structure</span>
+              <i class="fas fa-chevron-right"></i>
+            </div>
+            <div
+              class="subtopic"
+              onclick="event.stopPropagation(); showSubtopic('tables', 'table-headers')"
+            >
+              <span>Table Headers</span>
+              <i class="fas fa-chevron-right"></i>
+            </div>
+            <div
+              class="subtopic"
+              onclick="event.stopPropagation(); showSubtopic('tables', 'rowspan-colspan')"
+            >
+              <span>Rowspan & Colspan</span>
+              <i class="fas fa-chevron-right"></i>
+            </div>
+            <div
+              class="subtopic"
+              onclick="event.stopPropagation(); showSubtopic('tables', 'table-accessibility')"
+            >
+              <span>Table Accessibility</span>
+              <i class="fas fa-chevron-right"></i>
+            </div>
+          </div>
+        </div>
+
+        <!-- Forms -->
+        <div class="topic-card" onclick="showTheory('forms')">
+          <div class="topic-header">
+            <span>Forms</span>
+            <i class="fas fa-window-restore"></i>
+          </div>
+          <div class="topic-content">
+            <div
+              class="subtopic"
+              onclick="event.stopPropagation(); showSubtopic('forms', 'form-elements')"
+            >
+              <span>Form Elements</span>
+              <i class="fas fa-chevron-right"></i>
+            </div>
+            <div
+              class="subtopic"
+              onclick="event.stopPropagation(); showSubtopic('forms', 'input-types')"
+            >
+              <span>Input Types</span>
+              <i class="fas fa-chevron-right"></i>
+            </div>
+            <div
+              class="subtopic"
+              onclick="event.stopPropagation(); showSubtopic('forms', 'form-validation')"
+            >
+              <span>Form Validation</span>
+              <i class="fas fa-chevron-right"></i>
+            </div>
+            <div
+              class="subtopic"
+              onclick="event.stopPropagation(); showSubtopic('forms', 'form-accessibility')"
+            >
+              <span>Form Accessibility</span>
+              <i class="fas fa-chevron-right"></i>
+            </div>
+          </div>
+        </div>
+
+        <!-- Semantic HTML -->
+        <div class="topic-card" onclick="showTheory('semantic-html')">
+          <div class="topic-header">
+            <span>Semantic HTML</span>
+            <i class="fas fa-cube"></i>
+          </div>
+          <div class="topic-content">
+            <div
+              class="subtopic"
+              onclick="event.stopPropagation(); showSubtopic('semantic-html', 'semantic-elements')"
+            >
+              <span>Semantic Elements</span>
+              <i class="fas fa-chevron-right"></i>
+            </div>
+            <div
+              class="subtopic"
+              onclick="event.stopPropagation(); showSubtopic('semantic-html', 'semantic-benefits')"
+            >
+              <span>Benefits of Semantics</span>
+              <i class="fas fa-chevron-right"></i>
+            </div>
+            <div
+              class="subtopic"
+              onclick="event.stopPropagation(); showSubtopic('semantic-html', 'aria-roles')"
+            >
+              <span>ARIA Roles</span>
+              <i class="fas fa-chevron-right"></i>
+            </div>
+            <div
+              class="subtopic"
+              onclick="event.stopPropagation(); showSubtopic('semantic-html', 'accessibility')"
+            >
+              <span>Accessibility</span>
+              <i class="fas fa-chevron-right"></i>
+            </div>
+          </div>
+        </div>
+
+        <!-- Meta & SEO -->
+        <div class="topic-card" onclick="showTheory('meta-seo')">
+          <div class="topic-header">
+            <span>Meta & SEO</span>
+            <i class="fas fa-search"></i>
+          </div>
+          <div class="topic-content">
+            <div
+              class="subtopic"
+              onclick="event.stopPropagation(); showSubtopic('meta-seo', 'meta-tags')"
+            >
+              <span>Meta Tags</span>
+              <i class="fas fa-chevron-right"></i>
+            </div>
+            <div
+              class="subtopic"
+              onclick="event.stopPropagation(); showSubtopic('meta-seo', 'seo-basics')"
+            >
+              <span>SEO Basics</span>
+              <i class="fas fa-chevron-right"></i>
+            </div>
+            <div
+              class="subtopic"
+              onclick="event.stopPropagation(); showSubtopic('meta-seo', 'viewport')"
+            >
+              <span>Viewport Meta Tag</span>
+              <i class="fas fa-chevron-right"></i>
+            </div>
+            <div
+              class="subtopic"
+              onclick="event.stopPropagation(); showSubtopic('meta-seo', 'social-meta')"
+            >
+              <span>Social Media Meta Tags</span>
+              <i class="fas fa-chevron-right"></i>
+            </div>
+          </div>
+        </div>
+
+        <!-- HTML APIs & Advanced Features -->
+        <div class="topic-card" onclick="showTheory('html-apis')">
+          <div class="topic-header">
+            <span>HTML APIs & Advanced</span>
+            <i class="fas fa-cogs"></i>
+          </div>
+          <div class="topic-content">
+            <div
+              class="subtopic"
+              onclick="event.stopPropagation(); showSubtopic('html-apis', 'geolocation')"
+            >
+              <span>Geolocation API</span>
+              <i class="fas fa-chevron-right"></i>
+            </div>
+            <div
+              class="subtopic"
+              onclick="event.stopPropagation(); showSubtopic('html-apis', 'web-storage')"
+            >
+              <span>Web Storage</span>
+              <i class="fas fa-chevron-right"></i>
+            </div>
+            <div
+              class="subtopic"
+              onclick="event.stopPropagation(); showSubtopic('html-apis', 'canvas')"
+            >
+              <span>Canvas API</span>
+              <i class="fas fa-chevron-right"></i>
+            </div>
+            <div
+              class="subtopic"
+              onclick="event.stopPropagation(); showSubtopic('html-apis', 'drag-drop')"
+            >
+              <span>Drag & Drop</span>
+              <i class="fas fa-chevron-right"></i>
+            </div>
+          </div>
+        </div>
+
+        <!-- HTML Best Practices -->
+        <div class="topic-card" onclick="showTheory('best-practices')">
+          <div class="topic-header">
+            <span>Best Practices</span>
+            <i class="fas fa-check-circle"></i>
+          </div>
+          <div class="topic-content">
+            <div
+              class="subtopic"
+              onclick="event.stopPropagation(); showSubtopic('best-practices', 'proper-nesting')"
+            >
+              <span>Proper Nesting</span>
+              <i class="fas fa-chevron-right"></i>
+            </div>
+            <div
+              class="subtopic"
+              onclick="event.stopPropagation(); showSubtopic('best-practices', 'semantic-usage')"
+            >
+              <span>Semantic Usage</span>
+              <i class="fas fa-chevron-right"></i>
+            </div>
+            <div
+              class="subtopic"
+              onclick="event.stopPropagation(); showSubtopic('best-practices', 'performance')"
+            >
+              <span>Performance Optimization</span>
+              <i class="fas fa-chevron-right"></i>
+            </div>
+            <div
+              class="subtopic"
+              onclick="event.stopPropagation(); showSubtopic('best-practices', 'security')"
+            >
+              <span>Security Basics</span>
+              <i class="fas fa-chevron-right"></i>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Theory Section (initially hidden) -->
+      <div id="theory-section" class="theory-section">
+        <h3 id="theory-title">HTML Basics</h3>
+
+        <div class="content-tabs">
+          <div class="tab active" onclick="switchTab('theory')">Theory</div>
+          <div class="tab" onclick="switchTab('example')">Example</div>
+          <div class="tab" onclick="switchTab('interactive')">Interactive</div>
+          <div class="tab" onclick="switchTab('game')">Game</div>
+        </div>
+
+        <div id="theory-tab" class="tab-content active">
+          <div id="theory-content">
+            <p>Select a topic to see the explanation here...</p>
+          </div>
+
+          <div class="code-example" id="code-example">
+            <!-- Code examples will appear here -->
+          </div>
+        </div>
+
+        <div id="example-tab" class="tab-content">
+          <h4>Live Example</h4>
+          <div id="live-example">
+            <p>Examples will appear here when you select a topic.</p>
+          </div>
+        </div>
+
+        <div id="interactive-tab" class="tab-content">
+          <h4>Interactive Demo</h4>
+          <div id="interactive-content">
+            <p>Try it yourself! This area will have interactive examples.</p>
+          </div>
+          <button class="btn" id="run-button">Run Code</button>
+          <div class="output-container" id="output-container">
+            <strong>Output:</strong>
+            <div id="output"></div>
+          </div>
+        </div>
+
+        <div id="game-tab" class="tab-content">
+          <h4>Learning Game</h4>
+          <div id="game-content">
+            <p>Play a game to reinforce your learning!</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <footer>
+      <p>HTML Learning Hub &copy; 2023</p>
+      <p>Interactive learning platform for HTML markup language</p>
+    </footer>
+
+    <script>
+      // Current active topic and subtopic
+      let currentTopic = null;
+      let currentSubtopic = null;
+
+      // Function to show theory based on topic
+      function showTheory(topicId) {
+        currentTopic = topicId;
+        currentSubtopic = null;
+
+        const theorySection = document.getElementById("theory-section");
+        const theoryTitle = document.getElementById("theory-title");
+        const theoryContent = document.getElementById("theory-content");
+        const codeExample = document.getElementById("code-example");
+        const liveExample = document.getElementById("live-example");
+        const interactiveContent = document.getElementById(
+          "interactive-content"
+        );
+        const gameContent = document.getElementById("game-content");
+
+        // Show the theory section
+        theorySection.style.display = "block";
+
+        // Scroll to the theory section
+        theorySection.scrollIntoView({ behavior: "smooth" });
+
+        // Reset tabs
+        switchTab("theory");
+
+        // Set content based on the topic
+        switch (topicId) {
+          case "html-basics":
+            theoryTitle.textContent = "HTML Basics";
+            theoryContent.innerHTML = `
+                        <p>HTML (HyperText Markup Language) is the standard markup language for documents designed to be displayed in a web browser.</p>
+                        <p>It defines the structure and content of web pages. HTML consists of a series of elements that you use to enclose, wrap, or mark up different parts of content to make it appear or act in a certain way.</p>
+                        <p><strong>Key Points:</strong></p>
+                        <ul>
+                            <li>HTML is not a programming language; it's a markup language</li>
+                            <li>HTML uses tags to define elements within the document</li>
+                            <li>Each HTML element tells the browser something about the information it contains</li>
+                            <li>HTML documents are saved with .html extension</li>
+                        </ul>
+                    `;
+            codeExample.textContent = `<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My First HTML Page</title>
+</head>
+<body>
+    <h1>Welcome to HTML</h1>
+    <p>This is a paragraph of text on my first web page.</p>
+    <a href="https://www.example.com">Visit Example.com</a>
+</body>
+</html>`;
+            break;
+          case "text-formatting":
+            theoryTitle.textContent = "HTML Text Formatting";
+            theoryContent.innerHTML = `
+                        <p>HTML provides various elements for formatting text with special meaning.</p>
+                        <p>These elements help convey the semantic meaning of text content to both browsers and developers.</p>
+                        <p><strong>Text Formatting Elements:</strong></p>
+                        <ul>
+                            <li><strong>Headings:</strong> &lt;h1&gt; to &lt;h6&gt; for section headings</li>
+                            <li><strong>Paragraphs:</strong> &lt;p&gt; for blocks of text</li>
+                            <li><strong>Emphasis:</strong> &lt;em&gt; for emphasized text (typically italic)</li>
+                            <li><strong>Strong:</strong> &lt;strong&gt; for important text (typically bold)</li>
+                            <li><strong>Other:</strong> &lt;mark&gt;, &lt;small&gt;, &lt;del&gt;, &lt;ins&gt;, &lt;sub&gt;, &lt;sup&gt;</li>
+                        </ul>
+                    `;
+            codeExample.textContent = `<h1>Main Heading (h1)</h1>
+<h2>Secondary Heading (h2)</h2>
+<h3>Tertiary Heading (h3)</h3>
+
+<p>This is a regular paragraph of text. It can contain <em>emphasized text</em> and <strong>strongly important text</strong>.</p>
+
+<p>We can also have <mark>highlighted text</mark>, <small>small text</small>, <del>deleted text</del>, and <ins>inserted text</ins>.</p>
+
+<p>Scientific notation: H<sub>2</sub>O, E=mc<sup>2</sup></p>`;
+            break;
+          case "forms":
+            theoryTitle.textContent = "HTML Forms";
+            theoryContent.innerHTML = `
+                        <p>HTML forms are used to collect user input. A form contains input elements like text fields, checkboxes, radio buttons, submit buttons, etc.</p>
+                        <p>Forms are submitted to a server for processing, typically using the POST or GET method.</p>
+                        <p><strong>Form Elements:</strong></p>
+                        <ul>
+                            <li><strong>&lt;form&gt;:</strong> The container for all form elements</li>
+                            <li><strong>&lt;input&gt;:</strong> The most important form element with many types (text, password, radio, checkbox, etc.)</li>
+                            <li><strong>&lt;textarea&gt;:</strong> For multi-line text input</li>
+                            <li><strong>&lt;select&gt;:</strong> For drop-down lists</li>
+                            <li><strong>&lt;button&gt;:</strong> For clickable buttons</li>
+                            <li><strong>&lt;label&gt;:</strong> Defines a label for an input element</li>
+                        </ul>
+                    `;
+            codeExample.textContent = `<form action="/submit-form" method="post">
+    <label for="fname">First Name:</label><br>
+    <input type="text" id="fname" name="fname" required><br><br>
+    
+    <label for="lname">Last Name:</label><br>
+    <input type="text" id="lname" name="lname"><br><br>
+    
+    <label for="email">Email:</label><br>
+    <input type="email" id="email" name="email" required><br><br>
+    
+    <label for="password">Password:</label><br>
+    <input type="password" id="password" name="password" minlength="8" required><br><br>
+    
+    <label for="gender">Gender:</label><br>
+    <input type="radio" id="male" name="gender" value="male">
+    <label for="male">Male</label>
+    <input type="radio" id="female" name="gender" value="female">
+    <label for="female">Female</label><br><br>
+    
+    <label for="country">Country:</label><br>
+    <select id="country" name="country">
+        <option value="usa">United States</option>
+        <option value="canada">Canada</option>
+        <option value="uk">United Kingdom</option>
+    </select><br><br>
+    
+    <label for="message">Message:</label><br>
+    <textarea id="message" name="message" rows="4" cols="50"></textarea><br><br>
+    
+    <input type="checkbox" id="subscribe" name="subscribe" value="yes">
+    <label for="subscribe">Subscribe to newsletter</label><br><br>
+    
+    <input type="submit" value="Submit">
+</form>`;
+            break;
+          default:
+            theoryTitle.textContent = "Topic Overview";
+            theoryContent.textContent = "Select a topic to view its content.";
+            codeExample.textContent = "<!-- Code examples will appear here -->";
+        }
+
+        // Update live example based on topic
+        updateLiveExample(topicId);
+
+        // Update interactive content based on topic
+        updateInteractiveContent(topicId);
+
+        // Update game content based on topic
+        updateGameContent(topicId);
+      }
+
+      // Function to show subtopic content
+      function showSubtopic(topicId, subtopicId) {
+        currentTopic = topicId;
+        currentSubtopic = subtopicId;
+
+        const theorySection = document.getElementById("theory-section");
+        const theoryTitle = document.getElementById("theory-title");
+        const theoryContent = document.getElementById("theory-content");
+        const codeExample = document.getElementById("code-example");
+
+        // Show the theory section
+        theorySection.style.display = "block";
+
+        // Scroll to the theory section
+        theorySection.scrollIntoView({ behavior: "smooth" });
+
+        // Reset tabs
+        switchTab("theory");
+
+        // Set content based on the subtopic
+        switch (subtopicId) {
+          case "what-is-html":
+            theoryTitle.textContent = "What is HTML?";
+            theoryContent.innerHTML = `
+                        <p>HTML (HyperText Markup Language) is the standard markup language for creating web pages and web applications.</p>
+                        <p>It describes the structure of a web page semantically and originally included cues for the appearance of the document.</p>
+                        <p><strong>Key Characteristics:</strong></p>
+                        <ul>
+                            <li>HTML is not a programming language; it's a markup language</li>
+                            <li>HTML uses a system of tags and attributes to define elements</li>
+                            <li>HTML documents are interpreted by web browsers to display content</li>
+                            <li>HTML works alongside CSS (styling) and JavaScript (behavior)</li>
+                        </ul>
+                        <p><strong>History:</strong> HTML was created by Tim Berners-Lee in 1991. The first standard was HTML 2.0 (1995). 
+                        The current version is HTML5, which introduced many new semantic elements and APIs.</p>
+                    `;
+            codeExample.textContent = `<!DOCTYPE html>
+<html>
+<head>
+    <title>Page Title</title>
+</head>
+<body>
+    <h1>My First Heading</h1>
+    <p>My first paragraph.</p>
+</body>
+</html>`;
+            break;
+          case "headings":
+            theoryTitle.textContent = "HTML Headings";
+            theoryContent.innerHTML = `
+                        <p>HTML headings are titles or subtitles that you want to display on a webpage.</p>
+                        <p>HTML provides six levels of headings, from &lt;h1&gt; to &lt;h6&gt;, with &lt;h1&gt; being the most important and &lt;h6&gt; the least important.</p>
+                        <p><strong>Best Practices:</strong></p>
+                        <ul>
+                            <li>Use headings to structure content, not just for styling</li>
+                            <li>Maintain a logical hierarchy (h1 followed by h2, then h3, etc.)</li>
+                            <li>Each page should have only one &lt;h1&gt; element</li>
+                            <li>Search engines use headings to index the structure and content of web pages</li>
+                        </ul>
+                    `;
+            codeExample.textContent = `<h1>This is heading 1 - Most Important</h1>
+<h2>This is heading 2</h2>
+<h3>This is heading 3</h3>
+<h4>This is heading 4</h4>
+<h5>This is heading 5</h5>
+<h6>This is heading 6 - Least Important</h6>`;
+            break;
+          case "form-elements":
+            theoryTitle.textContent = "HTML Form Elements";
+            theoryContent.innerHTML = `
+                        <p>HTML forms contain various elements that allow users to enter data.</p>
+                        <p>Each form element serves a specific purpose and has different attributes to control its behavior.</p>
+                        <p><strong>Common Form Elements:</strong></p>
+                        <ul>
+                            <li><strong>&lt;input&gt;:</strong> The most versatile form element with many types (text, password, checkbox, radio, etc.)</li>
+                            <li><strong>&lt;textarea&gt;:</strong> For multi-line text input</li>
+                            <li><strong>&lt;select&gt;:</strong> Creates a drop-down list with &lt;option&gt; elements</li>
+                            <li><strong>&lt;button&gt;:</strong> Defines a clickable button</li>
+                            <li><strong>&lt;fieldset&gt;:</strong> Groups related elements in a form</li>
+                            <li><strong>&lt;legend&gt;:</strong> Defines a caption for a &lt;fieldset&gt;</li>
+                            <li><strong>&lt;datalist&gt;:</strong> Specifies a list of pre-defined options for input elements</li>
+                            <li><strong>&lt;output&gt;:</strong> Represents the result of a calculation</li>
+                        </ul>
+                    `;
+            codeExample.textContent = `<form>
+    <fieldset>
+        <legend>Personal Information</legend>
+        
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name" required><br><br>
+        
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" required><br><br>
+        
+        <label for="birthdate">Birthdate:</label>
+        <input type="date" id="birthdate" name="birthdate"><br><br>
+        
+        <label for="avatar">Profile Picture:</label>
+        <input type="file" id="avatar" name="avatar" accept="image/png, image/jpeg"><br><br>
+    </fieldset>
+    
+    <fieldset>
+        <legend>Preferences</legend>
+        
+        <label for="colors">Favorite Color:</label>
+        <input type="color" id="colors" name="colors" value="#e44d26"><br><br>
+        
+        <label for="browser">Favorite Browser:</label>
+        <select id="browser" name="browser">
+            <option value="chrome">Chrome</option>
+            <option value="firefox">Firefox</option>
+            <option value="safari">Safari</option>
+            <option value="edge">Edge</option>
+        </select><br><br>
+        
+        <label for="comments">Comments:</label><br>
+        <textarea id="comments" name="comments" rows="4" cols="50"></textarea><br><br>
+    </fieldset>
+    
+    <input type="submit" value="Submit">
+    <input type="reset" value="Reset">
+</form>`;
+            break;
+          default:
+            theoryTitle.textContent = "Subtopic Details";
+            theoryContent.textContent =
+              "Detailed content for this subtopic will appear here.";
+            codeExample.textContent =
+              "<!-- Code examples for this subtopic -->";
+        }
+
+        // Update other tabs based on the subtopic
+        updateLiveExample(topicId, subtopicId);
+        updateInteractiveContent(topicId, subtopicId);
+        updateGameContent(topicId, subtopicId);
+      }
+
+      // Function to update live example based on topic/subtopic
+      function updateLiveExample(topicId, subtopicId = null) {
+        const liveExample = document.getElementById("live-example");
+
+        if (subtopicId === "what-is-html") {
+          liveExample.innerHTML = `
+                    <h3>Basic HTML Document Structure:</h3>
+                    <div class="html-preview">
+                        <h1>Welcome to HTML</h1>
+                        <p>This is a paragraph demonstrating basic HTML structure.</p>
+                        <a href="#" style="color: #e44d26;">This is a link</a>
+                    </div>
+                    <p>The example above shows a simple HTML document with a heading, paragraph, and link.</p>
+                `;
+        } else if (subtopicId === "headings") {
+          liveExample.innerHTML = `
+                    <h3>HTML Headings Example:</h3>
+                    <div class="html-preview">
+                        <h1>Main Title (h1)</h1>
+                        <h2>Section Heading (h2)</h2>
+                        <h3>Subsection Heading (h3)</h3>
+                        <h4>Minor Heading (h4)</h4>
+                        <h5>Small Heading (h5)</h5>
+                        <h6>Tiny Heading (h6)</h6>
+                    </div>
+                    <p>Notice how the font size decreases as the heading level increases.</p>
+                `;
+        } else if (subtopicId === "form-elements") {
+          liveExample.innerHTML = `
+                    <h3>HTML Form Elements Example:</h3>
+                    <div class="html-preview">
+                        <form style="max-width: 500px;">
+                            <fieldset>
+                                <legend>Sample Form</legend>
+                                
+                                <label for="sample-name">Name:</label>
+                                <input type="text" id="sample-name" name="sample-name" placeholder="Enter your name"><br><br>
+                                
+                                <label for="sample-email">Email:</label>
+                                <input type="email" id="sample-email" name="sample-email" placeholder="email@example.com"><br><br>
+                                
+                                <label for="sample-password">Password:</label>
+                                <input type="password" id="sample-password" name="sample-password"><br><br>
+                                
+                                <label>Gender:</label><br>
+                                <input type="radio" id="male" name="gender" value="male">
+                                <label for="male">Male</label>
+                                <input type="radio" id="female" name="gender" value="female">
+                                <label for="female">Female</label><br><br>
+                                
+                                <label for="comments">Comments:</label><br>
+                                <textarea id="comments" name="comments" rows="3" cols="40"></textarea><br><br>
+                                
+                                <input type="checkbox" id="agree" name="agree">
+                                <label for="agree">I agree to the terms</label><br><br>
+                                
+                                <input type="submit" value="Submit" class="btn">
+                                <input type="reset" value="Clear" class="btn" style="background-color: #6c757d;">
+                            </fieldset>
+                        </form>
+                    </div>
+                    <p>Try interacting with the different form elements above.</p>
+                `;
+        } else {
+          liveExample.innerHTML = `<p>Live examples will appear here when you select a topic or subtopic.</p>`;
+        }
+      }
+
+      // Function to update interactive content
+      function updateInteractiveContent(topicId, subtopicId = null) {
+        const interactiveContent = document.getElementById(
+          "interactive-content"
+        );
+        const runButton = document.getElementById("run-button");
+
+        if (subtopicId === "what-is-html") {
+          interactiveContent.innerHTML = `
+                    <p>Try creating your first HTML page:</p>
+                    <textarea class="code-editor" id="html-editor">
+<!DOCTYPE html>
+<html>
+<head>
+    <title>My Page</title>
+</head>
+<body>
+    <h1>Welcome to My Website</h1>
+    <p>This is my first web page.</p>
+</body>
+</html>
+                    </textarea>
+                `;
+          runButton.onclick = () => runHTMLCode("html-editor");
+        } else if (subtopicId === "headings") {
+          interactiveContent.innerHTML = `
+                    <p>Practice using different heading levels:</p>
+                    <textarea class="code-editor" id="headings-editor">
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Heading Practice</title>
+</head>
+<body>
+    <h1>Main Title</h1>
+    <p>Introduction to the topic</p>
+    
+    <h2>First Section</h2>
+    <p>Content for the first section</p>
+    
+    <h3>Subsection</h3>
+    <p>More detailed information</p>
+    
+    <h2>Second Section</h2>
+    <p>Content for the second section</p>
+</body>
+</html>
+                    </textarea>
+                `;
+          runButton.onclick = () => runHTMLCode("headings-editor");
+        } else {
+          interactiveContent.innerHTML = `<p>Interactive examples will appear here when you select a topic or subtopic.</p>`;
+          runButton.onclick = () => alert("Select a subtopic to run code");
+        }
+      }
+
+      // Function to update game content
+      function updateGameContent(topicId, subtopicId = null) {
+        const gameContent = document.getElementById("game-content");
+
+        if (subtopicId === "what-is-html") {
+          gameContent.innerHTML = `
+                    <div class="game-container">
+                        <h4>HTML Tag Matching Game</h4>
+                        <p>Match the HTML tags with their descriptions:</p>
+                        <div class="tag-match-game">
+                            <div class="tag-card" onclick="checkAnswer(this, '&lt;h1&gt;', 'Defines the most important heading')">&lt;h1&gt;</div>
+                            <div class="tag-card" onclick="checkAnswer(this, '&lt;p&gt;', 'Defines a paragraph')">&lt;p&gt;</div>
+                            <div class="tag-card" onclick="checkAnswer(this, '&lt;a&gt;', 'Defines a hyperlink')">&lt;a&gt;</div>
+                            <div class="tag-card" onclick="checkAnswer(this, '&lt;img&gt;', 'Embeds an image')">&lt;img&gt;</div>
+                        </div>
+                        <div class="tag-match-result" id="html-game-result"></div>
+                    </div>
+                `;
+        } else if (subtopicId === "headings") {
+          gameContent.innerHTML = `
+                    <div class="game-container">
+                        <h4>Heading Hierarchy Game</h4>
+                        <p>Put these heading levels in the correct order (from most to least important):</p>
+                        <div class="tag-match-game">
+                            <div class="tag-card" draggable="true" ondragstart="dragStart(event)" id="h3">&lt;h3&gt;</div>
+                            <div class="tag-card" draggable="true" ondragstart="dragStart(event)" id="h1">&lt;h1&gt;</div>
+                            <div class="tag-card" draggable="true" ondragstart="dragStart(event)" id="h4">&lt;h4&gt;</div>
+                            <div class="tag-card" draggable="true" ondragstart="dragStart(event)" id="h2">&lt;h2&gt;</div>
+                        </div>
+                        <p>Drop zone (drag items here in correct order):</p>
+                        <div class="output-container" id="drop-zone" ondrop="drop(event)" ondragover="allowDrop(event)" style="min-height: 100px;"></div>
+                        <button class="btn" onclick="checkHeadingOrder()">Check Order</button>
+                        <div class="tag-match-result" id="heading-game-result"></div>
+                    </div>
+                `;
+        } else {
+          gameContent.innerHTML = `<p>Learning games will appear here when you select a topic or subtopic.</p>`;
+        }
+      }
+
+      // Function to run HTML code in interactive demos
+      function runHTMLCode(editorId) {
+        const code = document.getElementById(editorId).value;
+        const outputContainer = document.getElementById("output");
+
+        // Clear previous output
+        outputContainer.innerHTML = "";
+
+        // Create an iframe to render the HTML
+        const iframe = document.createElement("iframe");
+        iframe.style.width = "100%";
+        iframe.style.height = "300px";
+        iframe.style.border = "1px solid #ddd";
+        iframe.style.borderRadius = "4px";
+
+        outputContainer.appendChild(iframe);
+
+        // Write the HTML to the iframe
+        const iframeDoc =
+          iframe.contentDocument || iframe.contentWindow.document;
+        iframeDoc.open();
+        iframeDoc.write(code);
+        iframeDoc.close();
+      }
+
+      // Function to check answers in games
+      function checkAnswer(element, correctAnswer, explanation) {
+        const resultDiv = document.getElementById("html-game-result");
+        const userAnswer = element.textContent.trim();
+
+        if (userAnswer === correctAnswer) {
+          resultDiv.innerHTML = `<span style="color: green;">Correct! ${explanation}</span>`;
+          element.style.backgroundColor = "#28a745";
+        } else {
+          resultDiv.innerHTML = `<span style="color: red;">Incorrect. Try again!</span>`;
+          element.style.backgroundColor = "#dc3545";
+        }
+
+        setTimeout(() => {
+          element.style.backgroundColor = "#e44d26";
+        }, 1000);
+      }
+
+      // Drag and drop functions for heading game
+      function allowDrop(ev) {
+        ev.preventDefault();
+      }
+
+      function dragStart(ev) {
+        ev.dataTransfer.setData("text", ev.target.id);
+      }
+
+      function drop(ev) {
+        ev.preventDefault();
+        const data = ev.dataTransfer.getData("text");
+        const draggedElement = document.getElementById(data);
+
+        // Only allow moving if it's not already in the drop zone
+        if (draggedElement.parentNode.id !== "drop-zone") {
+          ev.target.appendChild(draggedElement);
+        }
+      }
+
+      function checkHeadingOrder() {
+        const dropZone = document.getElementById("drop-zone");
+        const headings = Array.from(dropZone.children);
+        const correctOrder = ["h1", "h2", "h3", "h4"];
+        const resultDiv = document.getElementById("heading-game-result");
+
+        const currentOrder = headings.map((heading) => heading.id);
+
+        // Check if order is correct
+        let isCorrect = true;
+        for (let i = 0; i < currentOrder.length; i++) {
+          if (currentOrder[i] !== correctOrder[i]) {
+            isCorrect = false;
+            break;
+          }
+        }
+
+        if (isCorrect && currentOrder.length === correctOrder.length) {
+          resultDiv.innerHTML = `<span style="color: green;">Correct! Heading hierarchy is properly maintained.</span>`;
+        } else {
+          resultDiv.innerHTML = `<span style="color: red;">Not quite right. The correct order is: &lt;h1&gt;, &lt;h2&gt;, &lt;h3&gt;, &lt;h4&gt;</span>`;
+        }
+      }
+
+      // Function to switch between tabs
+      function switchTab(tabName) {
+        // Hide all tab contents
+        document.querySelectorAll(".tab-content").forEach((tab) => {
+          tab.classList.remove("active");
+        });
+
+        // Deactivate all tabs
+        document.querySelectorAll(".tab").forEach((tab) => {
+          tab.classList.remove("active");
+        });
+
+        // Activate selected tab
+        document.getElementById(tabName + "-tab").classList.add("active");
+
+        // Activate tab button
+        document.querySelectorAll(".tab").forEach((tab) => {
+          if (tab.textContent.toLowerCase() === tabName) {
+            tab.classList.add("active");
+          }
+        });
+      }
+
+      // Function to search topics
+      function searchTopics() {
+        const searchText = document
+          .getElementById("searchInput")
+          .value.toLowerCase();
+
+        if (searchText) {
+          // Simple search implementation
+          const topics = document.querySelectorAll(".topic-card, .subtopic");
+          let found = false;
+
+          topics.forEach((topic) => {
+            const topicText = topic.textContent.toLowerCase();
+            if (topicText.includes(searchText)) {
+              topic.style.backgroundColor = "#fff3cd";
+              topic.scrollIntoView({ behavior: "smooth", block: "center" });
+              found = true;
+            } else {
+              topic.style.backgroundColor = "";
+            }
+          });
+
+          if (!found) {
+            alert(
+              `No results found for "${searchText}". Try a different search term.`
+            );
+          }
+        }
+      }
+
+      // Initialize page
+      document.addEventListener("DOMContentLoaded", function () {
+        // Add event listener for the run button
+        document
+          .getElementById("run-button")
+          .addEventListener("click", function () {
+            // This is handled in updateInteractiveContent now
+          });
+
+        // Make Enter key trigger search
+        document
+          .getElementById("searchInput")
+          .addEventListener("keypress", function (e) {
+            if (e.key === "Enter") {
+              searchTopics();
+            }
+          });
+      });
+    </script>
+  </body>
+</html>
