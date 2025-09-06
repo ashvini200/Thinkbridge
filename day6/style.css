@@ -1,14 +1,13 @@
-
-      /* Variables for theming */
+/* Variables for theming - Updated color scheme */
       :root {
-        --primary: #4361ee;
-        --secondary: #3a0ca3;
-        --accent: #f72585;
+        --primary: #df2771;
+        --secondary: #b01c5c;
+        --accent: #ff4d8d;
         --light: #f8f9fa;
         --dark: #212529;
-        --success: #4cc9f0;
+        --success: #ff6b9d;
         --warning: #f9c74f;
-        --info: #4895ef;
+        --info: #ff80aa;
         --text: #2b2d42;
         --bg: #ffffff;
         --card-bg: #ffffff;
@@ -91,23 +90,45 @@
         background: rgba(255, 255, 255, 0.2);
       }
 
-      .theme-toggle {
+      .nav-get-started {
         background: rgba(255, 255, 255, 0.2);
         border: none;
         color: white;
-        width: 40px;
-        height: 40px;
-        border-radius: 50%;
+        padding: 0.6rem 1.2rem;
+        border-radius: 50px;
         cursor: pointer;
         display: flex;
         align-items: center;
         justify-content: center;
         transition: var(--transition);
+        font-weight: 600;
+        gap: 0.5rem;
       }
 
-      .theme-toggle:hover {
+      .nav-get-started:hover {
         background: rgba(255, 255, 255, 0.3);
-        transform: rotate(30deg);
+        transform: translateY(-2px);
+      }
+
+      .auth-buttons {
+        display: flex;
+        gap: 1rem;
+      }
+
+      .auth-btn {
+        background: rgba(255, 255, 255, 0.2);
+        border: none;
+        color: white;
+        padding: 0.6rem 1.2rem;
+        border-radius: 50px;
+        cursor: pointer;
+        transition: var(--transition);
+        font-weight: 600;
+      }
+
+      .auth-btn:hover {
+        background: rgba(255, 255, 255, 0.3);
+        transform: translateY(-2px);
       }
 
       .hero {
@@ -308,6 +329,7 @@
         transition: var(--transition);
         transform: translateY(0);
         position: relative;
+        cursor: pointer;
       }
 
       .card:hover {
@@ -385,6 +407,85 @@
       .about-text p {
         margin-bottom: 1rem;
         line-height: 1.8;
+      }
+
+      /* Creators section */
+      .creators-section {
+        background: linear-gradient(to right, #f8f9fa, #e9ecef);
+        padding: 4rem 2rem;
+      }
+
+      .creator-container {
+        max-width: 1200px;
+        margin: 0 auto;
+        text-align: center;
+      }
+
+      .creator-cards {
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 2rem;
+        margin-top: 3rem;
+      }
+
+      .creator-card {
+        background: white;
+        border-radius: 12px;
+        overflow: hidden;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        max-width: 350px;
+        transition: var(--transition);
+      }
+
+      .creator-card:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+      }
+
+      .creator-image {
+        width: 100%;
+        height: 250px;
+        object-fit: cover;
+      }
+
+      .creator-info {
+        padding: 2rem;
+      }
+
+      .creator-name {
+        font-size: 1.5rem;
+        color: var(--primary);
+        margin-bottom: 0.5rem;
+      }
+
+      .creator-quote {
+        font-style: italic;
+        color: var(--text);
+        margin-bottom: 1.5rem;
+        line-height: 1.6;
+      }
+
+      .follow-btn {
+        background: var(--primary);
+        color: white;
+        border: none;
+        padding: 0.8rem 1.5rem;
+        border-radius: 50px;
+        font-weight: 600;
+        cursor: pointer;
+        transition: var(--transition);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 0.5rem;
+        margin: 0 auto;
+      }
+
+      .follow-btn:hover {
+        background: var(--secondary);
+        transform: translateY(-3px);
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
       }
 
       /* Services section */
@@ -572,6 +673,15 @@
         .features {
           flex-direction: column;
         }
+
+        .creator-cards {
+          flex-direction: column;
+          align-items: center;
+        }
+
+        .auth-buttons {
+          display: none;
+        }
       }
 
       /* Search highlight */
@@ -580,4 +690,3 @@
         padding: 0 2px;
         border-radius: 3px;
       }
-   
