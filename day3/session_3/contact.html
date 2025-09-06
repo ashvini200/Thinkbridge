@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Me - Ashvini</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #000; /* Black background */
+            margin: 0;
+            padding: 0;
+            color: #fff; /* Default text color white */
+        }
+        .container {
+            max-width: 700px;
+            margin: 50px auto;
+            background: #111; /* Dark container background */
+            padding: 40px;
+            box-shadow: 0 4px 8px rgba(255,255,255,0.1);
+            border-radius: 10px;
+        }
+        h1, h2, h3, p {
+            text-align: center;
+            color: #fff;
+        }
+        form {
+            margin-top: 30px;
+        }
+        input, textarea {
+            width: 100%;
+            padding: 12px;
+            margin: 10px 0 20px 0;
+            border: 1px solid #555; /* Dark border */
+            border-radius: 5px;
+            font-size: 16px;
+            background-color: #222; /* Dark input background */
+            color: #fff; /* White text */
+        }
+        input::placeholder, textarea::placeholder {
+            color: #bbb; /* Placeholder color */
+        }
+        textarea {
+            resize: vertical;
+            min-height: 120px;
+        }
+        button {
+            display: block;
+            width: 100%;
+            padding: 15px;
+            background-color: #007BFF;
+            color: white;
+            font-size: 18px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+        .social-links {
+            text-align: center;
+            margin-top: 30px;
+        }
+        .social-links a {
+            margin: 0 15px;
+            text-decoration: none;
+            color: #1E90FF; /* Bright blue for visibility */
+            font-weight: bold;
+        }
+        .social-links a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Ring a bell!</h1>
+        <p>Reach out and let's create something amazing together. Let's achieve greatness.</p>
+        
+        <h2>Fill THIS form out</h2>
+        <!-- Mailto Form -->
+        <form action="mailto:your-email@example.com" method="post" enctype="text/plain">
+            <input type="text" name="name" placeholder="Name*" required>
+            <input type="email" name="email" placeholder="Email*" required>
+            <textarea name="message" placeholder="Message*" required></textarea>
+            <button type="submit">Submit</button>
+        </form>
+
+        <div class="social-links">
+            <h3>FOLLOW ME</h3>
+            <a href="https://dev.to/yourusername" target="_blank">dev.to</a>
+            <a href="https://github.com/yourusername" target="_blank">GitHub</a>
+            <a href="https://linkedin.com/in/yourusername" target="_blank">LinkedIn</a>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Emmet Practice - VS Code Editor Skills</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background: linear-gradient(135deg, #1a2a6c, #2d1c4d, #fdbb2d);
+            color: #333;
+            padding: 20px;
+            min-height: 100vh;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            padding: 30px;
+        }
+        
+        header {
+            text-align: center;
+            margin-bottom: 30px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid #eee;
+        }
+        
+        h1 {
+            color: #2c3e50;
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+        }
+        
+        h2 {
+            color: #3498db;
+            margin: 25px 0 15px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid #eee;
+        }
+        
+        p {
+            line-height: 1.6;
+            margin-bottom: 15px;
+        }
+        
+        .code-block {
+            background: #2c3e50;
+            color: white;
+            padding: 15px;
+            border-radius: 5px;
+            overflow-x: auto;
+            margin: 15px 0;
+            font-family: monospace;
+        }
+        
+        .example {
+            background: #f8f9fa;
+            border-radius: 8px;
+            padding: 20px;
+            margin: 20px 0;
+            border-left: 4px solid #3498db;
+        }
+        
+        .input-output {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+        
+        .interactive {
+            background: #e8f4fc;
+            padding: 20px;
+            border-radius: 8px;
+            margin: 25px 0;
+        }
+        
+        .demo-input {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 15px;
+        }
+        
+        #emmet-input {
+            flex: 1;
+            padding: 10px;
+            border: 1px solid #3498db;
+            border-radius: 4px;
+        }
+        
+        button {
+            background: #2ecc71;
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        
+        #result-output {
+            background: #2c3e50;
+            color: white;
+            padding: 15px;
+            border-radius: 5px;
+            min-height: 100px;
+            font-family: monospace;
+            white-space: pre-wrap;
+        }
+        
+        footer {
+            text-align: center;
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 1px solid #eee;
+            color: #7f8c8d;
+        }
+        
+        @media (max-width: 768px) {
+            .container {
+                padding: 20px;
+            }
+            
+            h1 {
+                font-size: 2rem;
+            }
+            
+            .demo-input {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Emmet Practice</h1>
+            <p>Master your VS Code editor skills with these powerful Emmet abbreviations</p>
+        </header>
+        
+        <section>
+            <h2>What is Emmet?</h2>
+            <p>Emmet is a toolkit that greatly improves HTML & CSS workflow. It allows you to write abbreviations that expand into full HTML markup.</p>
+            
+            <div class="code-block">
+                // Example: Type "div.container>ul#nav>li.item$*5>a" then press Tab
+            </div>
+        </section>
+        
+        <section class="example">
+            <h2>HTML5 Boilerplate</h2>
+            <p>Create a full HTML5 document structure with one abbreviation:</p>
+            
+            <div class="code-block">html:5</div>
+            
+            <p>Expands to:</p>
+            <div class="code-block">
+&lt;!DOCTYPE html&gt;
+&lt;html lang="en"&gt;
+&lt;head&gt;
+    &lt;meta charset="UTF-8"&gt;
+    &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+    &lt;title&gt;Document&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    
+&lt;/body&gt;
+&lt;/html&gt;
+            </div>
+        </section>
+        
+        <section class="example">
+            <h2>List Generation</h2>
+            <p>Create an unordered list with 5 items:</p>
+            
+            <div class="code-block">ul>li*5</div>
+            
+            <p>Expands to:</p>
+            <div class="code-block">
+&lt;ul&gt;
+    &lt;li&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;/li&gt;
+&lt;/ul&gt;
+            </div>
+        </section>
+        
+        <section class="interactive">
+            <h2>Try It Yourself</h2>
+            <p>Enter an Emmet abbreviation below and see the expanded result:</p>
+            
+            <div class="demo-input">
+                <input id="emmet-input" placeholder="Enter Emmet abbreviation (e.g., div>p*3)">
+                <button onclick="expandEmmet()">Expand</button>
+            </div>
+            
+            <div id="result-output">The expanded result will appear here...</div>
+        </section>
+        
+        <section>
+            <h2>More Emmet Examples</h2>
+            
+            <div class="code-block">nav>ul>li*3>a</div>
+            <p>Creates a navigation with 3 list items containing links</p>
+            
+            <div class="code-block">div#header+div#main+div#footer</div>
+            <p>Creates a page structure with header, main and footer divs</p>
+            
+            <div class="code-block">table>tr*3>td*4</div>
+            <p>Creates a table with 3 rows and 4 columns each</p>
+        </section>
+        
+        <footer>
+            <p>Created for VS Code Editor Skills Practice</p>
+            <p>Happy learning with your <strong>emmet-practice.html</strong> file!</p>
+        </footer>
+    </div>
+
+    <script>
+        function expandEmmet() {
+            const input = document.getElementById("emmet-input").value;
+            let output = "";
+
+            // Simple emmet expansion logic for demo purposes
+            if (input === "div.container>div.row>div.col*3") {
+                output = `<div class="container">
+    <div class="row">
+        <div class="col"></div>
+        <div class="col"></div>
+        <div class="col"></div>
+    </div>
+</div>`;
+            } else if (input === "ul>li*5") {
+                output = `<ul>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+</ul>`;
+            } else if (input === "html:5") {
+                output = `<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+</html>`;
+            } else if (input === "nav>ul>li*3>a") {
+                output = `<nav>
+    <ul>
+        <li><a href=""></a></li>
+        <li><a href=""></a></li>
+        <li><a href=""></a></li>
+    </ul>
+</nav>`;
+            } else {
+                output = "Unable to expand this abbreviation. Try one of the examples shown on this page.";
+            }
+
+            document.getElementById("result-output").textContent = output;
+        }
+
+        // Allow pressing Enter to expand the emmet code
+        document.getElementById("emmet-input").addEventListener("keypress", function(e) {
+            if (e.key === "Enter") {
+                expandEmmet();
+            }
+        });
+    </script>
+</body>
+</html>

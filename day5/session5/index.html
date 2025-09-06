@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Indian Places Virtual Tour</title>
+    <link rel="stylesheet" href="components.css" />
+  </head>
+  <body>
+    <div class="container">
+      <header>
+        <h1>Welcome to Indian Places Virtual Tour</h1>
+        <p class="subtitle">
+          Explore the beauty of India. Click on any image to interact.
+        </p>
+      </header>
+
+      <!-- Gallery Section -->
+      <section class="gallery">
+        <div>
+          <img src="tajmahal.png" alt="Taj Mahal" />
+          <p class="location-name">Taj Mahal</p>
+        </div>
+        <div>
+          <img src="jaipurpalace.jpeg" alt="Jaipur Palace" />
+          <p class="location-name">Jaipur Palace</p>
+        </div>
+        <div>
+          <img src="KeralaBackwaters.jpg" alt="Kerala Backwaters" />
+          <p class="location-name">Kerala Backwaters</p>
+        </div>
+        <div>
+          <img src="goa.avif" alt="Goa Beach" />
+          <p class="location-name">Goa Beach</p>
+        </div>
+        <div>
+          <img src="HampiRuins.jpg" alt="Hampi Ruins" />
+          <p class="location-name">Hampi Ruins</p>
+        </div>
+        <div>
+          <img src="Rishikesh.jpeg" alt="Rishikesh" />
+          <p class="location-name">Rishikesh</p>
+        </div>
+        <div>
+          <img src="SikkimMountains.jpg" alt="Sikkim Mountains" />
+          <p class="location-name">Sikkim Mountains</p>
+        </div>
+        <div>
+          <img src="Darjeeling.jpg" alt="Darjeeling" />
+          <p class="location-name">Darjeeling</p>
+        </div>
+        <div>
+          <img src="Ajanta Caves.jpeg" alt="Ajanta Caves" />
+          <p class="location-name">Ajanta Caves</p>
+        </div>
+        <div>
+          <img src="Varanasi Ghats.jpeg" alt="Varanasi Ghats" />
+          <p class="location-name">Varanasi Ghats</p>
+        </div>
+      </section>
+
+      <!-- Buttons Section -->
+      <section class="buttons-container">
+        <button class="btn btn-primary" id="hoverBtn">Hover Me</button>
+        <button class="btn btn-secondary" id="scaleBtn">Scale Effect</button>
+        <button class="btn btn-tertiary" id="rotateBtn">Rotate Effect</button>
+        <button class="btn btn-view" id="viewBtn">View Full</button>
+      </section>
+
+      <!-- Share/Comment/Like Section -->
+      <section class="share-comment">
+        <input type="text" placeholder="Share this image URL" />
+        <textarea placeholder="Add a comment"></textarea>
+        <button id="shareBtn">Share / Comment</button>
+        <span class="like-heart" id="likeHeart">&#10084;</span>
+      </section>
+    </div>
+
+    <!-- Script -->
+    <script>
+      const galleryImages = document.querySelectorAll(".gallery img");
+      const buttonsContainer = document.querySelector(".buttons-container");
+      const shareComment = document.querySelector(".share-comment");
+      const likeHeart = document.getElementById("likeHeart");
+      let selectedImage = null;
+      let liked = false;
+
+      // Select image to show buttons & comment
+      galleryImages.forEach((img) => {
+        img.addEventListener("click", () => {
+          selectedImage = img;
+          buttonsContainer.style.display = "flex";
+          shareComment.style.display = "block";
+
+          galleryImages.forEach((i) => (i.style.border = "none"));
+          img.style.border = "3px solid #3498db";
+
+          buttonsContainer.scrollIntoView({
+            behavior: "smooth",
+            block: "start",
+          });
+        });
+      });
+
+      // Hover Effect
+      document.getElementById("hoverBtn").addEventListener("click", () => {
+        if (selectedImage) {
+          selectedImage.style.transition = "transform 0.3s ease";
+          selectedImage.style.transform = "scale(1.1) translateY(-5px)";
+        }
+      });
+
+      // Scale Effect
+      document.getElementById("scaleBtn").addEventListener("click", () => {
+        if (selectedImage) {
+          selectedImage.style.transition = "transform 0.3s ease";
+          selectedImage.style.transform = "scale(1.2)";
+        }
+      });
+
+      // Rotate Effect
+      document.getElementById("rotateBtn").addEventListener("click", () => {
+        if (selectedImage) {
+          selectedImage.style.transition = "transform 0.3s ease";
+          selectedImage.style.transform = "rotate(10deg) scale(1.05)";
+        }
+      });
+
+      // View Full
+      document.getElementById("viewBtn").addEventListener("click", () => {
+        if (selectedImage) {
+          window.open(selectedImage.src, "_blank");
+        }
+      });
+
+      // ESC key to reset
+      document.addEventListener("keydown", (e) => {
+        if (e.key === "Escape" && selectedImage) {
+          selectedImage.style.transform = "none";
+          galleryImages.forEach((i) => (i.style.border = "none"));
+          buttonsContainer.style.display = "none";
+          shareComment.style.display = "none";
+          selectedImage = null;
+        }
+      });
+
+      // Like Heart Toggle
+      likeHeart.addEventListener("click", () => {
+        liked = !liked;
+        likeHeart.style.color = liked ? "red" : "#333";
+      });
+    </script>
+  </body>
+</html>

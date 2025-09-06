@@ -1,0 +1,769 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Emmet Practice - VS Code Editor Skills</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <style>
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+      }
+
+      body {
+        background: linear-gradient(135deg, #1a2a6c, #2d1c4d, #fdbb2d);
+        color: #333;
+        padding: 20px;
+        min-height: 100vh;
+      }
+
+      .container {
+        max-width: 1200px;
+        margin: 0 auto;
+        background: rgba(255, 255, 255, 0.97);
+        border-radius: 15px;
+        box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
+        padding: 40px;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .container::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 5px;
+        background: linear-gradient(90deg, #3498db, #e74c3c, #f1c40f, #2ecc71);
+      }
+
+      header {
+        text-align: center;
+        margin-bottom: 40px;
+        padding-bottom: 25px;
+        border-bottom: 2px solid #eee;
+        position: relative;
+      }
+
+      h1 {
+        color: #2c3e50;
+        font-size: 3.2rem;
+        margin-bottom: 15px;
+        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+      }
+
+      .subtitle {
+        color: #7f8c8d;
+        font-size: 1.2rem;
+        max-width: 600px;
+        margin: 0 auto;
+      }
+
+      h2 {
+        color: #3498db;
+        margin: 30px 0 20px;
+        padding-bottom: 12px;
+        border-bottom: 2px solid #eee;
+        display: flex;
+        align-items: center;
+      }
+
+      h2 i {
+        margin-right: 10px;
+        background: #3498db;
+        color: white;
+        width: 36px;
+        height: 36px;
+        border-radius: 50%;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 18px;
+      }
+
+      h3 {
+        color: #2d1c1a;
+        margin: 20px 0 15px;
+        display: flex;
+        align-items: center;
+      }
+
+      h3 i {
+        margin-right: 8px;
+        color: #3498db;
+      }
+
+      p {
+        line-height: 1.7;
+        margin-bottom: 20px;
+      }
+
+      .emmet-demo {
+        background: #f8f9fa;
+        border-radius: 12px;
+        padding: 25px;
+        margin: 25px 0;
+        border-left: 5px solid #3498db;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        transition: transform 0.3s ease;
+      }
+
+      .emmet-demo:hover {
+        transform: translateY(-5px);
+      }
+
+      .input-output {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 25px;
+        margin: 20px 0;
+      }
+
+      .input,
+      .output {
+        flex: 1;
+        min-width: 300px;
+      }
+
+      .code-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 10px;
+      }
+
+      .copy-btn {
+        background: #2c3e50;
+        color: white;
+        border: none;
+        padding: 6px 12px;
+        border-radius: 4px;
+        cursor: pointer;
+        font-size: 12px;
+        display: flex;
+        align-items: center;
+        transition: background 0.3s;
+      }
+
+      .copy-btn:hover {
+        background: #1a252f;
+      }
+
+      .copy-btn i {
+        margin-right: 5px;
+      }
+
+      .input pre,
+      .output pre {
+        background: #2c3e50;
+        color: #ecf0f1;
+        padding: 18px;
+        border-radius: 8px;
+        overflow-x: auto;
+        font-size: 15px;
+        line-height: 1.5;
+        box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.3);
+      }
+
+      .emmet-abbr {
+        color: #e74c3c;
+        font-weight: bold;
+        background: #f9f9f9;
+        padding: 2px 6px;
+        border-radius: 4px;
+        border: 1px solid #eee;
+      }
+
+      .result {
+        background: #e8f4fc;
+        padding: 20px;
+        border-radius: 8px;
+        margin-top: 20px;
+        border: 1px dashed #3498db;
+      }
+
+      .grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 20px;
+        margin: 25px 0;
+      }
+
+      .grid-item {
+        background: linear-gradient(135deg, #3498db, #2c3e50);
+        color: white;
+        padding: 20px;
+        border-radius: 8px;
+        text-align: center;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        transition: transform 0.3s ease;
+      }
+
+      .grid-item:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+      }
+
+      .grid-item h3 {
+        color: white;
+        margin-top: 0;
+      }
+
+      .grid-item pre {
+        background: rgba(255, 255, 255, 0.15);
+        padding: 12px;
+        border-radius: 6px;
+        overflow-x: auto;
+      }
+
+      .tips {
+        background: linear-gradient(135deg, #fff3cd, #ffeaa7);
+        border-left: 5px solid #f39c12;
+        padding: 25px;
+        border-radius: 8px;
+        margin: 35px 0;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+      }
+
+      .tip-title {
+        color: #856404;
+        font-weight: bold;
+        margin-bottom: 15px;
+        font-size: 1.3rem;
+        display: flex;
+        align-items: center;
+      }
+
+      .tip-title i {
+        margin-right: 10px;
+        font-size: 1.5rem;
+      }
+
+      .interactive-demo {
+        background: #f8f9fa;
+        border-radius: 12px;
+        padding: 25px;
+        margin: 30px 0;
+        border: 2px solid #3498db;
+      }
+
+      .demo-container {
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+        margin-top: 20px;
+      }
+
+      .demo-input {
+        display: flex;
+        gap: 10px;
+      }
+
+      #emmet-input {
+        flex: 1;
+        padding: 12px 15px;
+        border: 2px solid #3498db;
+        border-radius: 8px;
+        font-size: 16px;
+      }
+
+      #expand-btn {
+        background: #2ecc71;
+        color: white;
+        border: none;
+        padding: 0 20px;
+        border-radius: 8px;
+        cursor: pointer;
+        font-weight: bold;
+        transition: background 0.3s;
+      }
+
+      #expand-btn:hover {
+        background: #27ae60;
+      }
+
+      #result-output {
+        background: #2c3e50;
+        color: white;
+        padding: 20px;
+        border-radius: 8px;
+        min-height: 100px;
+        font-family: monospace;
+        white-space: pre-wrap;
+        overflow-x: auto;
+      }
+
+      .badge {
+        display: inline-block;
+        background: #e74c3c;
+        color: white;
+        padding: 3px 8px;
+        border-radius: 20px;
+        font-size: 12px;
+        font-weight: bold;
+        margin-left: 10px;
+        vertical-align: middle;
+      }
+
+      footer {
+        text-align: center;
+        margin-top: 50px;
+        padding-top: 30px;
+        border-top: 2px solid #eee;
+        color: #7f8c8d;
+      }
+
+      .social-links {
+        display: flex;
+        justify-content: center;
+        gap: 20px;
+        margin: 20px 0;
+      }
+
+      .social-links a {
+        color: #3498db;
+        font-size: 24px;
+        transition: color 0.3s;
+      }
+
+      .social-links a:hover {
+        color: #e74c3c;
+      }
+
+      @media (max-width: 768px) {
+        .container {
+          padding: 25px;
+        }
+
+        .input-output {
+          flex-direction: column;
+        }
+
+        h1 {
+          font-size: 2.5rem;
+        }
+
+        .demo-input {
+          flex-direction: column;
+        }
+
+        #expand-btn {
+          padding: 12px;
+        }
+      }
+
+      /* Animation for badge */
+      @keyframes pulse {
+        0% {
+          transform: scale(1);
+        }
+        50% {
+          transform: scale(1.05);
+        }
+        100% {
+          transform: scale(1);
+        }
+      }
+
+      .badge {
+        animation: pulse 2s infinite;
+      }
+
+      /* Print styles */
+      @media print {
+        body {
+          background: white;
+          color: black;
+        }
+
+        .container {
+          box-shadow: none;
+          background: white;
+        }
+
+        .copy-btn,
+        #expand-btn {
+          display: none;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <header>
+        <h1>Emmet Practice <i class="fas fa-code"></i></h1>
+        <p class="subtitle">
+          Master your VS Code editor skills with these powerful Emmet
+          abbreviations and shortcuts
+        </p>
+      </header>
+
+      <section>
+        <h2><i class="fas fa-question-circle"></i> What is Emmet?</h2>
+        <p>
+          Emmet is a toolkit that greatly improves HTML & CSS workflow. It
+          allows you to write abbreviations that expand into full HTML markup.
+          Originally called Zen Coding, it has become an essential tool for web
+          developers.
+        </p>
+
+        <div class="tips">
+          <div class="tip-title"><i class="fas fa-lightbulb"></i> Pro Tip</div>
+          <p>
+            In VS Code, simply type the Emmet abbreviation and press Tab to
+            expand it. Try these examples in your editor! You can also use
+            Ctrl+Shift+P and search for "Emmet" to see all available commands.
+          </p>
+        </div>
+      </section>
+
+      <section class="emmet-demo">
+        <h2><i class="fas fa-rocket"></i> 1. HTML5 Boilerplate</h2>
+        <p>
+          Create a full HTML5 document structure with just one abbreviation.
+        </p>
+
+        <div class="input-output">
+          <div class="input">
+            <div class="code-header">
+              <h3><i class="fas fa-terminal"></i> Abbreviation</h3>
+              <button class="copy-btn" onclick="copyCode('html5-code')">
+                <i class="fas fa-copy"></i> Copy
+              </button>
+            </div>
+            <pre id="html5-code"><code>html:5</code></pre>
+          </div>
+          <div class="output">
+            <div class="code-header">
+              <h3><i class="fas fa-expand"></i> Expanded Result</h3>
+              <button class="copy-btn" onclick="copyCode('html5-expanded')">
+                <i class="fas fa-copy"></i> Copy
+              </button>
+            </div>
+            <pre id="html5-expanded"><code>&lt;!DOCTYPE html&gt;
+&lt;html lang="en"&gt;
+&lt;head&gt;
+    &lt;meta charset="UTF-8"&gt;
+    &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+    &lt;title&gt;Document&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+          </div>
+        </div>
+      </section>
+
+      <section class="emmet-demo">
+        <h2><i class="fas fa-list"></i> 2. List Generation</h2>
+        <p>
+          Create an unordered list with 5 items using the multiplication
+          operator.
+        </p>
+
+        <div class="input-output">
+          <div class="input">
+            <div class="code-header">
+              <h3><i class="fas fa-terminal"></i> Abbreviation</h3>
+              <button class="copy-btn" onclick="copyCode('list-code')">
+                <i class="fas fa-copy"></i> Copy
+              </button>
+            </div>
+            <pre id="list-code"><code>ul>li*5</code></pre>
+          </div>
+          <div class="output">
+            <div class="code-header">
+              <h3><i class="fas fa-expand"></i> Expanded Result</h3>
+              <button class="copy-btn" onclick="copyCode('list-expanded')">
+                <i class="fas fa-copy"></i> Copy
+              </button>
+            </div>
+            <pre id="list-expanded"><code>&lt;ul&gt;
+    &lt;li&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;/li&gt;
+&lt;/ul&gt;</code></pre>
+          </div>
+        </div>
+
+        <div class="result">
+          <h4><i class="fas fa-eye"></i> Rendered Output:</h4>
+          <ul>
+            <li>List item 1</li>
+            <li>List item 2</li>
+            <li>List item 3</li>
+            <li>List item 4</li>
+            <li>List item 5</li>
+          </ul>
+        </div>
+      </section>
+
+      <section class="emmet-demo">
+        <h2><i class="fas fa-th"></i> 3. Grid Structure</h2>
+        <p>
+          Create a container with a row and three columns - perfect for grid
+          layouts.
+        </p>
+
+        <div class="input-output">
+          <div class="input">
+            <div class="code-header">
+              <h3><i class="fas fa-terminal"></i> Abbreviation</h3>
+              <button class="copy-btn" onclick="copyCode('grid-code')">
+                <i class="fas fa-copy"></i> Copy
+              </button>
+            </div>
+            <pre
+              id="grid-code"
+            ><code>div.container>div.row>div.col*3</code></pre>
+          </div>
+          <div class="output">
+            <div class="code-header">
+              <h3><i class="fas fa-expand"></i> Expanded Result</h3>
+              <button class="copy-btn" onclick="copyCode('grid-expanded')">
+                <i class="fas fa-copy"></i> Copy
+              </button>
+            </div>
+            <pre id="grid-expanded"><code>&lt;div class="container"&gt;
+    &lt;div class="row"&gt;
+        &lt;div class="col"&gt;&lt;/div&gt;
+        &lt;div class="col"&gt;&lt;/div&gt;
+        &lt;div class="col"&gt;&lt;/div&gt;
+    &lt;/div&gt;
+&lt;/div&gt;</code></pre>
+          </div>
+        </div>
+
+        <div class="result">
+          <h4><i class="fas fa-eye"></i> Rendered Output:</h4>
+          <div
+            class="container"
+            style="background: #f1f8ff; padding: 15px; border-radius: 5px"
+          >
+            <div class="row" style="display: flex; gap: 15px">
+              <div
+                class="col"
+                style="
+                  flex: 1;
+                  background: #3498db;
+                  color: white;
+                  padding: 15px;
+                  border-radius: 5px;
+                "
+              >
+                Column 1
+              </div>
+              <div
+                class="col"
+                style="
+                  flex: 1;
+                  background: #3498db;
+                  color: white;
+                  padding: 15px;
+                  border-radius: 5px;
+                "
+              >
+                Column 2
+              </div>
+              <div
+                class="col"
+                style="
+                  flex: 1;
+                  background: #3498db;
+                  color: white;
+                  padding: 15px;
+                  border-radius: 5px;
+                "
+              >
+                Column 3
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="interactive-demo">
+        <h2><i class="fas fa-play-circle"></i> Try It Yourself</h2>
+        <p>Enter an Emmet abbreviation below and see the expanded result:</p>
+
+        <div class="demo-container">
+          <div class="demo-input">
+            <input
+              id="emmet-input"
+              placeholder="Enter Emmet abbreviation (e.g., div>p*3)"
+            />
+            <button id="expand-btn" onclick="expandEmmet()">Expand</button>
+          </div>
+          <div id="result-output">The expanded result will appear here...</div>
+        </div>
+      </section>
+
+      <section>
+        <h2>
+          <i class="fas fa-star"></i> More Emmet Examples
+          <span class="badge">New</span>
+        </h2>
+        <div class="grid">
+          <div class="grid-item">
+            <h3><i class="fas fa-bars"></i> Navigation</h3>
+            <pre><code>nav>ul>li*3>a</code></pre>
+          </div>
+          <div class="grid-item">
+            <h3><i class="fas fa-check-square"></i> Button with ID</h3>
+            <pre><code>button#submit</code></pre>
+          </div>
+          <div class="grid-item">
+            <h3><i class="fas fa-edit"></i> Form Elements</h3>
+            <pre><code>form>input+textarea</code></pre>
+          </div>
+          <div class="grid-item">
+            <h3><i class="fas fa-code"></i> CSS-like Syntax</h3>
+            <pre><code>div#header+div#main+div#footer</code></pre>
+          </div>
+          <div class="grid-item">
+            <h3><i class="fas fa-table"></i> Table Structure</h3>
+            <pre><code>table>tr*3>td*4</code></pre>
+          </div>
+          <div class="grid-item">
+            <h3><i class="fas fa-paragraph"></i> Text Elements</h3>
+            <pre><code>h1{Title}+p{Paragraph}</code></pre>
+          </div>
+        </div>
+      </section>
+
+      <section class="tips">
+        <h2><i class="fas fa-magic"></i> Emmet Tips & Tricks</h2>
+        <ul>
+          <li>
+            Use <span class="emmet-abbr">Tab</span> to expand your abbreviations
+          </li>
+          <li>Combine with CSS selectors for complex structures</li>
+          <li>
+            Use <span class="emmet-abbr">$</span> for numbering (e.g.,
+            li.item$*5)
+          </li>
+          <li>
+            Wrap with abbreviation: Select text and use Ctrl+Shift+P → "Emmet:
+            Wrap with Abbreviation"
+          </li>
+          <li>
+            Use <span class="emmet-abbr">{}</span> for adding text inside
+            elements (e.g., div{Hello World})
+          </li>
+          <li>
+            Use <span class="emmet-abbr">^</span> to move up one level in the
+            HTML tree
+          </li>
+          <li>
+            Use <span class="emmet-abbr">()</span> for grouping elements
+            together
+          </li>
+        </ul>
+      </section>
+
+      <footer>
+        <div class="social-links">
+          <a href="#"><i class="fab fa-github"></i></a>
+          <a href="#"><i class="fab fa-twitter"></i></a>
+          <a href="#"><i class="fab fa-linkedin"></i></a>
+          <a href="#"><i class="fab fa-codepen"></i></a>
+        </div>
+        <p>
+          Created for VS Code Editor Skills Practice by <br />
+          <strong>Ashvini Hirve</strong>
+        </p>
+        <p>
+          Happy learning with your <strong>emmet-practice.html</strong> file!
+        </p>
+      </footer>
+    </div>
+
+    <script>
+      function copyCode(id) {
+        const codeElement = document.getElementById(id);
+        const textArea = document.createElement("textarea");
+        textArea.value = codeElement.textContent;
+        document.body.appendChild(textArea);
+        textArea.select();
+        document.execCommand("copy");
+        document.body.removeChild(textArea);
+
+        // Show feedback
+        const button = event.currentTarget;
+        const originalText = button.innerHTML;
+        button.innerHTML = '<i class="fas fa-check"></i> Copied!';
+        setTimeout(() => {
+          button.innerHTML = originalText;
+        }, 2000);
+      }
+
+      function expandEmmet() {
+        const input = document.getElementById("emmet-input").value;
+        let output = "";
+
+        // Simple emmet expansion logic for demo purposes
+        if (input === "div.container>div.row>div.col*3") {
+          output = `<div class="container">
+    <div class="row">
+        <div class="col"></div>
+        <div class="col"></div>
+        <div class="col"></div>
+    </div>
+</div>`;
+        } else if (input === "ul>li*5") {
+          output = `<ul>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+</ul>`;
+        } else if (input === "html:5") {
+          output = `<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+</html>`;
+        } else if (input === "nav>ul>li*3>a") {
+          output = `<nav>
+    <ul>
+        <li><a href=""></a></li>
+        <li><a href=""></a></li>
+        <li><a href=""></a></li>
+    </ul>
+</nav>`;
+        } else {
+          output =
+            "Unable to expand this abbreviation. Try one of the examples shown on this page.";
+        }
+
+        document.getElementById("result-output").textContent = output;
+      }
+
+      // Allow pressing Enter to expand the emmet code
+      document
+        .getElementById("emmet-input")
+        .addEventListener("keypress", function (e) {
+          if (e.key === "Enter") {
+            expandEmmet();
+          }
+        });
+    </script>
+  </body>
+</html>

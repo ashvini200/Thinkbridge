@@ -1,0 +1,27 @@
+# Node modules (if you used any JS packages)
+node_modules/
+
+# Python cache files (if you used Python scripts)
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Environment files
+.env
+
+# VS Code settings
+
+# Mac system files
+.DS_Store
+
+# Logs
+*.log
+
+# Build directories
+dist/
+build/
+
+# Temporary files
+*.tmp
+*.swp
