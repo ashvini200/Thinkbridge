@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>JavaScript Learning Hub</title>
+    <title>Learn JavaScript</title>
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
@@ -23,8 +23,8 @@
       }
 
       header {
-        background: linear-gradient(135deg, #d53c79, #df2771);
-        color: #323330;
+        background: linear-gradient(135deg, #d0437b, #df2771);
+        color: white;
         padding: 2rem;
         text-align: center;
         box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
@@ -92,7 +92,7 @@
 
       .topic-header {
         background-color: #df2771;
-        color: #323330;
+        color: white;
         padding: 1.2rem;
         font-size: 1.2rem;
         font-weight: 600;
@@ -161,7 +161,7 @@
 
       .btn {
         background-color: #df2771;
-        color: #323330;
+        color: white;
         border: none;
         padding: 10px 20px;
         border-radius: 30px;
@@ -200,7 +200,7 @@
 
       .tag-card {
         background-color: #df2771;
-        color: #323330;
+        color: white;
         padding: 10px 15px;
         border-radius: 5px;
         cursor: pointer;
@@ -251,14 +251,6 @@
         display: inline-block;
       }
 
-      .color-box {
-        width: 50px;
-        height: 50px;
-        display: inline-block;
-        margin: 5px;
-        border: 1px solid #ccc;
-      }
-
       .flex-container {
         display: flex;
         gap: 10px;
@@ -267,7 +259,7 @@
 
       .flex-item {
         background-color: #df2771;
-        color: #323330;
+        color: white;
         padding: 10px;
         border-radius: 4px;
         flex: 1;
@@ -283,10 +275,77 @@
 
       .grid-item {
         background-color: #df2771;
-        color: #323330;
+        color: white;
         padding: 10px;
         border-radius: 4px;
         text-align: center;
+      }
+
+      .box-model-demo {
+        width: 200px;
+        height: 100px;
+        padding: 20px;
+        border: 10px solid #df2771;
+        margin: 30px;
+        background-color: #f0f0f0;
+        position: relative;
+      }
+
+      .box-model-label {
+        position: absolute;
+        font-size: 12px;
+        background: rgba(255, 255, 255, 0.8);
+        padding: 2px 4px;
+        border-radius: 3px;
+      }
+
+      .color-game {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+        margin: 15px 0;
+      }
+
+      .color-option {
+        width: 50px;
+        height: 50px;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: transform 0.2s;
+      }
+
+      .color-option:hover {
+        transform: scale(1.1);
+      }
+
+      .selector-game {
+        border: 1px solid #ddd;
+        padding: 15px;
+        border-radius: 8px;
+        margin: 15px 0;
+      }
+
+      .element-to-style {
+        padding: 10px;
+        margin: 5px 0;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+      }
+
+      .console-output {
+        background-color: #2d2d2d;
+        color: #f8f8f2;
+        padding: 1rem;
+        border-radius: 6px;
+        margin: 1rem 0;
+        overflow-x: auto;
+        font-family: "Courier New", monospace;
+        height: 200px;
+        overflow-y: auto;
+      }
+
+      .console-line {
+        margin-bottom: 5px;
       }
 
       .code-editor {
@@ -297,14 +356,6 @@
         border: 1px solid #ddd;
         border-radius: 4px;
         resize: vertical;
-      }
-
-      .output-container {
-        margin-top: 15px;
-        padding: 15px;
-        background-color: #f5f5f5;
-        border-radius: 4px;
-        border-left: 4px solid #df2771;
       }
 
       @media (max-width: 768px) {
@@ -330,115 +381,101 @@
         <input
           type="text"
           id="searchInput"
-          placeholder="Search for topics (e.g., Functions, DOM, Async)"
+          placeholder="Search for topics (e.g., Closures, Promises, Prototypes)"
         />
         <button class="btn" onclick="searchTopics()">Search</button>
       </div>
 
       <h2>JavaScript Topics</h2>
       <div class="topics-grid">
-        <!-- Core JavaScript Fundamentals -->
-        <div class="topic-card" onclick="showTheory('js-fundamentals')">
+        <!-- Execution Context & Call Stack -->
+        <div class="topic-card" onclick="showTheory('execution-context')">
           <div class="topic-header">
-            <span>Core JavaScript Fundamentals</span>
+            <span>1. Execution Context & Call Stack</span>
             <i class="fas fa-code"></i>
           </div>
           <div class="topic-content">
             <div
               class="subtopic"
-              onclick="event.stopPropagation(); showSubtopic('js-fundamentals', 'syntax-basics')"
+              onclick="event.stopPropagation(); showSubtopic('execution-context', 'how-js-runs')"
             >
-              <span>Syntax & Basics</span>
+              <span>How JavaScript code runs internally</span>
               <i class="fas fa-chevron-right"></i>
             </div>
             <div
               class="subtopic"
-              onclick="event.stopPropagation(); showSubtopic('js-fundamentals', 'variables')"
+              onclick="event.stopPropagation(); showSubtopic('execution-context', 'execution-context-types')"
             >
-              <span>Variables (var, let, const)</span>
+              <span>Types of execution contexts</span>
               <i class="fas fa-chevron-right"></i>
             </div>
             <div
               class="subtopic"
-              onclick="event.stopPropagation(); showSubtopic('js-fundamentals', 'data-types')"
+              onclick="event.stopPropagation(); showSubtopic('execution-context', 'call-stack')"
             >
-              <span>Data Types</span>
-              <i class="fas fa-chevron-right"></i>
-            </div>
-            <div
-              class="subtopic"
-              onclick="event.stopPropagation(); showSubtopic('js-fundamentals', 'operators')"
-            >
-              <span>Operators</span>
+              <span>Call stack management</span>
               <i class="fas fa-chevron-right"></i>
             </div>
           </div>
         </div>
 
-        <!-- Functions -->
-        <div class="topic-card" onclick="showTheory('functions')">
+        <!-- Hoisting & Variable Scope -->
+        <div class="topic-card" onclick="showTheory('hoisting-scope')">
           <div class="topic-header">
-            <span>Functions</span>
-            <i class="fas fa-cogs"></i>
+            <span>2. Hoisting & Variable Scope</span>
+            <i class="fas fa-arrow-up"></i>
           </div>
           <div class="topic-content">
             <div
               class="subtopic"
-              onclick="event.stopPropagation(); showSubtopic('functions', 'function-types')"
+              onclick="event.stopPropagation(); showSubtopic('hoisting-scope', 'var-let-const')"
             >
-              <span>Function Declaration vs Expression</span>
+              <span>var, let, and const differences</span>
               <i class="fas fa-chevron-right"></i>
             </div>
             <div
               class="subtopic"
-              onclick="event.stopPropagation(); showSubtopic('functions', 'arrow-functions')"
+              onclick="event.stopPropagation(); showSubtopic('hoisting-scope', 'temporal-dead-zone')"
             >
-              <span>Arrow Functions</span>
+              <span>Temporal Dead Zone (TDZ)</span>
               <i class="fas fa-chevron-right"></i>
             </div>
             <div
               class="subtopic"
-              onclick="event.stopPropagation(); showSubtopic('functions', 'parameters')"
+              onclick="event.stopPropagation(); showSubtopic('hoisting-scope', 'function-vs-variable-hoisting')"
             >
-              <span>Parameters & Arguments</span>
-              <i class="fas fa-chevron-right"></i>
-            </div>
-            <div
-              class="subtopic"
-              onclick="event.stopPropagation(); showSubtopic('functions', 'rest-spread')"
-            >
-              <span>Rest & Spread Operator</span>
+              <span>Function vs variable hoisting</span>
               <i class="fas fa-chevron-right"></i>
             </div>
           </div>
         </div>
 
-        <!-- DOM & Browser -->
-        <div class="topic-card" onclick="showTheory('dom-browser')">
+        <!-- Closures -->
+        <div class="topic-card" onclick="showTheory('closures')">
           <div class="topic-header">
-            <span>DOM & Browser</span>
-            <i class="fas fa-window-maximize"></i>
+            <span>3. Closures</span>
+            <i class="fas fa-link"></i>
           </div>
           <div class="topic-content">
             <div
               class="subtopic"
-              onclick="event.stopPropagation(); showSubtopic('dom-browser', 'dom-manipulation')"
+              onclick="event.stopPropagation(); showSubtopic('closures', 'what-are-closures')"
             >
-              <span>DOM Manipulation</span>
+              <span>What are closures</span>
               <i class="fas fa-chevron-right"></i>
             </div>
             <div
               class="subtopic"
-              onclick="event.stopPropagation(); showSubtopic('dom-browser', 'events')"
+              onclick="event.stopPropagation(); showSubtopic('closures', 'closure-examples')"
             >
-              <span>Events</span>
+              <span>Practical examples</span>
               <i class="fas fa-chevron-right"></i>
             </div>
             <div
               class="subtopic"
-              onclick="event.stopPropagation(); showSubtopic('dom-browser', 'browser-apis')"
+              onclick="event.stopPropagation(); showSubtopic('closures', 'closure-use-cases')"
             >
-              <span>Browser APIs</span>
+              <span>Use cases</span>
               <i class="fas fa-chevron-right"></i>
             </div>
           </div>
@@ -447,15 +484,15 @@
         <!-- Asynchronous JavaScript -->
         <div class="topic-card" onclick="showTheory('async-js')">
           <div class="topic-header">
-            <span>Asynchronous JavaScript</span>
+            <span>4. Asynchronous JavaScript</span>
             <i class="fas fa-clock"></i>
           </div>
           <div class="topic-content">
             <div
               class="subtopic"
-              onclick="event.stopPropagation(); showSubtopic('async-js', 'callbacks')"
+              onclick="event.stopPropagation(); showSubtopic('async-js', 'event-loop')"
             >
-              <span>Callbacks</span>
+              <span>Event loop and task queues</span>
               <i class="fas fa-chevron-right"></i>
             </div>
             <div
@@ -469,78 +506,78 @@
               class="subtopic"
               onclick="event.stopPropagation(); showSubtopic('async-js', 'async-await')"
             >
-              <span>Async/Await</span>
+              <span>Async/await</span>
               <i class="fas fa-chevron-right"></i>
             </div>
           </div>
         </div>
 
-        <!-- OOP & Advanced Concepts -->
-        <div class="topic-card" onclick="showTheory('oop-js')">
+        <!-- Prototypes & Inheritance -->
+        <div class="topic-card" onclick="showTheory('prototypes')">
           <div class="topic-header">
-            <span>OOP & Advanced Concepts</span>
-            <i class="fas fa-object-group"></i>
+            <span>5. Prototypes & Inheritance</span>
+            <i class="fas fa-project-diagram"></i>
           </div>
           <div class="topic-content">
             <div
               class="subtopic"
-              onclick="event.stopPropagation(); showSubtopic('oop-js', 'prototypes')"
+              onclick="event.stopPropagation(); showSubtopic('prototypes', 'prototype-chain')"
             >
-              <span>Prototypes & Inheritance</span>
+              <span>Prototype chain</span>
               <i class="fas fa-chevron-right"></i>
             </div>
             <div
               class="subtopic"
-              onclick="event.stopPropagation(); showSubtopic('oop-js', 'classes')"
+              onclick="event.stopPropagation(); showSubtopic('prototypes', 'classical-vs-prototypal')"
             >
-              <span>Classes</span>
+              <span>Classical vs prototypal inheritance</span>
               <i class="fas fa-chevron-right"></i>
             </div>
             <div
               class="subtopic"
-              onclick="event.stopPropagation(); showSubtopic('oop-js', 'this-keyword')"
+              onclick="event.stopPropagation(); showSubtopic('prototypes', 'object-create')"
             >
-              <span>this keyword</span>
+              <span>Object.create() and prototypes</span>
               <i class="fas fa-chevron-right"></i>
             </div>
           </div>
         </div>
 
-        <!-- Modern JavaScript -->
-        <div class="topic-card" onclick="showTheory('modern-js')">
+        <!-- This Keyword & Binding -->
+        <div class="topic-card" onclick="showTheory('this-keyword')">
           <div class="topic-header">
-            <span>Modern JavaScript</span>
-            <i class="fas fa-rocket"></i>
+            <span>6. This Keyword & Binding</span>
+            <i class="fas fa-hand-point-right"></i>
           </div>
           <div class="topic-content">
             <div
               class="subtopic"
-              onclick="event.stopPropagation(); showSubtopic('modern-js', 'es6-features')"
+              onclick="event.stopPropagation(); showSubtopic('this-keyword', 'this-context')"
             >
-              <span>ES6+ Features</span>
+              <span>Understanding 'this' context</span>
               <i class="fas fa-chevron-right"></i>
             </div>
             <div
               class="subtopic"
-              onclick="event.stopPropagation(); showSubtopic('modern-js', 'modules')"
+              onclick="event.stopPropagation(); showSubtopic('this-keyword', 'call-apply-bind')"
             >
-              <span>Modules</span>
+              <span>call, apply, and bind</span>
               <i class="fas fa-chevron-right"></i>
             </div>
             <div
               class="subtopic"
-              onclick="event.stopPropagation(); showSubtopic('modern-js', 'functional-programming')"
+              onclick="event.stopPropagation(); showSubtopic('this-keyword', 'arrow-function-this')"
             >
-              <span>Functional Programming</span>
+              <span>Arrow functions and 'this'</span>
               <i class="fas fa-chevron-right"></i>
             </div>
           </div>
         </div>
       </div>
 
-      <!-- Theory Section (initially hidden) -->
+      <!-- Theory Section -->
       <div id="theory-section" class="theory-section">
-        <h3 id="theory-title">JavaScript Fundamentals</h3>
+        <h3 id="theory-title">JavaScript Basics</h3>
 
         <div class="content-tabs">
           <div class="tab active" onclick="switchTab('theory')">Theory</div>
@@ -571,10 +608,9 @@
           <div id="interactive-content">
             <p>Try it yourself! This area will have interactive examples.</p>
           </div>
-          <button class="btn" id="run-button">Run Code</button>
-          <div class="output-container" id="output-container">
-            <strong>Output:</strong>
-            <div id="output"></div>
+          <button class="btn" onclick="runCode()">Run Code</button>
+          <div class="console-output" id="console-output">
+            <div class="console-line">Console output will appear here...</div>
           </div>
         </div>
 
@@ -588,7 +624,7 @@
     </div>
 
     <footer>
-      <p>JavaScript Learning Hub &copy; 2023</p>
+      <p>JavaScript Learning Hub &copy; 2025</p>
       <p>Interactive learning platform for JavaScript programming</p>
     </footer>
 
@@ -623,100 +659,170 @@
 
         // Set content based on the topic
         switch (topicId) {
-          case "js-fundamentals":
-            theoryTitle.textContent = "JavaScript Fundamentals";
+          case "execution-context":
+            theoryTitle.textContent = "Execution Context & Call Stack";
             theoryContent.innerHTML = `
-                        <p>JavaScript is a versatile programming language primarily used for web development.</p>
-                        <p>It allows you to create dynamically updating content, control multimedia, animate images, and much more.</p>
+                        <p>JavaScript code execution happens inside the execution context. This is the environment where JavaScript code is evaluated and executed.</p>
+                        <p><strong>Types of Execution Context:</strong></p>
+                        <ul>
+                            <li><strong>Global Execution Context:</strong> Default context where code is executed when it's not inside any function</li>
+                            <li><strong>Function Execution Context:</strong> Context created whenever a function is called</li>
+                            <li><strong>Eval Execution Context:</strong> Context inside eval function (less common)</li>
+                        </ul>
+                        <p><strong>Call Stack:</strong> JavaScript uses a call stack to manage execution contexts. It's a stack data structure that follows LIFO (Last In, First Out) principle.</p>
+                    `;
+            codeExample.textContent = `// Example of execution context and call stack
+function first() {
+    console.log("Inside first function");
+    second();
+    console.log("Back to first function");
+}
+
+function second() {
+    console.log("Inside second function");
+    third();
+    console.log("Back to second function");
+}
+
+function third() {
+    console.log("Inside third function");
+}
+
+console.log("Global context");
+first();
+console.log("Back to global context");
+
+// The call stack would be:
+// 1. Global context
+// 2. first() is added to stack
+// 3. second() is added to stack
+// 4. third() is added to stack
+// 5. third() completes and is removed
+// 6. second() completes and is removed
+// 7. first() completes and is removed
+// 8. Back to global context`;
+            break;
+          case "hoisting-scope":
+            theoryTitle.textContent = "Hoisting & Variable Scope";
+            theoryContent.innerHTML = `
+                        <p>Hoisting is JavaScript's default behavior of moving declarations to the top of their containing scope.</p>
                         <p><strong>Key Points:</strong></p>
                         <ul>
-                            <li>JavaScript is a high-level, interpreted programming language</li>
-                            <li>It conforms to the ECMAScript specification</li>
-                            <li>JavaScript is prototype-based and multi-paradigm</li>
-                            <li>It supports event-driven, functional, and imperative programming styles</li>
+                            <li>Variable declarations (var) are hoisted but not initialized (default value: undefined)</li>
+                            <li>let and const declarations are hoisted but not initialized (Temporal Dead Zone)</li>
+                            <li>Function declarations are hoisted with their definition</li>
+                            <li>Function expressions follow variable hoisting rules</li>
                         </ul>
+                        <p><strong>Temporal Dead Zone (TDZ):</strong> The time between entering scope and being declared where variables (let/const) cannot be accessed.</p>
                     `;
-            codeExample.textContent = `// This is a single-line comment
+            codeExample.textContent = `// Hoisting examples
+console.log(x); // undefined (var is hoisted)
+var x = 5;
 
-/*
-This is a multi-line comment
-*/
+// console.log(y); // ReferenceError: Cannot access 'y' before initialization
+let y = 10;
 
-// Console output
-console.log("Hello, World!");
+// console.log(z); // ReferenceError: Cannot access 'z' before initialization
+const z = 15;
 
-// Variables
-let message = "Hello JavaScript";
-const PI = 3.14159;
-var count = 10;
+// Function hoisting
+foo(); // "foo called" - function declaration is hoisted
 
-// Data types
-let number = 42; // Number
-let text = "Hello"; // String
-let isTrue = true; // Boolean
-let nothing = null; // Null
-let notDefined; // Undefined
-let person = {firstName:"John", lastName:"Doe"}; // Object
-let numbers = [1, 2, 3, 4, 5]; // Array
-`;
-            break;
-          case "functions":
-            theoryTitle.textContent = "JavaScript Functions";
-            theoryContent.innerHTML = `
-                        <p>Functions are one of the fundamental building blocks in JavaScript.</p>
-                        <p>A function is a set of statements that performs a task or calculates a value.</p>
-                        <p><strong>Function Types:</strong></p>
-                        <ul>
-                            <li><strong>Function declarations:</strong> Defined with the function keyword</li>
-                            <li><strong>Function expressions:</strong> Functions assigned to variables</li>
-                            <li><strong>Arrow functions:</strong> Compact alternative function syntax</li>
-                            <li><strong>IIFE:</strong> Immediately Invoked Function Expressions</li>
-                        </ul>
-                    `;
-            codeExample.textContent = `// Function declaration
-function greet(name) {
-    return "Hello, " + name;
+function foo() {
+    console.log("foo called");
 }
 
-// Function expression
-const square = function(x) {
-    return x * x;
+// bar(); // TypeError: bar is not a function - variable hoisting
+var bar = function() {
+    console.log("bar called");
 };
 
-// Arrow function
-const multiply = (a, b) => a * b;
-
-// Default parameters
-function sayHello(name = "Guest") {
-    return "Hello, " + name;
+// Temporal Dead Zone example
+{
+    // Start of TDZ for tmp
+    // console.log(tmp); // ReferenceError
+    
+    let tmp; // End of TDZ for tmp
+    console.log(tmp); // undefined
+    
+    tmp = 123;
+    console.log(tmp); // 123
+}`;
+            break;
+          case "closures":
+            theoryTitle.textContent = "Closures";
+            theoryContent.innerHTML = `
+                        <p>A closure is a function that has access to its outer function's scope even after the outer function has returned.</p>
+                        <p><strong>Key Characteristics:</strong></p>
+                        <ul>
+                            <li>JavaScript functions form closures when they are created</li>
+                            <li>Closures allow functions to "remember" the environment in which they were created</li>
+                            <li>They're created every time a function is created, at function creation time</li>
+                        </ul>
+                        <p><strong>Common Use Cases:</strong></p>
+                        <ul>
+                            <li>Data privacy and encapsulation</li>
+                            <li>Function factories and currying</li>
+                            <li>Event handlers and callbacks</li>
+                            <li>Maintaining state in async operations</li>
+                        </ul>
+                    `;
+            codeExample.textContent = `// Basic closure example
+function outer() {
+    let count = 0;
+    
+    return function inner() {
+        count++;
+        return count;
+    };
 }
 
-// Rest parameters
-function sum(...numbers) {
-    return numbers.reduce((total, num) => total + num, 0);
+const counter = outer();
+console.log(counter()); // 1
+console.log(counter()); // 2
+console.log(counter()); // 3
+
+// Another example with private variables
+function createBankAccount(initialBalance) {
+    let balance = initialBalance;
+    
+    return {
+        deposit: function(amount) {
+            balance += amount;
+            return balance;
+        },
+        withdraw: function(amount) {
+            if (amount <= balance) {
+                balance -= amount;
+                return balance;
+            } else {
+                return "Insufficient funds";
+            }
+        },
+        getBalance: function() {
+            return balance;
+        }
+    };
 }
 
-// Callback function
-function processUserInput(callback) {
-    const name = prompt("Please enter your name.");
-    callback(name);
-}
-`;
+const account = createBankAccount(100);
+console.log(account.getBalance()); // 100
+console.log(account.deposit(50)); // 150
+console.log(account.withdraw(30)); // 120
+console.log(account.withdraw(150)); // "Insufficient funds"`;
             break;
           case "async-js":
             theoryTitle.textContent = "Asynchronous JavaScript";
             theoryContent.innerHTML = `
-                        <p>JavaScript is single-threaded, but it can handle asynchronous operations through callbacks, promises, and async/await.</p>
-                        <p>Asynchronous programming allows your program to start a potentially long-running task and still be responsive to other events.</p>
-                        <p><strong>Key Concepts:</strong></p>
-                        <ul>
-                            <li><strong>Callbacks:</strong> Functions passed as arguments to be executed later</li>
-                            <li><strong>Promises:</strong> Objects representing the eventual completion (or failure) of an async operation</li>
-                            <li><strong>Async/Await:</strong> Syntactic sugar built on promises that makes async code easier to write and read</li>
-                            <li><strong>Event Loop:</strong> The mechanism that allows JavaScript to handle asynchronous operations</li>
-                        </ul>
+                        <p>JavaScript is single-threaded but handles asynchronous operations using an event loop, callback queue, and other features.</p>
+                        <p><strong>Event Loop:</strong> Continuously checks the call stack and callback queue. If the stack is empty, it moves callbacks from the queue to the stack.</p>
+                        <p><strong>Task Queue (Macrotask Queue):</strong> Holds tasks to be processed (setTimeout, setInterval, I/O operations)</p>
+                        <p><strong>Microtask Queue:</strong> Holds higher priority tasks (Promise callbacks, MutationObserver)</p>
+                        <p><strong>Execution Order:</strong> Microtasks are executed before macrotasks when the call stack is empty.</p>
                     `;
-            codeExample.textContent = `// Callback example
+            codeExample.textContent = `// Asynchronous JavaScript examples
+
+// Callbacks (the old way)
 function fetchData(callback) {
     setTimeout(() => {
         callback("Data received");
@@ -727,99 +833,196 @@ fetchData((data) => {
     console.log(data);
 });
 
-// Promise example
-const promise = new Promise((resolve, reject) => {
-    setTimeout(() => {
-        resolve("Success!");
-        // or reject("Error!");
-    }, 1000);
-});
+// Promises (better way)
+function fetchDataPromise() {
+    return new Promise((resolve, reject) => {
+        setTimeout(() => {
+            resolve("Data received via promise");
+            // reject("Error occurred"); // In case of error
+        }, 1000);
+    });
+}
 
-promise
-    .then(result => console.log(result))
+fetchDataPromise()
+    .then(data => console.log(data))
     .catch(error => console.error(error));
 
-// Async/Await example
-async function fetchDataAsync() {
+// Async/await (modern way)
+async function getData() {
     try {
-        const response = await fetch('https://api.example.com/data');
-        const data = await response.json();
+        const data = await fetchDataPromise();
         console.log(data);
     } catch (error) {
-        console.error("Error:", error);
+        console.error(error);
     }
 }
 
-// Promise combinators
-Promise.all([promise1, promise2, promise3])
-    .then(values => console.log(values))
-    .catch(error => console.error(error));
-`;
+getData();
+
+// Event loop example
+console.log("Start");
+
+setTimeout(() => {
+    console.log("Timeout callback");
+}, 0);
+
+Promise.resolve().then(() => {
+    console.log("Promise resolved");
+});
+
+console.log("End");
+
+// Output order:
+// "Start"
+// "End"
+// "Promise resolved" (microtask)
+// "Timeout callback" (macrotask)`;
             break;
-          case "oop-js":
-            theoryTitle.textContent =
-              "Object-Oriented Programming in JavaScript";
+          case "prototypes":
+            theoryTitle.textContent = "Prototypes & Inheritance";
             theoryContent.innerHTML = `
-                        <p>JavaScript uses prototypes for inheritance rather than classical inheritance used in languages like Java or C++.</p>
-                        <p>However, ES6 introduced class syntax that provides a cleaner way to create objects and handle inheritance.</p>
+                        <p>JavaScript uses prototypal inheritance rather than classical inheritance found in languages like Java or C++.</p>
+                        <p><strong>Prototype Chain:</strong> Every object has a private property ([[Prototype]]) that links to another object. This object has its own prototype, forming a chain.</p>
                         <p><strong>Key Concepts:</strong></p>
                         <ul>
-                            <li><strong>Prototypes:</strong> Objects from which other objects inherit properties</li>
-                            <li><strong>Constructor Functions:</strong> Functions used to create objects with a specific blueprint</li>
-                            <li><strong>Classes:</strong> Syntactic sugar over JavaScript's existing prototype-based inheritance</li>
-                            <li><strong>this keyword:</strong> Refers to the object it belongs to, with different binding rules</li>
+                            <li><strong>__proto__:</strong> Property that points to an object's prototype (deprecated but widely supported)</li>
+                            <li><strong>Object.getPrototypeOf():</strong> Recommended way to get an object's prototype</li>
+                            <li><strong>prototype property:</strong> Exists on functions and is used when the function is used as a constructor</li>
+                            <li><strong>Object.create():</strong> Creates a new object with the specified prototype</li>
                         </ul>
                     `;
-            codeExample.textContent = `// Constructor function
+            codeExample.textContent = `// Prototype examples
+
+// Constructor function
 function Person(name, age) {
     this.name = name;
     this.age = age;
 }
 
+// Adding method to prototype
 Person.prototype.greet = function() {
-    return "Hello, my name is " + this.name;
+    return \`Hello, my name is \${this.name} and I'm \${this.age} years old.\`;
 };
 
-// Class syntax
-class Person {
-    constructor(name, age) {
-        this.name = name;
-        this.age = age;
-    }
+const john = new Person("John", 30);
+console.log(john.greet()); // "Hello, my name is John and I'm 30 years old."
 
+// Prototype chain
+console.log(john.__proto__ === Person.prototype); // true
+console.log(Person.prototype.__proto__ === Object.prototype); // true
+console.log(Object.prototype.__proto__); // null
+
+// Object.create for prototypal inheritance
+const personPrototype = {
     greet() {
-        return "Hello, my name is " + this.name;
-    }
-
-    // Static method
-    static compareAges(person1, person2) {
-        return person1.age - person2.age;
-    }
-}
-
-// Inheritance
-class Student extends Person {
-    constructor(name, age, grade) {
-        super(name, age);
-        this.grade = grade;
-    }
-
-    study() {
-        return this.name + " is studying";
-    }
-}
-
-// this binding examples
-const obj = {
-    name: "John",
-    regularFunction: function() {
-        return this.name;
-    },
-    arrowFunction: () => {
-        return this.name; // this is lexically scoped
+        return \`Hello, my name is \${this.name}.\`;
     }
 };
-`;
+
+const mary = Object.create(personPrototype);
+mary.name = "Mary";
+console.log(mary.greet()); // "Hello, my name is Mary."
+
+// Class syntax (syntactic sugar over prototypes)
+class Animal {
+    constructor(name) {
+        this.name = name;
+    }
+    
+    speak() {
+        return \`\${this.name} makes a sound.\`;
+    }
+}
+
+class Dog extends Animal {
+    constructor(name, breed) {
+        super(name);
+        this.breed = breed;
+    }
+    
+    speak() {
+        return \`\${this.name} barks!\`;
+    }
+}
+
+const dog = new Dog("Rex", "German Shepherd");
+console.log(dog.speak()); // "Rex barks!"`;
+            break;
+          case "this-keyword":
+            theoryTitle.textContent = "This Keyword & Binding";
+            theoryContent.innerHTML = `
+                        <p>The value of <code>this</code> in JavaScript depends on how a function is called, not where it's defined.</p>
+                        <p><strong>Binding Rules:</strong></p>
+                        <ul>
+                            <li><strong>Default binding:</strong> In strict mode, <code>this</code> is undefined. In non-strict mode, <code>this</code> refers to the global object (window in browsers)</li>
+                            <li><strong>Implicit binding:</strong> When a function is called as a method of an object, <code>this</code> refers to that object</li>
+                            <li><strong>Explicit binding:</strong> Using <code>call()</code>, <code>apply()</code>, or <code>bind()</code> to explicitly set <code>this</code></li>
+                            <li><strong>New binding:</strong> When a function is called with <code>new</code>, <code>this</code> refers to the newly created object</li>
+                            <li><strong>Arrow functions:</strong> Don't have their own <code>this</code> binding. They inherit <code>this</code> from the surrounding lexical context</li>
+                        </ul>
+                    `;
+            codeExample.textContent = `// 'this' keyword examples
+
+// Default binding
+function showThis() {
+    console.log(this);
+}
+
+showThis(); // In browser: Window object (or undefined in strict mode)
+
+// Implicit binding
+const obj = {
+    name: "My Object",
+    showThis: function() {
+        console.log(this);
+    }
+};
+
+obj.showThis(); // {name: "My Object", showThis: ƒ}
+
+// Explicit binding
+function greet() {
+    console.log(\`Hello, \${this.name}\`);
+}
+
+const person1 = { name: "Alice" };
+const person2 = { name: "Bob" };
+
+greet.call(person1); // "Hello, Alice"
+greet.apply(person2); // "Hello, Bob"
+
+const greetAlice = greet.bind(person1);
+greetAlice(); // "Hello, Alice"
+
+// New binding
+function Car(make, model) {
+    this.make = make;
+    this.model = model;
+    this.display = function() {
+        console.log(\`\${this.make} \${this.model}\`);
+    };
+}
+
+const myCar = new Car("Toyota", "Camry");
+myCar.display(); // "Toyota Camry"
+
+// Arrow functions and 'this'
+const outerObj = {
+    name: "Outer",
+    regularFunction: function() {
+        console.log("Regular function:", this.name);
+        
+        const arrowFunction = () => {
+            console.log("Arrow function:", this.name);
+        };
+        
+        arrowFunction();
+    }
+};
+
+outerObj.regularFunction();
+// "Regular function: Outer"
+// "Arrow function: Outer"`;
             break;
           default:
             theoryTitle.textContent = "Topic Overview";
@@ -858,185 +1061,423 @@ const obj = {
 
         // Set content based on the subtopic
         switch (subtopicId) {
-          case "variables":
-            theoryTitle.textContent = "JavaScript Variables";
+          case "how-js-runs":
+            theoryTitle.textContent = "How JavaScript Code Runs Internally";
             theoryContent.innerHTML = `
-                        <p>Variables are containers for storing data values. JavaScript has three ways to declare variables:</p>
-                        <p><strong>var:</strong> The original way to declare variables (function-scoped)</p>
-                        <p><strong>let:</strong> Introduced in ES6, block-scoped variables that can be reassigned</p>
-                        <p><strong>const:</strong> Introduced in ES6, block-scoped variables that cannot be reassigned</p>
+                        <p>JavaScript execution involves several components working together:</p>
+                        <p><strong>JavaScript Engine:</strong> (V8 in Chrome, SpiderMonkey in Firefox) consists of:</p>
+                        <ul>
+                            <li><strong>Call Stack:</strong> Where function calls are stacked and executed</li>
+                            <li><strong>Memory Heap:</strong> Where objects are allocated in memory</li>
+                        </ul>
+                        <p><strong>Runtime Environment:</strong> Provides additional features like:</p>
+                        <ul>
+                            <li><strong>Web APIs:</strong> Provided by browsers (DOM, setTimeout, XMLHttpRequest, etc.)</li>
+                            <li><strong>Callback Queue:</strong> Holds callback functions waiting to be executed</li>
+                            <li><strong>Event Loop:</strong> Continuously checks if the call stack is empty and moves callbacks from the queue to the stack</li>
+                        </ul>
+                    `;
+            codeExample.textContent = `// Example demonstrating JavaScript execution order
+console.log("Start");
+
+// Web API - setTimeout
+setTimeout(function timeoutCallback() {
+    console.log("Timeout callback");
+}, 0);
+
+// Microtask - Promise
+Promise.resolve().then(function promiseCallback() {
+    console.log("Promise callback");
+});
+
+console.log("End");
+
+// Output order:
+// "Start"
+// "End"
+// "Promise callback" (microtask has higher priority)
+// "Timeout callback" (macrotask)`;
+            break;
+          case "var-let-const":
+            theoryTitle.textContent = "var, let, and const Differences";
+            theoryContent.innerHTML = `
+                        <p>JavaScript offers three ways to declare variables: var, let, and const.</p>
+                        <p><strong>var:</strong></p>
+                        <ul>
+                            <li>Function-scoped or globally-scoped</li>
+                            <li>Hoisted and initialized with undefined</li>
+                            <li>Can be redeclared and updated</li>
+                        </ul>
+                        <p><strong>let:</strong></p>
+                        <ul>
+                            <li>Block-scoped ({})</li>
+                            <li>Hoisted but not initialized (TDZ)</li>
+                            <li>Cannot be redeclared in the same scope but can be updated</li>
+                        </ul>
+                        <p><strong>const:</strong></p>
+                        <ul>
+                            <li>Block-scoped ({})</li>
+                            <li>Hoisted but not initialized (TDZ)</li>
+                            <li>Cannot be redeclared or reassigned</li>
+                            <li>Must be initialized during declaration</li>
+                            <li>Object properties can be updated (the object itself is constant, not its contents)</li>
+                        </ul>
+                    `;
+            codeExample.textContent = `// var, let, const examples
+
+// var - function scoped, can be redeclared
+var x = 1;
+var x = 2; // No error
+console.log(x); // 2
+
+function testVar() {
+    var y = 10;
+    if (true) {
+        var y = 20; // Same variable
+        console.log(y); // 20
+    }
+    console.log(y); // 20
+}
+testVar();
+
+// let - block scoped, cannot be redeclared
+let a = 1;
+// let a = 2; // SyntaxError: Identifier 'a' has already been declared
+
+function testLet() {
+    let b = 10;
+    if (true) {
+        let b = 20; // Different variable
+        console.log(b); // 20
+    }
+    console.log(b); // 10
+}
+testLet();
+
+// const - block scoped, cannot be reassigned
+const c = 1;
+// c = 2; // TypeError: Assignment to constant variable
+
+const obj = { name: "John" };
+// obj = { name: "Jane" }; // Error - cannot reassign
+obj.name = "Jane"; // Allowed - property can be updated
+console.log(obj.name); // "Jane"
+
+// Temporal Dead Zone examples
+{
+    // console.log(tdzVar); // ReferenceError: Cannot access 'tdzVar' before initialization
+    let tdzVar = 10;
+}`;
+            break;
+          case "what-are-closures":
+            theoryTitle.textContent = "What Are Closures";
+            theoryContent.innerHTML = `
+                        <p>A closure is the combination of a function and the lexical environment within which that function was declared.</p>
                         <p><strong>Key Points:</strong></p>
                         <ul>
-                            <li>Always declare variables before use</li>
-                            <li>Use const by default, let when you need to reassign, and avoid var</li>
-                            <li>Variable names are case-sensitive and can contain letters, digits, underscores, and dollar signs</li>
-                            <li>Variable names must begin with a letter, $ or _</li>
+                            <li>Closures allow functions to access variables from an outer function that has already returned</li>
+                            <li>They maintain a reference to their outer scope, preserving the variables within that scope</li>
+                            <li>In JavaScript, all functions are naturally closures (they have access to the scope in which they were created)</li>
                         </ul>
+                        <p><strong>How They Work:</strong></p>
+                        <ol>
+                            <li>When a function is created, it gets a reference to its current lexical environment</li>
+                            <li>This reference allows the function to access variables from that environment even after the outer function has finished executing</li>
+                            <li>The JavaScript engine keeps the variables in memory as long as there's a closure that might use them</li>
+                        </ol>
                     `;
-            codeExample.textContent = `// Using var (function-scoped)
-var x = 10;
-if (true) {
-    var x = 20; // Same variable
+            codeExample.textContent = `// Closure examples
+
+// Example 1: Basic closure
+function createCounter() {
+    let count = 0; // This variable is "closed over"
+    
+    return function() {
+        count++;
+        return count;
+    };
 }
-console.log(x); // 20
 
-// Using let (block-scoped)
-let y = 10;
-if (true) {
-    let y = 20; // Different variable
+const counter = createCounter();
+console.log(counter()); // 1
+console.log(counter()); // 2
+console.log(counter()); // 3
+
+// Example 2: Multiple closures
+function createMultiplier(factor) {
+    return function(number) {
+        return number * factor;
+    };
 }
-console.log(y); // 10
 
-// Using const (block-scoped, cannot be reassigned)
-const z = 10;
-// z = 20; // Error: Assignment to constant variable
+const double = createMultiplier(2);
+const triple = createMultiplier(3);
 
-// However, const objects and arrays can be modified
-const person = { name: "John" };
-person.name = "Jane"; // Allowed
-person.age = 30; // Allowed
+console.log(double(5)); // 10
+console.log(triple(5)); // 15
 
-const numbers = [1, 2, 3];
-numbers.push(4); // Allowed
+// Example 3: Closures in loops (common pitfall)
+for (var i = 0; i < 3; i++) {
+    setTimeout(function() {
+        console.log(i); // Outputs: 3, 3, 3 (not 0, 1, 2)
+    }, 100);
+}
 
-// Hoisting behavior
-console.log(a); // undefined (var is hoisted)
-var a = 10;
+// Solution 1: Use let (block scoping)
+for (let i = 0; i < 3; i++) {
+    setTimeout(function() {
+        console.log(i); // Outputs: 0, 1, 2
+    }, 100);
+}
 
-// console.log(b); // Error: Cannot access 'b' before initialization
-let b = 20;
-`;
+// Solution 2: IIFE to create a new scope
+for (var i = 0; i < 3; i++) {
+    (function(j) {
+        setTimeout(function() {
+            console.log(j); // Outputs: 0, 1, 2
+        }, 100);
+    })(i);
+}`;
             break;
-          case "arrow-functions":
-            theoryTitle.textContent = "Arrow Functions";
+          case "event-loop":
+            theoryTitle.textContent = "Event Loop and Task Queues";
             theoryContent.innerHTML = `
-                        <p>Arrow functions were introduced in ES6 as a more concise syntax for writing function expressions.</p>
-                        <p>They have some important differences from regular functions:</p>
-                        <p><strong>Key Characteristics:</strong></p>
+                        <p>The event loop is what allows JavaScript to handle asynchronous operations despite being single-threaded.</p>
+                        <p><strong>How It Works:</strong></p>
+                        <ol>
+                            <li>Synchronous code is executed immediately and added to the call stack</li>
+                            <li>Asynchronous operations (setTimeout, fetch, etc.) are handled by Web APIs and their callbacks are placed in task queues</li>
+                            <li>The event loop continuously checks if the call stack is empty</li>
+                            <li>When the call stack is empty, it takes the first task from the queue and pushes it to the call stack</li>
+                        </ol>
+                        <p><strong>Task Queues:</strong></p>
                         <ul>
-                            <li>Shorter syntax than regular functions</li>
-                            <li>Don't have their own <code>this</code>, <code>arguments</code>, <code>super</code>, or <code>new.target</code></li>
-                            <li>Always anonymous (can't be used as constructors)</li>
-                            <li>Cannot be used as generator functions</li>
+                            <li><strong>Microtask Queue:</strong> For Promise callbacks, MutationObserver. Has higher priority than the macrotask queue</li>
+                            <li><strong>Macrotask Queue:</strong> For setTimeout, setInterval, setImmediate, I/O, UI rendering</li>
+                        </ul>
+                        <p><strong>Execution Priority:</strong> Microtasks are executed before macrotasks when the call stack is empty.</p>
+                    `;
+            codeExample.textContent = `// Event loop example
+console.log("Script start");
+
+setTimeout(function() {
+    console.log("setTimeout");
+}, 0);
+
+Promise.resolve()
+    .then(function() {
+        console.log("Promise 1");
+    })
+    .then(function() {
+        console.log("Promise 2");
+    });
+
+console.log("Script end");
+
+// Output order:
+// "Script start"
+// "Script end"
+// "Promise 1"
+// "Promise 2"
+// "setTimeout"
+
+// Explanation:
+// 1. Synchronous code runs first: "Script start", "Script end"
+// 2. Microtasks (Promise callbacks) run next: "Promise 1", "Promise 2"
+// 3. Macrotasks (setTimeout) run last: "setTimeout"
+
+// Another example with more complexity
+console.log("Start");
+
+setTimeout(function() {
+    console.log("Timeout 1");
+}, 0);
+
+Promise.resolve().then(function() {
+    console.log("Promise 1");
+    
+    setTimeout(function() {
+        console.log("Timeout from Promise");
+    }, 0);
+});
+
+setTimeout(function() {
+    console.log("Timeout 2");
+    
+    Promise.resolve().then(function() {
+        console.log("Promise from Timeout");
+    });
+}, 0);
+
+console.log("End");
+
+// Output order:
+// "Start"
+// "End"
+// "Promise 1"
+// "Timeout 1"
+// "Timeout 2"
+// "Promise from Timeout"
+// "Timeout from Promise"`;
+            break;
+          case "prototype-chain":
+            theoryTitle.textContent = "Prototype Chain";
+            theoryContent.innerHTML = `
+                        <p>JavaScript objects have an internal property called [[Prototype]] (accessible via __proto__) that links to another object.</p>
+                        <p><strong>Prototype Chain:</strong> When trying to access a property on an object, JavaScript will:</p>
+                        <ol>
+                            <li>Look for the property on the object itself</li>
+                            <li>If not found, look at the object's prototype ([[Prototype]])</li>
+                            <li>Continue up the prototype chain until the property is found or until the chain ends (null)</li>
+                        </ol>
+                        <p><strong>Object.prototype:</strong> The top of most prototype chains. Contains methods like toString(), valueOf(), etc.</p>
+                        <p><strong>Setting Prototypes:</strong></p>
+                        <ul>
+                            <li><strong>Object.create(proto):</strong> Creates a new object with the specified prototype</li>
+                            <li><strong>Object.setPrototypeOf(obj, proto):</strong> Sets the prototype of an existing object (not recommended for performance)</li>
+                            <li><strong>Constructor functions:</strong> Functions used with 'new' set the prototype of the created object to the function's prototype property</li>
                         </ul>
                     `;
-            codeExample.textContent = `// Regular function
-const regularSum = function(a, b) {
-    return a + b;
-};
+            codeExample.textContent = `// Prototype chain examples
 
-// Arrow function equivalent
-const arrowSum = (a, b) => {
-    return a + b;
-};
-
-// Even shorter with implicit return
-const shortSum = (a, b) => a + b;
-
-// Single parameter doesn't need parentheses
-const square = x => x * x;
-
-// No parameters need empty parentheses
-const greet = () => "Hello World!";
-
-// Returning an object requires parentheses
-const createPerson = (name, age) => ({ name: name, age: age });
-
-// this behavior difference
-const obj = {
-    value: 10,
-    regularFunction: function() {
-        console.log(this.value); // 10 (this refers to obj)
-    },
-    arrowFunction: () => {
-        console.log(this.value); // undefined (this refers to outer context)
+// Creating objects with prototypes
+const animal = {
+    eats: true,
+    walk() {
+        console.log("Animal walk");
     }
 };
 
-// Useful for callbacks
-const numbers = [1, 2, 3, 4, 5];
-const squared = numbers.map(x => x * x);
-const evens = numbers.filter(n => n % 2 === 0);
-`;
+const rabbit = Object.create(animal);
+rabbit.jumps = true;
+rabbit.walk(); // "Animal walk" - inherited from animal
+
+console.log(rabbit.eats); // true - inherited from animal
+console.log(rabbit.jumps); // true - own property
+
+// The prototype chain
+console.log(rabbit.__proto__ === animal); // true
+console.log(animal.__proto__ === Object.prototype); // true
+console.log(Object.prototype.__proto__); // null
+
+// Adding to prototype
+animal.sleep = function() {
+    console.log("Animal sleep");
+};
+
+rabbit.sleep(); // "Animal sleep" - now available through prototype
+
+// Constructor function and prototype
+function Person(name) {
+    this.name = name;
+}
+
+Person.prototype.greet = function() {
+    console.log(\`Hello, I'm \${this.name}\`);
+};
+
+const john = new Person("John");
+john.greet(); // "Hello, I'm John"
+
+console.log(john.__proto__ === Person.prototype); // true
+console.log(Person.prototype.__proto__ === Object.prototype); // true
+
+// Checking properties
+console.log(john.hasOwnProperty("name")); // true
+console.log(john.hasOwnProperty("greet")); // false (inherited)
+console.log("greet" in john); // true (exists in prototype chain)`;
             break;
-          case "promises":
-            theoryTitle.textContent = "JavaScript Promises";
+          case "this-context":
+            theoryTitle.textContent = "Understanding 'this' Context";
             theoryContent.innerHTML = `
-                        <p>A Promise is an object representing the eventual completion or failure of an asynchronous operation.</p>
-                        <p>Promises help avoid callback hell and make asynchronous code easier to write and read.</p>
-                        <p><strong>Promise States:</strong></p>
+                        <p>The value of <code>this</code> is determined by how a function is called, not where it's defined.</p>
+                        <p><strong>Binding Rules:</strong></p>
                         <ul>
-                            <li><strong>Pending:</strong> Initial state, neither fulfilled nor rejected</li>
-                            <li><strong>Fulfilled:</strong> The operation completed successfully</li>
-                            <li><strong>Rejected:</strong> The operation failed</li>
+                            <li><strong>Default binding:</strong> In non-strict mode, <code>this</code> refers to the global object. In strict mode, it's undefined.</li>
+                            <li><strong>Implicit binding:</strong> When called as a method of an object, <code>this</code> refers to that object.</li>
+                            <li><strong>Explicit binding:</strong> Using call(), apply(), or bind() to explicitly set <code>this</code>.</li>
+                            <li><strong>New binding:</strong> When called with <code>new</code>, <code>this</code> refers to the newly created instance.</li>
+                            <li><strong>Arrow functions:</strong> Don't have their own <code>this</code> binding. They inherit <code>this</code> from the surrounding scope.</li>
                         </ul>
-                        <p><strong>Promise Methods:</strong></p>
+                        <p><strong>Common Pitfalls:</strong></p>
                         <ul>
-                            <li><code>then()</code>: Handles fulfillment</li>
-                            <li><code>catch()</code>: Handles rejection</li>
-                            <li><code>finally()</code>: Handles both fulfillment and rejection</li>
-                            <li><code>Promise.all()</code>: Waits for all promises to resolve</li>
-                            <li><code>Promise.race()</code>: Returns when the first promise settles</li>
+                            <li>Losing <code>this</code> context when passing methods as callbacks</li>
+                            <li>Using <code>this</code> in nested functions inside methods</li>
                         </ul>
                     `;
-            codeExample.textContent = `// Creating a promise
-const myPromise = new Promise((resolve, reject) => {
-    // Asynchronous operation
-    setTimeout(() => {
-        const success = Math.random() > 0.3;
+            codeExample.textContent = `// 'this' context examples
+
+// Default binding
+function showDefaultThis() {
+    console.log(this);
+}
+
+showDefaultThis(); // In browser: Window (or undefined in strict mode)
+
+// Implicit binding
+const person = {
+    name: "Alice",
+    greet() {
+        console.log(\`Hello, \${this.name}\`);
+    }
+};
+
+person.greet(); // "Hello, Alice" - 'this' is the person object
+
+// Losing context
+const greet = person.greet;
+greet(); // "Hello, undefined" - 'this' is now global/undefined
+
+// Explicit binding
+function introduce(lang1, lang2) {
+    console.log(\`My name is \${this.name} and I know \${lang1} and \${lang2}\`);
+}
+
+const person1 = { name: "Bob" };
+const person2 = { name: "Charlie" };
+
+introduce.call(person1, "JavaScript", "Python");
+// "My name is Bob and I know JavaScript and Python"
+
+introduce.apply(person2, ["Java", "C++"]);
+// "My name is Charlie and I know Java and C++"
+
+const boundIntroduce = introduce.bind(person1, "Ruby");
+boundIntroduce("PHP"); // "My name is Bob and I know Ruby and PHP"
+
+// New binding
+function Car(make, model) {
+    this.make = make;
+    this.model = model;
+    this.display = function() {
+        console.log(\`\${this.make} \${this.model}\`);
+    };
+}
+
+const myCar = new Car("Honda", "Civic");
+myCar.display(); // "Honda Civic"
+
+// Arrow functions
+const obj = {
+    name: "Arrow Example",
+    regularFunc: function() {
+        console.log("Regular:", this.name);
         
-        if (success) {
-            resolve("Operation succeeded!");
-        } else {
-            reject("Operation failed!");
-        }
-    }, 1000);
-});
+        setTimeout(function() {
+            console.log("Regular in setTimeout:", this.name); // undefined
+        }, 100);
+    },
+    arrowFunc: function() {
+        console.log("Arrow outer:", this.name);
+        
+        setTimeout(() => {
+            console.log("Arrow in setTimeout:", this.name); // "Arrow Example"
+        }, 100);
+    }
+};
 
-// Using a promise
-myPromise
-    .then(result => {
-        console.log("Success:", result);
-    })
-    .catch(error => {
-        console.error("Error:", error);
-    })
-    .finally(() => {
-        console.log("Operation completed (success or failure)");
-    });
-
-// Chaining promises
-fetch('https://api.example.com/data')
-    .then(response => response.json())
-    .then(data => {
-        console.log(data);
-        return processData(data);
-    })
-    .then(processedData => {
-        console.log(processedData);
-    })
-    .catch(error => {
-        console.error("Error in chain:", error);
-    });
-
-// Promise.all - wait for all promises to resolve
-const promise1 = Promise.resolve(3);
-const promise2 = 42;
-const promise3 = new Promise((resolve, reject) => {
-    setTimeout(resolve, 100, 'foo');
-});
-
-Promise.all([promise1, promise2, promise3])
-    .then(values => {
-        console.log(values); // [3, 42, "foo"]
-    });
-
-// Promise.race - get the first settled promise
-Promise.race([promise1, promise3])
-    .then(value => {
-        console.log(value); // 3 (since promise1 is already resolved)
-    });
-`;
+obj.regularFunc();
+obj.arrowFunc();`;
             break;
           default:
             theoryTitle.textContent = "Subtopic Details";
@@ -1055,112 +1496,75 @@ Promise.race([promise1, promise3])
       function updateLiveExample(topicId, subtopicId = null) {
         const liveExample = document.getElementById("live-example");
 
-        if (subtopicId === "variables") {
+        if (subtopicId === "how-js-runs") {
           liveExample.innerHTML = `
-                    <h3>Variable Examples:</h3>
-                    <p>Open your browser console to see the output of these examples.</p>
-                    <div class="code-example">
-// var example
-var x = 10;
-console.log("Initial x:", x);
-if (true) {
-    var x = 20;
-    console.log("Inside block x:", x);
-}
-console.log("After block x:", x);
-
-// let example
-let y = 10;
-console.log("Initial y:", y);
-if (true) {
-    let y = 20;
-    console.log("Inside block y:", y);
-}
-console.log("After block y:", y);
-
-// const example
-const z = 10;
-console.log("Initial z:", z);
-// z = 20; // This would cause an error
-                    </div>
-                    <button class="btn" onclick="runVariableExamples()">Run Examples</button>
+                    <h3>JavaScript Execution Order Example:</h3>
+                    <p>Open your browser's console to see the execution order.</p>
+                    <button class="btn" onclick="runExecutionExample()">Run Execution Example</button>
+                    <div id="execution-output"></div>
                 `;
-        } else if (subtopicId === "arrow-functions") {
+        } else if (subtopicId === "var-let-const") {
           liveExample.innerHTML = `
-                    <h3>Arrow Function Examples:</h3>
-                    <p>Open your browser console to see the output of these examples.</p>
+                    <h3>Variable Declaration Examples:</h3>
                     <div class="code-example">
-// Regular function
-function multiply(a, b) {
-    return a * b;
-}
-
-// Arrow function equivalent
-const multiplyArrow = (a, b) => a * b;
-
-console.log("Regular function:", multiply(5, 3));
-console.log("Arrow function:", multiplyArrow(5, 3));
-
-// this context example
-const obj = {
-    value: 42,
-    regular: function() {
-        console.log("Regular function this:", this.value);
-    },
-    arrow: () => {
-        console.log("Arrow function this:", this.value);
-    }
-};
-
-obj.regular(); // 42
-obj.arrow();   // undefined (or window.value if it exists)
+                        // Try these in your console:<br><br>
+                        // var example<br>
+                        var x = 1;<br>
+                        var x = 2; // No error<br>
+                        console.log(x); // 2<br><br>
+                        
+                        // let example<br>
+                        let y = 1;<br>
+                        // let y = 2; // Error: Identifier 'y' has already been declared<br>
+                        y = 2; // This is fine<br><br>
+                        
+                        // const example<br>
+                        const z = 1;<br>
+                        // z = 2; // Error: Assignment to constant variable<br><br>
+                        
+                        // Scope example<br>
+                        if (true) {<br>
+                        &nbsp;&nbsp;var a = 1;<br>
+                        &nbsp;&nbsp;let b = 2;<br>
+                        &nbsp;&nbsp;const c = 3;<br>
+                        }<br>
+                        console.log(a); // 1 (var is function-scoped)<br>
+                        console.log(b); // Error: b is not defined (let is block-scoped)<br>
+                        console.log(c); // Error: c is not defined (const is block-scoped)
                     </div>
-                    <button class="btn" onclick="runArrowFunctionExamples()">Run Examples</button>
+                `;
+        } else if (subtopicId === "what-are-closures") {
+          liveExample.innerHTML = `
+                    <h3>Closure Example:</h3>
+                    <button class="btn" onclick="runClosureExample()">Run Closure Example</button>
+                    <div id="closure-output"></div>
+                    <p>Each time you click the button, the counter increases thanks to closure.</p>
+                `;
+        } else if (topicId === "closures") {
+          liveExample.innerHTML = `
+                    <h3>Closure Examples:</h3>
+                    <div class="code-example">
+                        function createCounter() {<br>
+                        &nbsp;&nbsp;let count = 0;<br>
+                        &nbsp;&nbsp;return function() {<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;count++;<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;return count;<br>
+                        &nbsp;&nbsp;};<br>
+                        }<br><br>
+                        
+                        const counter = createCounter();<br>
+                        console.log(counter()); // 1<br>
+                        console.log(counter()); // 2<br>
+                        console.log(counter()); // 3
+                    </div>
+                    <button class="btn" onclick="runCounter()">Run Counter</button>
+                    <div id="counter-output"></div>
                 `;
         } else if (topicId === "async-js") {
           liveExample.innerHTML = `
-                    <h3>Async JavaScript Examples:</h3>
-                    <p>Open your browser console to see the output of these examples.</p>
-                    <div class="code-example">
-// Simulated async function with callback
-function fetchDataCallback(callback) {
-    setTimeout(() => {
-        callback("Data from callback");
-    }, 1000);
-}
-
-// Using the callback
-fetchDataCallback(data => {
-    console.log(data);
-});
-
-// Simulated async function with promise
-function fetchDataPromise() {
-    return new Promise((resolve, reject) => {
-        setTimeout(() => {
-            resolve("Data from promise");
-        }, 1000);
-    });
-}
-
-// Using the promise
-fetchDataPromise()
-    .then(data => console.log(data))
-    .catch(error => console.error(error));
-
-// Async/await version
-async function fetchDataAsync() {
-    try {
-        const data = await fetchDataPromise();
-        console.log("Data with async/await:", data);
-    } catch (error) {
-        console.error(error);
-    }
-}
-
-fetchDataAsync();
-                    </div>
-                    <button class="btn" onclick="runAsyncExamples()">Run Examples</button>
+                    <h3>Async JavaScript Example:</h3>
+                    <button class="btn" onclick="runAsyncExample()">Run Async Example</button>
+                    <div id="async-output"></div>
                 `;
         } else {
           liveExample.innerHTML = `<p>Live examples will appear here when you select a topic or subtopic.</p>`;
@@ -1172,86 +1576,90 @@ fetchDataAsync();
         const interactiveContent = document.getElementById(
           "interactive-content"
         );
-        const runButton = document.getElementById("run-button");
+        const consoleOutput = document.getElementById("console-output");
 
-        if (subtopicId === "variables") {
+        if (topicId === "closures") {
           interactiveContent.innerHTML = `
-                    <p>Experiment with JavaScript variables:</p>
-                    <textarea class="code-editor" id="variable-editor">
-// Try different variable declarations
-var globalVar = "I'm a global variable";
-let blockScoped = "I'm block scoped";
-const constantValue = "I can't be reassigned";
-
-console.log("Global variable:", globalVar);
-console.log("Block scoped variable:", blockScoped);
-console.log("Constant value:", constantValue);
-
-// Try to reassign const (this will cause an error)
-// constantValue = "New value";
-
-// Test variable scoping
-if (true) {
-    var insideBlock = "I'm inside a block";
-    let scopedInside = "I'm scoped to this block";
-    console.log("Inside block:", scopedInside);
+                    <h4>Closure Playground</h4>
+                    <p>Try creating your own closure:</p>
+                    <textarea class="code-editor" id="closure-code">
+function createMultiplier(factor) {
+    return function(number) {
+        return number * factor;
+    };
 }
 
-console.log("Var inside block is accessible:", insideBlock);
-// console.log("Let inside block is not accessible:", scopedInside); // This would error
+// Example usage:
+const double = createMultiplier(2);
+console.log(double(5)); // 10
+
+const triple = createMultiplier(3);
+console.log(triple(5)); // 15
                     </textarea>
                 `;
-          runButton.onclick = () => runCode("variable-editor");
-        } else if (subtopicId === "arrow-functions") {
+        } else if (topicId === "async-js") {
           interactiveContent.innerHTML = `
-                    <p>Experiment with arrow functions:</p>
-                    <textarea class="code-editor" id="arrow-function-editor">
-// Convert these regular functions to arrow functions
-
-// Regular function
-function add(a, b) {
-    return a + b;
+                    <h4>Async/Await Playground</h4>
+                    <p>Try working with async functions:</p>
+                    <textarea class="code-editor" id="async-code">
+// Simulate fetching data
+function fetchData() {
+    return new Promise((resolve) => {
+        setTimeout(() => {
+            resolve("Data received!");
+        }, 1000);
+    });
 }
 
-// Arrow function equivalent
-const addArrow = (a, b) => a + b;
+// Async function example
+async function getData() {
+    console.log("Fetching data...");
+    const result = await fetchData();
+    console.log(result);
+    return result;
+}
 
-console.log("Regular function result:", add(5, 3));
-console.log("Arrow function result:", addArrow(5, 3));
-
-// More examples
-const numbers = [1, 2, 3, 4, 5];
-
-// Using regular function as callback
-const squares = numbers.map(function(x) {
-    return x * x;
+// Call the async function
+getData().then(data => {
+    console.log("Processed:", data.toUpperCase());
 });
-
-// Using arrow function as callback
-const squaresArrow = numbers.map(x => x * x);
-
-console.log("Squares with regular function:", squares);
-console.log("Squares with arrow function:", squaresArrow);
-
-// this context difference
-const obj = {
-    value: 10,
-    regularFunc: function() {
-        console.log("Regular function this.value:", this.value);
-    },
-    arrowFunc: () => {
-        console.log("Arrow function this.value:", this.value);
+                    </textarea>
+                `;
+        } else if (topicId === "this-keyword") {
+          interactiveContent.innerHTML = `
+                    <h4>'this' Keyword Playground</h4>
+                    <p>Experiment with different 'this' contexts:</p>
+                    <textarea class="code-editor" id="this-code">
+const person = {
+    name: "John",
+    greet: function() {
+        console.log(\`Hello, my name is \${this.name}\`);
     }
 };
 
-obj.regularFunc(); // 10
-obj.arrowFunc();   // undefined (or global this.value if it exists)
+// Different ways to call the same function
+person.greet(); // "Hello, my name is John"
+
+const greet = person.greet;
+greet(); // "Hello, my name is undefined" (or global name)
+
+// Using bind to set context
+const boundGreet = person.greet.bind(person);
+boundGreet(); // "Hello, my name is John"
+
+// Using call and apply
+person.greet.call({ name: "Alice" }); // "Hello, my name is Alice"
+person.greet.apply({ name: "Bob" }); // "Hello, my name is Bob"
                     </textarea>
                 `;
-          runButton.onclick = () => runCode("arrow-function-editor");
         } else {
-          interactiveContent.innerHTML = `<p>Interactive examples will appear here when you select a topic or subtopic.</p>`;
-          runButton.onclick = () => alert("Select a subtopic to run code");
+          interactiveContent.innerHTML = `
+                    <p>Interactive examples will appear here when you select a topic or subtopic.</p>
+                    <textarea class="code-editor" id="default-code">
+// Write your JavaScript code here
+console.log("Hello, JavaScript!");
+                    </textarea>
+                `;
         }
       }
 
@@ -1259,32 +1667,60 @@ obj.arrowFunc();   // undefined (or global this.value if it exists)
       function updateGameContent(topicId, subtopicId = null) {
         const gameContent = document.getElementById("game-content");
 
-        if (subtopicId === "variables") {
+        if (topicId === "closures") {
           gameContent.innerHTML = `
                     <div class="game-container">
-                        <h4>Variable Declaration Game</h4>
-                        <p>Choose the correct variable declaration for each scenario:</p>
-                        <div class="tag-match-game">
-                            <div class="tag-card" onclick="checkAnswer(this, 'const', 'A value that should not be reassigned')">const</div>
-                            <div class="tag-card" onclick="checkAnswer(this, 'let', 'A value that might change within a block')">let</div>
-                            <div class="tag-card" onclick="checkAnswer(this, 'var', 'Legacy declaration (avoid if possible)')">var</div>
+                        <h4>Closure Challenge</h4>
+                        <p>What will be logged to the console?</p>
+                        <div class="code-example">
+                            function createCounter() {<br>
+                            &nbsp;&nbsp;let count = 0;<br>
+                            &nbsp;&nbsp;return function() {<br>
+                            &nbsp;&nbsp;&nbsp;&nbsp;count++;<br>
+                            &nbsp;&nbsp;&nbsp;&nbsp;return count;<br>
+                            &nbsp;&nbsp;};<br>
+                            }<br><br>
+                            
+                            const counter1 = createCounter();<br>
+                            const counter2 = createCounter();<br><br>
+                            
+                            console.log(counter1());<br>
+                            console.log(counter1());<br>
+                            console.log(counter2());<br>
+                            console.log(counter1());
                         </div>
-                        <div class="tag-match-result" id="variable-game-result"></div>
+                        <div class="flex-container">
+                            <button class="btn" onclick="checkAnswer(1, 'a')">A: 1,2,1,3</button>
+                            <button class="btn" onclick="checkAnswer(1, 'b')">B: 1,2,3,4</button>
+                            <button class="btn" onclick="checkAnswer(1, 'c')">C: 1,1,1,1</button>
+                        </div>
+                        <div id="game-result-1"></div>
                     </div>
                 `;
-        } else if (subtopicId === "arrow-functions") {
+        } else if (topicId === "async-js") {
           gameContent.innerHTML = `
                     <div class="game-container">
-                        <h4>Arrow Function Conversion Game</h4>
-                        <p>Convert the following function to an arrow function:</p>
+                        <h4>Event Loop Challenge</h4>
+                        <p>What will be the output order?</p>
                         <div class="code-example">
-function multiply(a, b) {
-    return a * b;
-}
+                            console.log("Start");<br><br>
+                            
+                            setTimeout(() => {<br>
+                            &nbsp;&nbsp;console.log("Timeout");<br>
+                            }, 0);<br><br>
+                            
+                            Promise.resolve().then(() => {<br>
+                            &nbsp;&nbsp;console.log("Promise");<br>
+                            });<br><br>
+                            
+                            console.log("End");
                         </div>
-                        <input type="text" id="arrow-conversion" placeholder="Enter arrow function equivalent">
-                        <button class="btn" onclick="checkArrowConversion()">Check Answer</button>
-                        <div class="tag-match-result" id="arrow-game-result"></div>
+                        <div class="flex-container">
+                            <button class="btn" onclick="checkAnswer(2, 'a')">A: Start, End, Timeout, Promise</button>
+                            <button class="btn" onclick="checkAnswer(2, 'b')">B: Start, End, Promise, Timeout</button>
+                            <button class="btn" onclick="checkAnswer(2, 'c')">C: Start, Timeout, End, Promise</button>
+                        </div>
+                        <div id="game-result-2"></div>
                     </div>
                 `;
         } else {
@@ -1292,167 +1728,45 @@ function multiply(a, b) {
         }
       }
 
-      // Function to run code in interactive demos
-      function runCode(editorId) {
-        const code = document.getElementById(editorId).value;
-        const outputContainer = document.getElementById("output");
+      // Function to run code in the interactive console
+      function runCode() {
+        const consoleOutput = document.getElementById("console-output");
+        consoleOutput.innerHTML = "";
 
-        // Clear previous output
-        outputContainer.innerHTML = "";
+        let code = "";
+        if (currentTopic === "closures") {
+          code = document.getElementById("closure-code").value;
+        } else if (currentTopic === "async-js") {
+          code = document.getElementById("async-code").value;
+        } else if (currentTopic === "this-keyword") {
+          code = document.getElementById("this-code").value;
+        } else {
+          code = document.getElementById("default-code").value;
+        }
 
-        // Capture console.log output
+        // Override console.log to capture output
         const originalConsoleLog = console.log;
         console.log = function () {
+          const args = Array.prototype.slice.call(arguments);
+          const line = document.createElement("div");
+          line.className = "console-line";
+          line.textContent = args.join(" ");
+          consoleOutput.appendChild(line);
           originalConsoleLog.apply(console, arguments);
-          const args = Array.from(arguments)
-            .map((arg) => (typeof arg === "object" ? JSON.stringify(arg) : arg))
-            .join(" ");
-          outputContainer.innerHTML += args + "<br>";
         };
 
         try {
-          // Execute the code
           eval(code);
         } catch (error) {
-          outputContainer.innerHTML += `<span style="color: red;">Error: ${error.message}</span><br>`;
+          const errorLine = document.createElement("div");
+          errorLine.className = "console-line";
+          errorLine.style.color = "red";
+          errorLine.textContent = "Error: " + error.message;
+          consoleOutput.appendChild(errorLine);
         }
 
-        // Restore original console.log
+        // Restore console.log
         console.log = originalConsoleLog;
-      }
-
-      // Function to run specific examples
-      function runVariableExamples() {
-        console.log("=== Variable Examples ===");
-
-        // var example
-        var x = 10;
-        console.log("Initial x:", x);
-        if (true) {
-          var x = 20;
-          console.log("Inside block x:", x);
-        }
-        console.log("After block x:", x);
-
-        // let example
-        let y = 10;
-        console.log("Initial y:", y);
-        if (true) {
-          let y = 20;
-          console.log("Inside block y:", y);
-        }
-        console.log("After block y:", y);
-
-        // const example
-        const z = 10;
-        console.log("Initial z:", z);
-        // z = 20; // This would cause an error
-
-        console.log("=== End Variable Examples ===");
-      }
-
-      function runArrowFunctionExamples() {
-        console.log("=== Arrow Function Examples ===");
-
-        // Regular function
-        function multiply(a, b) {
-          return a * b;
-        }
-
-        // Arrow function equivalent
-        const multiplyArrow = (a, b) => a * b;
-
-        console.log("Regular function:", multiply(5, 3));
-        console.log("Arrow function:", multiplyArrow(5, 3));
-
-        // this context example
-        const obj = {
-          value: 42,
-          regular: function () {
-            console.log("Regular function this:", this.value);
-          },
-          arrow: () => {
-            console.log("Arrow function this:", this.value);
-          },
-        };
-
-        obj.regular(); // 42
-        obj.arrow(); // undefined
-
-        console.log("=== End Arrow Function Examples ===");
-      }
-
-      function runAsyncExamples() {
-        console.log("=== Async Examples ===");
-
-        // Simulated async function with callback
-        function fetchDataCallback(callback) {
-          setTimeout(() => {
-            callback("Data from callback");
-          }, 1000);
-        }
-
-        // Using the callback
-        fetchDataCallback((data) => {
-          console.log(data);
-        });
-
-        // Simulated async function with promise
-        function fetchDataPromise() {
-          return new Promise((resolve, reject) => {
-            setTimeout(() => {
-              resolve("Data from promise");
-            }, 1000);
-          });
-        }
-
-        // Using the promise
-        fetchDataPromise()
-          .then((data) => console.log(data))
-          .catch((error) => console.error(error));
-
-        console.log("=== End Async Examples ===");
-      }
-
-      // Function to check answers in games
-      function checkAnswer(element, correctAnswer, explanation) {
-        const resultDiv = document.getElementById("variable-game-result");
-        const userAnswer = element.textContent.trim();
-
-        if (userAnswer === correctAnswer) {
-          resultDiv.innerHTML = `<span style="color: green;">Correct! ${explanation}</span>`;
-          element.style.backgroundColor = "#28a745";
-        } else {
-          resultDiv.innerHTML = `<span style="color: red;">Incorrect. Try again!</span>`;
-          element.style.backgroundColor = "#dc3545";
-        }
-
-        setTimeout(() => {
-          element.style.backgroundColor = "#f7df1e";
-        }, 1000);
-      }
-
-      function checkArrowConversion() {
-        const userAnswer = document
-          .getElementById("arrow-conversion")
-          .value.trim();
-        const resultDiv = document.getElementById("arrow-game-result");
-
-        // Simple validation - could be more robust
-        const correctAnswers = [
-          "const multiply = (a, b) => a * b;",
-          "let multiply = (a, b) => a * b;",
-          "var multiply = (a, b) => a * b;",
-          "const multiply = (a, b) => { return a * b; };",
-          "let multiply = (a, b) => { return a * b; };",
-          "var multiply = (a, b) => { return a * b; };",
-        ];
-
-        if (correctAnswers.includes(userAnswer)) {
-          resultDiv.innerHTML = `<span style="color: green;">Correct! Well done.</span>`;
-        } else {
-          resultDiv.innerHTML = `<span style="color: red;">Not quite. The simplest answer is: const multiply = (a, b) => a * b;</span>`;
-        }
       }
 
       // Function to switch between tabs
@@ -1478,25 +1792,109 @@ function multiply(a, b) {
         });
       }
 
-      // Function for the property matching game
-      function matchProperty(element, propertyName) {
-        const resultDiv = document.getElementById("property-match-result");
+      // Function to check answers in games
+      function checkAnswer(questionId, answer) {
+        const resultDiv = document.getElementById(`game-result-${questionId}`);
 
-        const propertyValues = {
-          color: "red, blue, #ffffff, rgb(0,0,0)",
-          "font-size": "12px, 1.2em, larger, 120%",
-          margin: "10px, 5%, auto, 1em 2em",
-          display: "block, inline, flex, grid, none",
-        };
+        if (questionId === 1) {
+          if (answer === "a") {
+            resultDiv.innerHTML =
+              "Correct! 🎉 Each closure has its own scope, so counter1 and counter2 maintain separate count variables.";
+            resultDiv.style.color = "green";
+          } else {
+            resultDiv.innerHTML =
+              "Try again! Remember that each call to createCounter creates a new closure with its own scope.";
+            resultDiv.style.color = "red";
+          }
+        } else if (questionId === 2) {
+          if (answer === "b") {
+            resultDiv.innerHTML =
+              "Correct! 🎉 Promises (microtasks) execute before setTimeout (macrotasks).";
+            resultDiv.style.color = "green";
+          } else {
+            resultDiv.innerHTML =
+              "Try again! Remember the event loop order: synchronous code → microtasks → macrotasks.";
+            resultDiv.style.color = "red";
+          }
+        }
+      }
 
-        const values = propertyValues[propertyName];
-        resultDiv.innerHTML = `<strong>${propertyName}</strong> can have values like: ${values}`;
+      // Function to run execution example
+      function runExecutionExample() {
+        const outputDiv = document.getElementById("execution-output");
+        outputDiv.innerHTML =
+          "<p>Check your browser console to see the execution order.</p>";
 
-        // Visual feedback
-        element.style.backgroundColor = "#28a745";
-        setTimeout(() => {
-          element.style.backgroundColor = "#f7df1e";
-        }, 1000);
+        console.log("Start");
+
+        setTimeout(function () {
+          console.log("Timeout callback");
+        }, 0);
+
+        Promise.resolve().then(function () {
+          console.log("Promise resolved");
+        });
+
+        console.log("End");
+      }
+
+      // Function to run closure example
+      function runClosureExample() {
+        const outputDiv = document.getElementById("closure-output");
+
+        if (typeof window.closureCounter === "undefined") {
+          window.closureCounter = (function () {
+            let count = 0;
+            return function () {
+              count++;
+              return count;
+            };
+          })();
+        }
+
+        const count = window.closureCounter();
+        outputDiv.innerHTML = `<p>Counter: ${count}</p>`;
+      }
+
+      // Function to run counter example
+      function runCounter() {
+        const outputDiv = document.getElementById("counter-output");
+
+        if (typeof window.exampleCounter === "undefined") {
+          window.exampleCounter = (function () {
+            let count = 0;
+            return function () {
+              count++;
+              return count;
+            };
+          })();
+        }
+
+        const count = window.exampleCounter();
+        outputDiv.innerHTML = `<p>Counter: ${count}</p>`;
+      }
+
+      // Function to run async example
+      function runAsyncExample() {
+        const outputDiv = document.getElementById("async-output");
+        outputDiv.innerHTML =
+          "<p>Check your browser console to see the async execution.</p>";
+
+        console.log("Script start");
+
+        setTimeout(function () {
+          console.log("setTimeout callback");
+        }, 0);
+
+        Promise.resolve()
+          .then(function () {
+            console.log("Promise 1");
+          })
+          .then(function () {
+            console.log("Promise 2");
+          });
+
+        console.log("Script end");
       }
 
       // Function to search topics
@@ -1531,13 +1929,6 @@ function multiply(a, b) {
 
       // Initialize page
       document.addEventListener("DOMContentLoaded", function () {
-        // Add event listener for the run button
-        document
-          .getElementById("run-button")
-          .addEventListener("click", function () {
-            // This is handled in updateInteractiveContent now
-          });
-
         // Make Enter key trigger search
         document
           .getElementById("searchInput")

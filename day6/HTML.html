@@ -3,12 +3,28 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>HTML Learning Hub</title>
+    <title>Learn HTML </title>
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
     />
     <style>
+      :root {
+        --primary: #df2771;
+        --secondary: #b01c5c;
+        --accent: #ff4d8d;
+        --light: #f8f9fa;
+        --dark: #212529;
+        --success: #ff6b9d;
+        --warning: #f9c74f;
+        --info: #ff80aa;
+        --text: #2b2d42;
+        --bg: #ffffff;
+        --card-bg: #ffffff;
+        --shadow: rgba(0, 0, 0, 0.1);
+        --transition: all 0.3s ease;
+      }
+
       * {
         margin: 0;
         padding: 0;
@@ -17,17 +33,17 @@
       }
 
       body {
-        background-color: #f9f9f9;
-        color: #333;
+        background-color: var(--bg);
+        color: var(--text);
         line-height: 1.6;
       }
 
       header {
-        background: linear-gradient(135deg, #dd387a, #df2771);
+        background: linear-gradient(135deg, var(--primary), var(--secondary));
         color: white;
         padding: 2rem;
         text-align: center;
-        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        box-shadow: 0 4px 12px var(--shadow);
       }
 
       h1 {
@@ -47,10 +63,10 @@
       }
 
       .search-container {
-        background-color: white;
+        background-color: var(--card-bg);
         padding: 1.5rem;
         border-radius: 10px;
-        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+        box-shadow: 0 4px 12px var(--shadow);
         margin-bottom: 2rem;
         text-align: center;
       }
@@ -62,11 +78,12 @@
         border-radius: 30px;
         font-size: 1rem;
         outline: none;
-        transition: border-color 0.3s;
+        transition: var(--transition);
+        margin-right: 10px;
       }
 
       #searchInput:focus {
-        border-color: #df2771;
+        border-color: var(--primary);
       }
 
       .topics-grid {
@@ -77,21 +94,21 @@
       }
 
       .topic-card {
-        background-color: white;
+        background-color: var(--card-bg);
         border-radius: 10px;
         overflow: hidden;
-        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
-        transition: transform 0.3s, box-shadow 0.3s;
+        box-shadow: 0 4px 12px var(--shadow);
+        transition: var(--transition);
         cursor: pointer;
       }
 
       .topic-card:hover {
         transform: translateY(-5px);
-        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+        box-shadow: 0 8px 16px var(--shadow);
       }
 
       .topic-header {
-        background-color: #df2771;
+        background-color: var(--primary);
         color: white;
         padding: 1.2rem;
         font-size: 1.2rem;
@@ -113,7 +130,7 @@
         display: flex;
         justify-content: space-between;
         align-items: center;
-        transition: background-color 0.2s;
+        transition: var(--transition);
         cursor: pointer;
       }
 
@@ -122,20 +139,20 @@
       }
 
       .subtopic i {
-        color: #df2771;
+        color: var(--primary);
       }
 
       .theory-section {
         display: none;
-        background-color: white;
+        background-color: var(--card-bg);
         border-radius: 10px;
         padding: 2rem;
         margin-top: 2rem;
-        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+        box-shadow: 0 4px 12px var(--shadow);
       }
 
       .theory-section h3 {
-        color: #df2771;
+        color: var(--primary);
         margin-bottom: 1rem;
         border-bottom: 2px solid #f0f0f0;
         padding-bottom: 0.5rem;
@@ -149,6 +166,7 @@
         margin: 1rem 0;
         overflow-x: auto;
         font-family: "Courier New", monospace;
+        white-space: pre-wrap;
       }
 
       .interactive-demo {
@@ -160,19 +178,19 @@
       }
 
       .btn {
-        background-color: #df2771;
+        background-color: var(--primary);
         color: white;
         border: none;
         padding: 10px 20px;
         border-radius: 30px;
         cursor: pointer;
         font-size: 1rem;
-        transition: background-color 0.3s;
+        transition: var(--transition);
         margin: 5px;
       }
 
       .btn:hover {
-        background-color: #df2771;
+        background-color: var(--secondary);
       }
 
       footer {
@@ -199,12 +217,12 @@
       }
 
       .tag-card {
-        background-color: #df2771;
+        background-color: var(--primary);
         color: white;
         padding: 10px 15px;
         border-radius: 5px;
         cursor: pointer;
-        transition: transform 0.2s;
+        transition: var(--transition);
       }
 
       .tag-card:hover {
@@ -227,11 +245,12 @@
         padding: 8px 16px;
         cursor: pointer;
         border-bottom: 3px solid transparent;
+        transition: var(--transition);
       }
 
       .tab.active {
-        border-bottom: 3px solid #df2771;
-        color: #df2771;
+        border-bottom: 3px solid var(--primary);
+        color: var(--primary);
         font-weight: bold;
       }
 
@@ -243,89 +262,28 @@
         display: block;
       }
 
-      .demo-box {
-        width: 100px;
-        height: 100px;
-        background-color: #df2771;
-        margin: 10px;
-        display: inline-block;
-      }
-
-      .color-box {
-        width: 50px;
-        height: 50px;
-        display: inline-block;
-        margin: 5px;
-        border: 1px solid #ccc;
-      }
-
-      .flex-container {
-        display: flex;
-        gap: 10px;
-        margin: 10px 0;
-      }
-
-      .flex-item {
-        background-color: #df2771;
-        color: white;
-        padding: 10px;
-        border-radius: 4px;
-        flex: 1;
-        text-align: center;
-      }
-
-      .grid-container {
-        display: grid;
-        grid-template-columns: repeat(3, 1fr);
-        gap: 10px;
-        margin: 10px 0;
-      }
-
-      .grid-item {
-        background-color: #df2771;
-        color: white;
-        padding: 10px;
-        border-radius: 4px;
-        text-align: center;
+      .search-highlight {
+        background-color: yellow;
+        font-weight: bold;
       }
 
       .code-editor {
         width: 100%;
-        height: 200px;
+        min-height: 200px;
         font-family: "Courier New", monospace;
-        padding: 10px;
+        padding: 1rem;
         border: 1px solid #ddd;
         border-radius: 4px;
-        resize: vertical;
+        margin-bottom: 1rem;
       }
 
       .output-container {
-        margin-top: 15px;
-        padding: 15px;
-        background-color: #f5f5f5;
-        border-radius: 4px;
-        border-left: 4px solid #df2771;
-      }
-
-      .html-preview {
         border: 1px solid #ddd;
-        padding: 15px;
-        margin: 10px 0;
+        border-radius: 4px;
+        padding: 1rem;
+        margin-top: 1rem;
         min-height: 100px;
-        background-color: white;
-      }
-
-      .html-tag {
-        color: #df2771;
-        font-weight: bold;
-      }
-
-      .html-attr {
-        color: #6f42c1;
-      }
-
-      .html-comment {
-        color: #6a737d;
+        background-color: #f9f9f9;
       }
 
       @media (max-width: 768px) {
@@ -334,7 +292,8 @@
         }
 
         #searchInput {
-          width: 90%;
+          width: 100%;
+          margin-bottom: 10px;
         }
       }
     </style>
@@ -342,7 +301,9 @@
   <body>
     <header>
       <h1>HTML Learning Hub</h1>
-      <p class="subtitle">Master HTML with interactive tutorials</p>
+      <p class="subtitle">
+        Master web development fundamentals with interactive tutorials
+      </p>
     </header>
 
     <div class="container">
@@ -351,17 +312,17 @@
         <input
           type="text"
           id="searchInput"
-          placeholder="Search for topics (e.g., Forms, Tables, Semantic HTML)"
+          placeholder="Search for topics (e.g., Forms, Functions, DOM)"
         />
         <button class="btn" onclick="searchTopics()">Search</button>
       </div>
 
       <h2>HTML Topics</h2>
       <div class="topics-grid">
-        <!-- Basics of HTML -->
+        <!-- HTML Topic Cards -->
         <div class="topic-card" onclick="showTheory('html-basics')">
           <div class="topic-header">
-            <span>Basics of HTML</span>
+            <span>1. Basics of HTML</span>
             <i class="fas fa-code"></i>
           </div>
           <div class="topic-content">
@@ -374,7 +335,7 @@
             </div>
             <div
               class="subtopic"
-              onclick="event.stopPropagation(); showSubtopic('html-basics', 'syntax-structure')"
+              onclick="event.stopPropagation(); showSubtopic('html-basics', 'html-syntax')"
             >
               <span>HTML Syntax & Structure</span>
               <i class="fas fa-chevron-right"></i>
@@ -383,50 +344,35 @@
               class="subtopic"
               onclick="event.stopPropagation(); showSubtopic('html-basics', 'elements-tags')"
             >
-              <span>HTML Elements & Tags</span>
-              <i class="fas fa-chevron-right"></i>
-            </div>
-            <div
-              class="subtopic"
-              onclick="event.stopPropagation(); showSubtopic('html-basics', 'attributes')"
-            >
-              <span>Attributes</span>
+              <span>Elements & Tags</span>
               <i class="fas fa-chevron-right"></i>
             </div>
           </div>
         </div>
 
-        <!-- Text Formatting -->
-        <div class="topic-card" onclick="showTheory('text-formatting')">
+        <div class="topic-card" onclick="showTheory('html-formatting')">
           <div class="topic-header">
-            <span>Text Formatting</span>
+            <span>2. HTML Text Formatting</span>
             <i class="fas fa-text-height"></i>
           </div>
           <div class="topic-content">
             <div
               class="subtopic"
-              onclick="event.stopPropagation(); showSubtopic('text-formatting', 'headings')"
+              onclick="event.stopPropagation(); showSubtopic('html-formatting', 'headings-paragraphs')"
             >
-              <span>Headings</span>
+              <span>Headings & Paragraphs</span>
               <i class="fas fa-chevron-right"></i>
             </div>
             <div
               class="subtopic"
-              onclick="event.stopPropagation(); showSubtopic('text-formatting', 'paragraphs')"
-            >
-              <span>Paragraphs & Text</span>
-              <i class="fas fa-chevron-right"></i>
-            </div>
-            <div
-              class="subtopic"
-              onclick="event.stopPropagation(); showSubtopic('text-formatting', 'text-styles')"
+              onclick="event.stopPropagation(); showSubtopic('html-formatting', 'text-styles')"
             >
               <span>Text Styles</span>
               <i class="fas fa-chevron-right"></i>
             </div>
             <div
               class="subtopic"
-              onclick="event.stopPropagation(); showSubtopic('text-formatting', 'block-inline')"
+              onclick="event.stopPropagation(); showSubtopic('html-formatting', 'block-inline')"
             >
               <span>Block vs Inline</span>
               <i class="fas fa-chevron-right"></i>
@@ -434,343 +380,125 @@
           </div>
         </div>
 
-        <!-- Links & Navigation -->
-        <div class="topic-card" onclick="showTheory('links-navigation')">
+        <div class="topic-card" onclick="showTheory('html-forms')">
           <div class="topic-header">
-            <span>Links & Navigation</span>
-            <i class="fas fa-link"></i>
-          </div>
-          <div class="topic-content">
-            <div
-              class="subtopic"
-              onclick="event.stopPropagation(); showSubtopic('links-navigation', 'anchor-tags')"
-            >
-              <span>Anchor Tags</span>
-              <i class="fas fa-chevron-right"></i>
-            </div>
-            <div
-              class="subtopic"
-              onclick="event.stopPropagation(); showSubtopic('links-navigation', 'url-types')"
-            >
-              <span>URL Types</span>
-              <i class="fas fa-chevron-right"></i>
-            </div>
-            <div
-              class="subtopic"
-              onclick="event.stopPropagation(); showSubtopic('links-navigation', 'link-targets')"
-            >
-              <span>Link Targets</span>
-              <i class="fas fa-chevron-right"></i>
-            </div>
-            <div
-              class="subtopic"
-              onclick="event.stopPropagation(); showSubtopic('links-navigation', 'fragment-identifiers')"
-            >
-              <span>Fragment Identifiers</span>
-              <i class="fas fa-chevron-right"></i>
-            </div>
-          </div>
-        </div>
-
-        <!-- Lists -->
-        <div class="topic-card" onclick="showTheory('lists')">
-          <div class="topic-header">
-            <span>Lists</span>
-            <i class="fas fa-list"></i>
-          </div>
-          <div class="topic-content">
-            <div
-              class="subtopic"
-              onclick="event.stopPropagation(); showSubtopic('lists', 'ordered-lists')"
-            >
-              <span>Ordered Lists</span>
-              <i class="fas fa-chevron-right"></i>
-            </div>
-            <div
-              class="subtopic"
-              onclick="event.stopPropagation(); showSubtopic('lists', 'unordered-lists')"
-            >
-              <span>Unordered Lists</span>
-              <i class="fas fa-chevron-right"></i>
-            </div>
-            <div
-              class="subtopic"
-              onclick="event.stopPropagation(); showSubtopic('lists', 'description-lists')"
-            >
-              <span>Description Lists</span>
-              <i class="fas fa-chevron-right"></i>
-            </div>
-            <div
-              class="subtopic"
-              onclick="event.stopPropagation(); showSubtopic('lists', 'nested-lists')"
-            >
-              <span>Nested Lists</span>
-              <i class="fas fa-chevron-right"></i>
-            </div>
-          </div>
-        </div>
-
-        <!-- Images & Multimedia -->
-        <div class="topic-card" onclick="showTheory('images-multimedia')">
-          <div class="topic-header">
-            <span>Images & Multimedia</span>
-            <i class="fas fa-image"></i>
-          </div>
-          <div class="topic-content">
-            <div
-              class="subtopic"
-              onclick="event.stopPropagation(); showSubtopic('images-multimedia', 'image-tag')"
-            >
-              <span>Image Tag</span>
-              <i class="fas fa-chevron-right"></i>
-            </div>
-            <div
-              class="subtopic"
-              onclick="event.stopPropagation(); showSubtopic('images-multimedia', 'picture-element')"
-            >
-              <span>Picture Element</span>
-              <i class="fas fa-chevron-right"></i>
-            </div>
-            <div
-              class="subtopic"
-              onclick="event.stopPropagation(); showSubtopic('images-multimedia', 'audio-video')"
-            >
-              <span>Audio & Video</span>
-              <i class="fas fa-chevron-right"></i>
-            </div>
-            <div
-              class="subtopic"
-              onclick="event.stopPropagation(); showSubtopic('images-multimedia', 'lazy-loading')"
-            >
-              <span>Lazy Loading</span>
-              <i class="fas fa-chevron-right"></i>
-            </div>
-          </div>
-        </div>
-
-        <!-- Tables -->
-        <div class="topic-card" onclick="showTheory('tables')">
-          <div class="topic-header">
-            <span>Tables</span>
-            <i class="fas fa-table"></i>
-          </div>
-          <div class="topic-content">
-            <div
-              class="subtopic"
-              onclick="event.stopPropagation(); showSubtopic('tables', 'table-structure')"
-            >
-              <span>Table Structure</span>
-              <i class="fas fa-chevron-right"></i>
-            </div>
-            <div
-              class="subtopic"
-              onclick="event.stopPropagation(); showSubtopic('tables', 'table-headers')"
-            >
-              <span>Table Headers</span>
-              <i class="fas fa-chevron-right"></i>
-            </div>
-            <div
-              class="subtopic"
-              onclick="event.stopPropagation(); showSubtopic('tables', 'rowspan-colspan')"
-            >
-              <span>Rowspan & Colspan</span>
-              <i class="fas fa-chevron-right"></i>
-            </div>
-            <div
-              class="subtopic"
-              onclick="event.stopPropagation(); showSubtopic('tables', 'table-accessibility')"
-            >
-              <span>Table Accessibility</span>
-              <i class="fas fa-chevron-right"></i>
-            </div>
-          </div>
-        </div>
-
-        <!-- Forms -->
-        <div class="topic-card" onclick="showTheory('forms')">
-          <div class="topic-header">
-            <span>Forms</span>
+            <span>7. HTML Forms</span>
             <i class="fas fa-window-restore"></i>
           </div>
           <div class="topic-content">
             <div
               class="subtopic"
-              onclick="event.stopPropagation(); showSubtopic('forms', 'form-elements')"
+              onclick="event.stopPropagation(); showSubtopic('html-forms', 'form-elements')"
             >
               <span>Form Elements</span>
               <i class="fas fa-chevron-right"></i>
             </div>
             <div
               class="subtopic"
-              onclick="event.stopPropagation(); showSubtopic('forms', 'input-types')"
+              onclick="event.stopPropagation(); showSubtopic('html-forms', 'input-types')"
             >
               <span>Input Types</span>
               <i class="fas fa-chevron-right"></i>
             </div>
             <div
               class="subtopic"
-              onclick="event.stopPropagation(); showSubtopic('forms', 'form-validation')"
+              onclick="event.stopPropagation(); showSubtopic('html-forms', 'form-validation')"
             >
               <span>Form Validation</span>
               <i class="fas fa-chevron-right"></i>
             </div>
-            <div
-              class="subtopic"
-              onclick="event.stopPropagation(); showSubtopic('forms', 'form-accessibility')"
-            >
-              <span>Form Accessibility</span>
-              <i class="fas fa-chevron-right"></i>
-            </div>
           </div>
         </div>
+      </div>
 
-        <!-- Semantic HTML -->
-        <div class="topic-card" onclick="showTheory('semantic-html')">
+      <h2>JavaScript Topics</h2>
+      <div class="topics-grid">
+        <!-- JavaScript Topic Cards -->
+        <div class="topic-card" onclick="showTheory('js-basics')">
           <div class="topic-header">
-            <span>Semantic HTML</span>
-            <i class="fas fa-cube"></i>
+            <span>1. Basics of JavaScript</span>
+            <i class="fas fa-file-code"></i>
           </div>
           <div class="topic-content">
             <div
               class="subtopic"
-              onclick="event.stopPropagation(); showSubtopic('semantic-html', 'semantic-elements')"
+              onclick="event.stopPropagation(); showSubtopic('js-basics', 'data-types')"
             >
-              <span>Semantic Elements</span>
+              <span>Data Types & Variables</span>
               <i class="fas fa-chevron-right"></i>
             </div>
             <div
               class="subtopic"
-              onclick="event.stopPropagation(); showSubtopic('semantic-html', 'semantic-benefits')"
+              onclick="event.stopPropagation(); showSubtopic('js-basics', 'operators')"
             >
-              <span>Benefits of Semantics</span>
+              <span>Operators</span>
               <i class="fas fa-chevron-right"></i>
             </div>
             <div
               class="subtopic"
-              onclick="event.stopPropagation(); showSubtopic('semantic-html', 'aria-roles')"
+              onclick="event.stopPropagation(); showSubtopic('js-basics', 'control-structures')"
             >
-              <span>ARIA Roles</span>
-              <i class="fas fa-chevron-right"></i>
-            </div>
-            <div
-              class="subtopic"
-              onclick="event.stopPropagation(); showSubtopic('semantic-html', 'accessibility')"
-            >
-              <span>Accessibility</span>
+              <span>Control Structures</span>
               <i class="fas fa-chevron-right"></i>
             </div>
           </div>
         </div>
 
-        <!-- Meta & SEO -->
-        <div class="topic-card" onclick="showTheory('meta-seo')">
+        <div class="topic-card" onclick="showTheory('js-functions')">
           <div class="topic-header">
-            <span>Meta & SEO</span>
-            <i class="fas fa-search"></i>
-          </div>
-          <div class="topic-content">
-            <div
-              class="subtopic"
-              onclick="event.stopPropagation(); showSubtopic('meta-seo', 'meta-tags')"
-            >
-              <span>Meta Tags</span>
-              <i class="fas fa-chevron-right"></i>
-            </div>
-            <div
-              class="subtopic"
-              onclick="event.stopPropagation(); showSubtopic('meta-seo', 'seo-basics')"
-            >
-              <span>SEO Basics</span>
-              <i class="fas fa-chevron-right"></i>
-            </div>
-            <div
-              class="subtopic"
-              onclick="event.stopPropagation(); showSubtopic('meta-seo', 'viewport')"
-            >
-              <span>Viewport Meta Tag</span>
-              <i class="fas fa-chevron-right"></i>
-            </div>
-            <div
-              class="subtopic"
-              onclick="event.stopPropagation(); showSubtopic('meta-seo', 'social-meta')"
-            >
-              <span>Social Media Meta Tags</span>
-              <i class="fas fa-chevron-right"></i>
-            </div>
-          </div>
-        </div>
-
-        <!-- HTML APIs & Advanced Features -->
-        <div class="topic-card" onclick="showTheory('html-apis')">
-          <div class="topic-header">
-            <span>HTML APIs & Advanced</span>
+            <span>4. Functions</span>
             <i class="fas fa-cogs"></i>
           </div>
           <div class="topic-content">
             <div
               class="subtopic"
-              onclick="event.stopPropagation(); showSubtopic('html-apis', 'geolocation')"
+              onclick="event.stopPropagation(); showSubtopic('js-functions', 'function-declaration')"
             >
-              <span>Geolocation API</span>
+              <span>Function Declaration</span>
               <i class="fas fa-chevron-right"></i>
             </div>
             <div
               class="subtopic"
-              onclick="event.stopPropagation(); showSubtopic('html-apis', 'web-storage')"
+              onclick="event.stopPropagation(); showSubtopic('js-functions', 'arrow-functions')"
             >
-              <span>Web Storage</span>
+              <span>Arrow Functions</span>
               <i class="fas fa-chevron-right"></i>
             </div>
             <div
               class="subtopic"
-              onclick="event.stopPropagation(); showSubtopic('html-apis', 'canvas')"
+              onclick="event.stopPropagation(); showSubtopic('js-functions', 'closures')"
             >
-              <span>Canvas API</span>
-              <i class="fas fa-chevron-right"></i>
-            </div>
-            <div
-              class="subtopic"
-              onclick="event.stopPropagation(); showSubtopic('html-apis', 'drag-drop')"
-            >
-              <span>Drag & Drop</span>
+              <span>Closures</span>
               <i class="fas fa-chevron-right"></i>
             </div>
           </div>
         </div>
 
-        <!-- HTML Best Practices -->
-        <div class="topic-card" onclick="showTheory('best-practices')">
+        <div class="topic-card" onclick="showTheory('js-dom')">
           <div class="topic-header">
-            <span>Best Practices</span>
-            <i class="fas fa-check-circle"></i>
+            <span>10. DOM Manipulation</span>
+            <i class="fas fa-desktop"></i>
           </div>
           <div class="topic-content">
             <div
               class="subtopic"
-              onclick="event.stopPropagation(); showSubtopic('best-practices', 'proper-nesting')"
+              onclick="event.stopPropagation(); showSubtopic('js-dom', 'selecting-elements')"
             >
-              <span>Proper Nesting</span>
+              <span>Selecting Elements</span>
               <i class="fas fa-chevron-right"></i>
             </div>
             <div
               class="subtopic"
-              onclick="event.stopPropagation(); showSubtopic('best-practices', 'semantic-usage')"
+              onclick="event.stopPropagation(); showSubtopic('js-dom', 'event-listeners')"
             >
-              <span>Semantic Usage</span>
+              <span>Event Listeners</span>
               <i class="fas fa-chevron-right"></i>
             </div>
             <div
               class="subtopic"
-              onclick="event.stopPropagation(); showSubtopic('best-practices', 'performance')"
+              onclick="event.stopPropagation(); showSubtopic('js-dom', 'modifying-dom')"
             >
-              <span>Performance Optimization</span>
-              <i class="fas fa-chevron-right"></i>
-            </div>
-            <div
-              class="subtopic"
-              onclick="event.stopPropagation(); showSubtopic('best-practices', 'security')"
-            >
-              <span>Security Basics</span>
+              <span>Modifying DOM</span>
               <i class="fas fa-chevron-right"></i>
             </div>
           </div>
@@ -782,10 +510,26 @@
         <h3 id="theory-title">HTML Basics</h3>
 
         <div class="content-tabs">
-          <div class="tab active" onclick="switchTab('theory')">Theory</div>
-          <div class="tab" onclick="switchTab('example')">Example</div>
-          <div class="tab" onclick="switchTab('interactive')">Interactive</div>
-          <div class="tab" onclick="switchTab('game')">Game</div>
+          <div
+            class="tab active"
+            data-tab="theory"
+            onclick="switchTab('theory')"
+          >
+            Theory
+          </div>
+          <div class="tab" data-tab="example" onclick="switchTab('example')">
+            Example
+          </div>
+          <div
+            class="tab"
+            data-tab="interactive"
+            onclick="switchTab('interactive')"
+          >
+            Interactive
+          </div>
+          <div class="tab" data-tab="game" onclick="switchTab('game')">
+            Game
+          </div>
         </div>
 
         <div id="theory-tab" class="tab-content active">
@@ -794,7 +538,7 @@
           </div>
 
           <div class="code-example" id="code-example">
-            <!-- Code examples will appear here -->
+            // Code examples will appear here
           </div>
         </div>
 
@@ -810,11 +554,8 @@
           <div id="interactive-content">
             <p>Try it yourself! This area will have interactive examples.</p>
           </div>
+          <div class="output-container" id="output"></div>
           <button class="btn" id="run-button">Run Code</button>
-          <div class="output-container" id="output-container">
-            <strong>Output:</strong>
-            <div id="output"></div>
-          </div>
         </div>
 
         <div id="game-tab" class="tab-content">
@@ -827,14 +568,16 @@
     </div>
 
     <footer>
-      <p>HTML Learning Hub &copy; 2023</p>
-      <p>Interactive learning platform for HTML markup language</p>
+      <p>HTML & JavaScript Learning Hub &copy; 2023</p>
+      <p>Interactive learning platform for web development fundamentals</p>
     </footer>
-
     <script>
       // Current active topic and subtopic
       let currentTopic = null;
       let currentSubtopic = null;
+
+      // Store original content for search functionality
+      const originalContents = new Map();
 
       // Function to show theory based on topic
       function showTheory(topicId) {
@@ -865,89 +608,83 @@
           case "html-basics":
             theoryTitle.textContent = "HTML Basics";
             theoryContent.innerHTML = `
-                        <p>HTML (HyperText Markup Language) is the standard markup language for documents designed to be displayed in a web browser.</p>
-                        <p>It defines the structure and content of web pages. HTML consists of a series of elements that you use to enclose, wrap, or mark up different parts of content to make it appear or act in a certain way.</p>
-                        <p><strong>Key Points:</strong></p>
-                        <ul>
-                            <li>HTML is not a programming language; it's a markup language</li>
-                            <li>HTML uses tags to define elements within the document</li>
-                            <li>Each HTML element tells the browser something about the information it contains</li>
-                            <li>HTML documents are saved with .html extension</li>
-                        </ul>
-                    `;
+                <p>HTML (HyperText Markup Language) is the standard markup language for creating web pages.</p>
+                <p>It describes the structure of a web page and consists of a series of elements that tell the browser how to display content.</p>
+                <p><strong>Key Points:</strong></p>
+                <ul>
+                    <li>HTML is the foundation of all web pages</li>
+                    <li>It provides structure to the content</li>
+                    <li>HTML elements are represented by tags</li>
+                    <li>Browsers don't display HTML tags but use them to render content</li>
+                </ul>
+            `;
             codeExample.textContent = `<!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My First HTML Page</title>
+    <title>My First Web Page</title>
 </head>
 <body>
     <h1>Welcome to HTML</h1>
-    <p>This is a paragraph of text on my first web page.</p>
-    <a href="https://www.example.com">Visit Example.com</a>
+    <p>This is a paragraph.</p>
 </body>
 </html>`;
             break;
-          case "text-formatting":
+          case "html-formatting":
             theoryTitle.textContent = "HTML Text Formatting";
             theoryContent.innerHTML = `
-                        <p>HTML provides various elements for formatting text with special meaning.</p>
-                        <p>These elements help convey the semantic meaning of text content to both browsers and developers.</p>
-                        <p><strong>Text Formatting Elements:</strong></p>
-                        <ul>
-                            <li><strong>Headings:</strong> &lt;h1&gt; to &lt;h6&gt; for section headings</li>
-                            <li><strong>Paragraphs:</strong> &lt;p&gt; for blocks of text</li>
-                            <li><strong>Emphasis:</strong> &lt;em&gt; for emphasized text (typically italic)</li>
-                            <li><strong>Strong:</strong> &lt;strong&gt; for important text (typically bold)</li>
-                            <li><strong>Other:</strong> &lt;mark&gt;, &lt;small&gt;, &lt;del&gt;, &lt;ins&gt;, &lt;sub&gt;, &lt;sup&gt;</li>
-                        </ul>
-                    `;
+                <p>HTML provides various tags for formatting text with special meaning.</p>
+                <p>These elements help convey the semantic meaning of text content to both browsers and developers.</p>
+                <p><strong>Text Formatting Elements:</strong></p>
+                <ul>
+                    <li>Headings: <code>&lt;h1&gt;</code> to <code>&lt;h6&gt;</code> for section headings</li>
+                    <li>Paragraphs: <code>&lt;p&gt;</code> for blocks of text</li>
+                    <li>Emphasis: <code>&lt;em&gt;</code> for emphasized text (typically italic)</li>
+                    <li>Strong: <code>&lt;strong&gt;</code> for important text (typically bold)</li>
+                    <li>Other: <code>&lt;mark&gt;</code>, <code>&lt;small&gt;</code>, <code>&lt;del&gt;</code>, <code>&lt;ins&gt;</code>, <code>&lt;sub&gt;</code>, <code>&lt;sup&gt;</code></li>
+                </ul>
+            `;
             codeExample.textContent = `<h1>Main Heading (h1)</h1>
 <h2>Secondary Heading (h2)</h2>
 <h3>Tertiary Heading (h3)</h3>
-
 <p>This is a regular paragraph of text. It can contain <em>emphasized text</em> and <strong>strongly important text</strong>.</p>
-
 <p>We can also have <mark>highlighted text</mark>, <small>small text</small>, <del>deleted text</del>, and <ins>inserted text</ins>.</p>
-
 <p>Scientific notation: H<sub>2</sub>O, E=mc<sup>2</sup></p>`;
             break;
-          case "forms":
+          case "html-forms":
             theoryTitle.textContent = "HTML Forms";
             theoryContent.innerHTML = `
-                        <p>HTML forms are used to collect user input. A form contains input elements like text fields, checkboxes, radio buttons, submit buttons, etc.</p>
-                        <p>Forms are submitted to a server for processing, typically using the POST or GET method.</p>
-                        <p><strong>Form Elements:</strong></p>
-                        <ul>
-                            <li><strong>&lt;form&gt;:</strong> The container for all form elements</li>
-                            <li><strong>&lt;input&gt;:</strong> The most important form element with many types (text, password, radio, checkbox, etc.)</li>
-                            <li><strong>&lt;textarea&gt;:</strong> For multi-line text input</li>
-                            <li><strong>&lt;select&gt;:</strong> For drop-down lists</li>
-                            <li><strong>&lt;button&gt;:</strong> For clickable buttons</li>
-                            <li><strong>&lt;label&gt;:</strong> Defines a label for an input element</li>
-                        </ul>
-                    `;
-            codeExample.textContent = `<form action="/submit-form" method="post">
-    <label for="fname">First Name:</label><br>
-    <input type="text" id="fname" name="fname" required><br><br>
+                <p>HTML forms are used to collect user input. A form contains input elements like text fields, checkboxes, radio buttons, submit buttons, etc.</p>
+                <p>Forms are submitted to a server for processing, typically using the POST or GET method.</p>
+                <p><strong>Form Elements:</strong></p>
+                <ul>
+                    <li><code>&lt;form&gt;</code>: The container for all form elements</li>
+                    <li><code>&lt;input&gt;</code>: The most important form element with many types (text, password, radio, checkbox, etc.)</li>
+                    <li><code>&lt;textarea&gt;</code>: For multi-line text input</li>
+                    <li><code>&lt;select&gt;</code>: For drop-down lists</li>
+                    <li><code>&lt;button&gt;</code>: For clickable buttons</li>
+                    <li><code>&lt;label&gt;</code>: Defines a label for an input element</li>
+                </ul>
+            `;
+            codeExample.textContent = `<form>
+    <label for="fname">First Name:</label>
+    <input type="text" id="fname" name="fname"><br><br>
     
-    <label for="lname">Last Name:</label><br>
+    <label for="lname">Last Name:</label>
     <input type="text" id="lname" name="lname"><br><br>
     
-    <label for="email">Email:</label><br>
-    <input type="email" id="email" name="email" required><br><br>
+    <label for="email">Email:</label>
+    <input type="email" id="email" name="email"><br><br>
     
-    <label for="password">Password:</label><br>
-    <input type="password" id="password" name="password" minlength="8" required><br><br>
+    <label for="pwd">Password:</label>
+    <input type="password" id="pwd" name="pwd"><br><br>
     
-    <label for="gender">Gender:</label><br>
+    <label>Gender:</label>
     <input type="radio" id="male" name="gender" value="male">
     <label for="male">Male</label>
     <input type="radio" id="female" name="gender" value="female">
     <label for="female">Female</label><br><br>
     
-    <label for="country">Country:</label><br>
+    <label for="country">Country:</label>
     <select id="country" name="country">
         <option value="usa">United States</option>
         <option value="canada">Canada</option>
@@ -958,15 +695,113 @@
     <textarea id="message" name="message" rows="4" cols="50"></textarea><br><br>
     
     <input type="checkbox" id="subscribe" name="subscribe" value="yes">
-    <label for="subscribe">Subscribe to newsletter</label><br><br>
+    <label for="subscribe"> Subscribe to newsletter</label><br><br>
     
     <input type="submit" value="Submit">
 </form>`;
             break;
+          case "js-basics":
+            theoryTitle.textContent = "JavaScript Basics";
+            theoryContent.innerHTML = `
+                <p>JavaScript is a programming language that enables interactive web pages.</p>
+                <p>It is a core technology of the web, alongside HTML and CSS.</p>
+                <p><strong>Key Concepts:</strong></p>
+                <ul>
+                    <li>Variables - Store data values</li>
+                    <li>Data Types - String, Number, Boolean, Object, etc.</li>
+                    <li>Operators - Perform operations on variables and values</li>
+                    <li>Control Structures - Conditional statements and loops</li>
+                </ul>
+            `;
+            codeExample.textContent = `// Variables
+let message = "Hello, World!";
+const pi = 3.14;
+
+// Data Types
+let name = "John"; // String
+let age = 25; // Number
+let isStudent = true; // Boolean
+
+// Operators
+let sum = 10 + 5; // 15
+let isAdult = age >= 18; // true
+
+// Conditional statement
+if (isAdult) {
+    console.log("You are an adult");
+} else {
+    console.log("You are a minor");
+}`;
+            break;
+          case "js-functions":
+            theoryTitle.textContent = "JavaScript Functions";
+            theoryContent.innerHTML = `
+                <p>Functions are one of the fundamental building blocks in JavaScript.</p>
+                <p>A function is a set of statements that performs a task or calculates a value.</p>
+                <p><strong>Function Types:</strong></p>
+                <ul>
+                    <li>Function declarations</li>
+                    <li>Function expressions</li>
+                    <li>Arrow functions</li>
+                    <li>IIFE (Immediately Invoked Function Expressions)</li>
+                </ul>
+            `;
+            codeExample.textContent = `// Function declaration
+function greet(name) {
+    return 'Hello, ' + name;
+}
+
+// Function expression
+const square = function(x) {
+    return x * x;
+};
+
+// Arrow function
+const multiply = (a, b) => a * b;
+
+// IIFE
+(function() {
+    console.log('This runs immediately');
+})();`;
+            break;
+          case "js-dom":
+            theoryTitle.textContent = "DOM Manipulation";
+            theoryContent.innerHTML = `
+                <p>The Document Object Model (DOM) is a programming interface for web documents.</p>
+                <p>It represents the page so that programs can change the document structure, style, and content.</p>
+                <p><strong>Common DOM Operations:</strong></p>
+                <ul>
+                    <li>Selecting elements</li>
+                    <li>Traversing the DOM tree</li>
+                    <li>Modifying elements and attributes</li>
+                    <li>Handling events</li>
+                    <li>Creating and removing elements</li>
+                </ul>
+            `;
+            codeExample.textContent = `// Selecting elements
+const header = document.getElementById('header');
+const buttons = document.querySelectorAll('.btn');
+
+// Modifying content
+header.textContent = 'New Title';
+header.style.color = 'blue';
+
+// Handling events
+buttons.forEach(button => {
+    button.addEventListener('click', function() {
+        alert('Button clicked!');
+    });
+});
+
+// Creating new elements
+const newParagraph = document.createElement('p');
+newParagraph.textContent = 'This is a new paragraph.';
+document.body.appendChild(newParagraph);`;
+            break;
           default:
             theoryTitle.textContent = "Topic Overview";
             theoryContent.textContent = "Select a topic to view its content.";
-            codeExample.textContent = "<!-- Code examples will appear here -->";
+            codeExample.textContent = "// Code examples will appear here";
         }
 
         // Update live example based on topic
@@ -1003,22 +838,21 @@
           case "what-is-html":
             theoryTitle.textContent = "What is HTML?";
             theoryContent.innerHTML = `
-                        <p>HTML (HyperText Markup Language) is the standard markup language for creating web pages and web applications.</p>
-                        <p>It describes the structure of a web page semantically and originally included cues for the appearance of the document.</p>
-                        <p><strong>Key Characteristics:</strong></p>
-                        <ul>
-                            <li>HTML is not a programming language; it's a markup language</li>
-                            <li>HTML uses a system of tags and attributes to define elements</li>
-                            <li>HTML documents are interpreted by web browsers to display content</li>
-                            <li>HTML works alongside CSS (styling) and JavaScript (behavior)</li>
-                        </ul>
-                        <p><strong>History:</strong> HTML was created by Tim Berners-Lee in 1991. The first standard was HTML 2.0 (1995). 
-                        The current version is HTML5, which introduced many new semantic elements and APIs.</p>
-                    `;
+                <p>HTML (HyperText Markup Language) is the standard markup language for creating web pages and web applications.</p>
+                <p>It describes the structure of a web page semantically and originally included cues for the appearance of the document.</p>
+                <p><strong>Key Characteristics:</strong></p>
+                <ul>
+                    <li>HTML is not a programming language; it's a markup language</li>
+                    <li>HTML uses a system of tags and attributes to define elements</li>
+                    <li>HTML documents are interpreted by web browsers to display content</li>
+                    <li>HTML works alongside CSS (styling) and JavaScript (behavior)</li>
+                </ul>
+                <p><strong>History:</strong> HTML was created by Tim Berners-Lee in 1991. The first standard was HTML 2.0 (1995). The current version is HTML5, which introduced many new semantic elements and APIs.</p>
+            `;
             codeExample.textContent = `<!DOCTYPE html>
 <html>
 <head>
-    <title>Page Title</title>
+    <title>My First Web Page</title>
 </head>
 <body>
     <h1>My First Heading</h1>
@@ -1026,19 +860,44 @@
 </body>
 </html>`;
             break;
-          case "headings":
+          case "elements-tags":
+            theoryTitle.textContent = "HTML Elements & Tags";
+            theoryContent.innerHTML = `
+                <p>HTML elements are the building blocks of web pages. Each element is represented by tags.</p>
+                <p><strong>Element Structure:</strong></p>
+                <ul>
+                    <li>Start tag: <code>&lt;tagname&gt;</code></li>
+                    <li>Content: The actual content</li>
+                    <li>End tag: <code>&lt;/tagname&gt;</code></li>
+                </ul>
+                <p>Some elements are self-closing (void elements) and don't have an end tag, like <code>&lt;img&gt;</code> and <code>&lt;br&gt;</code>.</p>
+            `;
+            codeExample.textContent = `<!-- Paragraph element -->
+<p>This is a paragraph</p>
+
+<!-- Heading elements -->
+<h1>Main Heading</h1>
+<h2>Subheading</h2>
+
+<!-- Image element (self-closing) -->
+<img src="image.jpg" alt="Description">
+
+<!-- Link element -->
+<a href="https://www.example.com">Visit Example.com</a>`;
+            break;
+          case "headings-paragraphs":
             theoryTitle.textContent = "HTML Headings";
             theoryContent.innerHTML = `
-                        <p>HTML headings are titles or subtitles that you want to display on a webpage.</p>
-                        <p>HTML provides six levels of headings, from &lt;h1&gt; to &lt;h6&gt;, with &lt;h1&gt; being the most important and &lt;h6&gt; the least important.</p>
-                        <p><strong>Best Practices:</strong></p>
-                        <ul>
-                            <li>Use headings to structure content, not just for styling</li>
-                            <li>Maintain a logical hierarchy (h1 followed by h2, then h3, etc.)</li>
-                            <li>Each page should have only one &lt;h1&gt; element</li>
-                            <li>Search engines use headings to index the structure and content of web pages</li>
-                        </ul>
-                    `;
+                <p>HTML headings are titles or subtitles that you want to display on a webpage.</p>
+                <p>HTML provides six levels of headings, from <code>&lt;h1&gt;</code> to <code>&lt;h6&gt;</code>, with <code>&lt;h1&gt;</code> being the most important and <code>&lt;h6&gt;</code> the least important.</p>
+                <p><strong>Best Practices:</strong></p>
+                <ul>
+                    <li>Use headings to structure content, not just for styling</li>
+                    <li>Maintain a logical hierarchy (h1 followed by h2, then h3, etc.)</li>
+                    <li>Each page should have only one <code>&lt;h1&gt;</code> element</li>
+                    <li>Search engines use headings to index the structure and content of web pages</li>
+                </ul>
+            `;
             codeExample.textContent = `<h1>This is heading 1 - Most Important</h1>
 <h2>This is heading 2</h2>
 <h3>This is heading 3</h3>
@@ -1049,65 +908,159 @@
           case "form-elements":
             theoryTitle.textContent = "HTML Form Elements";
             theoryContent.innerHTML = `
-                        <p>HTML forms contain various elements that allow users to enter data.</p>
-                        <p>Each form element serves a specific purpose and has different attributes to control its behavior.</p>
-                        <p><strong>Common Form Elements:</strong></p>
-                        <ul>
-                            <li><strong>&lt;input&gt;:</strong> The most versatile form element with many types (text, password, checkbox, radio, etc.)</li>
-                            <li><strong>&lt;textarea&gt;:</strong> For multi-line text input</li>
-                            <li><strong>&lt;select&gt;:</strong> Creates a drop-down list with &lt;option&gt; elements</li>
-                            <li><strong>&lt;button&gt;:</strong> Defines a clickable button</li>
-                            <li><strong>&lt;fieldset&gt;:</strong> Groups related elements in a form</li>
-                            <li><strong>&lt;legend&gt;:</strong> Defines a caption for a &lt;fieldset&gt;</li>
-                            <li><strong>&lt;datalist&gt;:</strong> Specifies a list of pre-defined options for input elements</li>
-                            <li><strong>&lt;output&gt;:</strong> Represents the result of a calculation</li>
-                        </ul>
-                    `;
+                <p>HTML forms contain various elements that allow users to enter data.</p>
+                <p>Each form element serves a specific purpose and has different attributes to control its behavior.</p>
+                <p><strong>Common Form Elements:</strong></p>
+                <ul>
+                    <li><code>&lt;input&gt;</code>: The most versatile form element with many types (text, password, checkbox, radio, etc.)</li>
+                    <li><code>&lt;textarea&gt;</code>: For multi-line text input</li>
+                    <li><code>&lt;select&gt;</code>: Creates a drop-down list with <code>&lt;option&gt;</code> elements</li>
+                    <li><code>&lt;button&gt;</code>: Defines a clickable button</li>
+                    <li><code>&lt;fieldset&gt;</code>: Groups related elements in a form</li>
+                    <li><code>&lt;legend&gt;</code>: Defines a caption for a <code>&lt;fieldset&gt;</code></li>
+                    <li><code>&lt;datalist&gt;</code>: Specifies a list of pre-defined options for input elements</li>
+                    <li><code>&lt;output&gt;</code>: Represents the result of a calculation</li>
+                </ul>
+            `;
             codeExample.textContent = `<form>
     <fieldset>
         <legend>Personal Information</legend>
+        <label for="name">Name: </label>
+        <input type="text" id="name" name="name"><br><br>
         
-        <label for="name">Name:</label>
-        <input type="text" id="name" name="name" required><br><br>
+        <label for="email">Email: </label>
+        <input type="email" id="email" name="email" placeholder="email@example.com"><br><br>
         
-        <label for="email">Email:</label>
-        <input type="email" id="email" name="email" required><br><br>
+        <label for="bday">Birthdate: </label>
+        <input type="date" id="bday" name="bday"><br><br>
         
-        <label for="birthdate">Birthdate:</label>
-        <input type="date" id="birthdate" name="birthdate"><br><br>
-        
-        <label for="avatar">Profile Picture:</label>
-        <input type="file" id="avatar" name="avatar" accept="image/png, image/jpeg"><br><br>
+        <label for="myfile">Profile Picture: </label>
+        <input type="file" id="myfile" name="myfile"><br><br>
     </fieldset>
     
     <fieldset>
         <legend>Preferences</legend>
+        <label for="favcolor">Favorite Color: </label>
+        <input type="color" id="favcolor" name="favcolor" value="#ff0000"><br><br>
         
-        <label for="colors">Favorite Color:</label>
-        <input type="color" id="colors" name="colors" value="#e44d26"><br><br>
+        <label for="browser">Favorite Browser: </label>
+        <input list="browsers" id="browser" name="browser">
+        <datalist id="browsers">
+            <option value="Chrome">
+            <option value="Firefox">
+            <option value="Safari">
+            <option value="Edge">
+        </datalist><br><br>
         
-        <label for="browser">Favorite Browser:</label>
-        <select id="browser" name="browser">
-            <option value="chrome">Chrome</option>
-            <option value="firefox">Firefox</option>
-            <option value="safari">Safari</option>
-            <option value="edge">Edge</option>
-        </select><br><br>
-        
-        <label for="comments">Comments:</label><br>
-        <textarea id="comments" name="comments" rows="4" cols="50"></textarea><br><br>
+        <label for="message">Comments:</label><br>
+        <textarea id="message" name="message" rows="4" cols="50"></textarea><br><br>
     </fieldset>
     
     <input type="submit" value="Submit">
-    <input type="reset" value="Reset">
 </form>`;
+            break;
+          case "data-types":
+            theoryTitle.textContent = "Data Types & Variables";
+            theoryContent.innerHTML = `
+                <p>JavaScript variables can hold different types of data values.</p>
+                <p><strong>Primitive Data Types:</strong></p>
+                <ul>
+                    <li>String - textual data</li>
+                    <li>Number - integer and floating-point numbers</li>
+                    <li>Boolean - true/false values</li>
+                    <li>Undefined - a declared but uninitialized variable</li>
+                    <li>Null - intentional absence of any object value</li>
+                    <li>Symbol - unique and immutable primitive value</li>
+                    <li>BigInt - integers with arbitrary precision</li>
+                </ul>
+                <p><strong>Variable Declaration:</strong> JavaScript uses <code>var</code>, <code>let</code>, and <code>const</code> to declare variables.</p>
+            `;
+            codeExample.textContent = `// String
+let message = "Hello, World!";
+
+// Number
+let count = 10;
+let price = 99.95;
+
+// Boolean
+let isActive = true;
+let isComplete = false;
+
+// Undefined
+let undefinedVar;
+
+// Null
+let emptyValue = null;
+
+// Symbol
+let sym = Symbol('description');
+
+// BigInt
+let bigNumber = 123456789012345678901234567890n;
+
+// Variable declarations
+var oldVariable = "I'm a var";
+let changeableVariable = "I can change";
+const constantVariable = "I cannot change";`;
+            break;
+          case "function-declaration":
+            theoryTitle.textContent = "Function Declaration";
+            theoryContent.innerHTML = `
+                <p>Function declarations define named functions that can be called later in the code.</p>
+                <p><strong>Syntax:</strong> <code>function name(parameter1, parameter2) { // code to be executed }</code></p>
+                <p>Function declarations are hoisted, meaning they can be called before they are defined in the code.</p>
+            `;
+            codeExample.textContent = `// Function declaration
+function calculateArea(width, height) {
+    return width * height;
+}
+
+// Calling the function
+let area = calculateArea(5, 10);
+console.log(area); // Output: 50
+
+// Function with default parameters
+function greet(name = "Guest") {
+    return "Hello, " + name;
+}
+
+console.log(greet("Alice")); // Output: Hello, Alice
+console.log(greet());        // Output: Hello, Guest`;
+            break;
+          case "selecting-elements":
+            theoryTitle.textContent = "Selecting DOM Elements";
+            theoryContent.innerHTML = `
+                <p>JavaScript provides several methods to select elements from the DOM.</p>
+                <p><strong>Common Methods:</strong></p>
+                <ul>
+                    <li><code>document.getElementById()</code> - selects an element by its ID</li>
+                    <li><code>document.querySelector()</code> - selects the first element that matches a CSS selector</li>
+                    <li><code>document.querySelectorAll()</code> - selects all elements that match a CSS selector</li>
+                    <li><code>document.getElementsByClassName()</code> - selects elements by class name</li>
+                    <li><code>document.getElementsByTagName()</code> - selects elements by tag name</li>
+                </ul>
+            `;
+            codeExample.textContent = `// Select by ID
+const header = document.getElementById('header');
+
+// Select by class name (returns HTMLCollection)
+const items = document.getElementsByClassName('item');
+
+// Select by tag name (returns HTMLCollection)
+const paragraphs = document.getElementsByTagName('p');
+
+// Select using CSS selectors (returns NodeList)
+const button = document.querySelector('.btn-primary');
+const allButtons = document.querySelectorAll('.btn');
+
+// Convert HTMLCollection or NodeList to Array if needed
+const itemsArray = Array.from(items);`;
             break;
           default:
             theoryTitle.textContent = "Subtopic Details";
             theoryContent.textContent =
               "Detailed content for this subtopic will appear here.";
-            codeExample.textContent =
-              "<!-- Code examples for this subtopic -->";
+            codeExample.textContent = "// Code examples for this subtopic";
         }
 
         // Update other tabs based on the subtopic
@@ -1122,63 +1075,95 @@
 
         if (subtopicId === "what-is-html") {
           liveExample.innerHTML = `
-                    <h3>Basic HTML Document Structure:</h3>
-                    <div class="html-preview">
-                        <h1>Welcome to HTML</h1>
-                        <p>This is a paragraph demonstrating basic HTML structure.</p>
-                        <a href="#" style="color: #e44d26;">This is a link</a>
-                    </div>
-                    <p>The example above shows a simple HTML document with a heading, paragraph, and link.</p>
-                `;
-        } else if (subtopicId === "headings") {
+            <h3>Basic HTML Document Structure:</h3>
+            <div style="border: 1px solid #ddd; padding: 1rem; border-radius: 4px;">
+                <h1>Welcome to HTML</h1>
+                <p>This is a paragraph demonstrating basic HTML structure.</p>
+                <a href="#" style="color: var(--primary);">This is a link</a>
+            </div>
+            <p style="margin-top: 1rem;">The example above shows a simple HTML document with a heading, paragraph, and link.</p>
+        `;
+        } else if (subtopicId === "headings-paragraphs") {
           liveExample.innerHTML = `
-                    <h3>HTML Headings Example:</h3>
-                    <div class="html-preview">
-                        <h1>Main Title (h1)</h1>
-                        <h2>Section Heading (h2)</h2>
-                        <h3>Subsection Heading (h3)</h3>
-                        <h4>Minor Heading (h4)</h4>
-                        <h5>Small Heading (h5)</h5>
-                        <h6>Tiny Heading (h6)</h6>
-                    </div>
-                    <p>Notice how the font size decreases as the heading level increases.</p>
-                `;
+            <h3>HTML Headings Example:</h3>
+            <div style="border: 1px solid #ddd; padding: 1rem; border-radius: 4px;">
+                <h1>Main Title (h1)</h1>
+                <h2>Section Heading (h2)</h2>
+                <h3>Subsection Heading (h3)</h3>
+                <h4>Minor Heading (h4)</h4>
+                <h5>Small Heading (h5)</h5>
+                <h6>Tiny Heading (h6)</h6>
+            </div>
+            <p style="margin-top: 1rem;">Notice how the font size decreases as the heading level increases.</p>
+        `;
         } else if (subtopicId === "form-elements") {
           liveExample.innerHTML = `
-                    <h3>HTML Form Elements Example:</h3>
-                    <div class="html-preview">
-                        <form style="max-width: 500px;">
-                            <fieldset>
-                                <legend>Sample Form</legend>
-                                
-                                <label for="sample-name">Name:</label>
-                                <input type="text" id="sample-name" name="sample-name" placeholder="Enter your name"><br><br>
-                                
-                                <label for="sample-email">Email:</label>
-                                <input type="email" id="sample-email" name="sample-email" placeholder="email@example.com"><br><br>
-                                
-                                <label for="sample-password">Password:</label>
-                                <input type="password" id="sample-password" name="sample-password"><br><br>
-                                
-                                <label>Gender:</label><br>
-                                <input type="radio" id="male" name="gender" value="male">
-                                <label for="male">Male</label>
-                                <input type="radio" id="female" name="gender" value="female">
-                                <label for="female">Female</label><br><br>
-                                
-                                <label for="comments">Comments:</label><br>
-                                <textarea id="comments" name="comments" rows="3" cols="40"></textarea><br><br>
-                                
-                                <input type="checkbox" id="agree" name="agree">
-                                <label for="agree">I agree to the terms</label><br><br>
-                                
-                                <input type="submit" value="Submit" class="btn">
-                                <input type="reset" value="Clear" class="btn" style="background-color: #6c757d;">
-                            </fieldset>
-                        </form>
+            <h3>HTML Form Elements Example:</h3>
+            <div style="border: 1px solid #ddd; padding: 1rem; border-radius: 4px;">
+                <h4>Sample Form</h4>
+                <form>
+                    <div style="margin-bottom: 1rem;">
+                        <label for="demo-name" style="display: block; margin-bottom: 0.5rem;">Name: </label>
+                        <input type="text" id="demo-name" name="demo-name" placeholder="Enter your name" style="padding: 0.5rem; width: 100%; border: 1px solid #ddd; border-radius: 4px;">
                     </div>
-                    <p>Try interacting with the different form elements above.</p>
-                `;
+                    
+                    <div style="margin-bottom: 1rem;">
+                        <label for="demo-email" style="display: block; margin-bottom: 0.5rem;">Email: </label>
+                        <input type="email" id="demo-email" name="demo-email" placeholder="email@example.com" style="padding: 0.5rem; width: 100%; border: 1px solid #ddd; border-radius: 4px;">
+                    </div>
+                    
+                    <div style="margin-bottom: 1rem;">
+                        <label for="demo-password" style="display: block; margin-bottom: 0.5rem;">Password: </label>
+                        <input type="password" id="demo-password" name="demo-password" style="padding: 0.5rem; width: 100%; border: 1px solid #ddd; border-radius: 4px;">
+                    </div>
+                    
+                    <div style="margin-bottom: 1rem;">
+                        <label style="display: block; margin-bottom: 0.5rem;">Gender:</label>
+                        <input type="radio" id="demo-male" name="demo-gender" value="male">
+                        <label for="demo-male"> Male</label>
+                        <input type="radio" id="demo-female" name="demo-gender" value="female" style="margin-left: 1rem;">
+                        <label for="demo-female"> Female</label>
+                    </div>
+                    
+                    <div style="margin-bottom: 1rem;">
+                        <label for="demo-comments" style="display: block; margin-bottom: 0.5rem;">Comments:</label>
+                        <textarea id="demo-comments" name="demo-comments" rows="3" style="padding: 0.5rem; width: 100%; border: 1px solid #ddd; border-radius: 4px;"></textarea>
+                    </div>
+                    
+                    <div style="margin-bottom: 1rem;">
+                        <input type="checkbox" id="demo-agree" name="demo-agree" value="yes">
+                        <label for="demo-agree"> I agree to the terms</label>
+                    </div>
+                    
+                    <button type="submit" style="background-color: var(--primary); color: white; border: none; padding: 0.5rem 1rem; border-radius: 4px; cursor: pointer;">Submit</button>
+                </form>
+            </div>
+            <p style="margin-top: 1rem;">Try interacting with the different form elements above.</p>
+        `;
+        } else if (topicId === "html-forms") {
+          liveExample.innerHTML = `
+            <h3>HTML Form Example:</h3>
+            <div style="border: 1px solid #ddd; padding: 1rem; border-radius: 4px;">
+                <form>
+                    <div style="margin-bottom: 1rem;">
+                        <label for="fullname" style="display: block; margin-bottom: 0.5rem;">Full Name: </label>
+                        <input type="text" id="fullname" name="fullname" style="padding: 0.5rem; width: 100%; border: 1px solid #ddd; border-radius: 4px;">
+                    </div>
+                    
+                    <div style="margin-bottom: 1rem;">
+                        <label for="user-email" style="display: block; margin-bottom: 0.5rem;">Email: </label>
+                        <input type="email" id="user-email" name="user-email" style="padding: 0.5rem; width: 100%; border: 1px solid #ddd; border-radius: 4px;">
+                    </div>
+                    
+                    <div style="margin-bottom: 1rem;">
+                        <label for="user-password" style="display: block; margin-bottom: 0.5rem;">Password: </label>
+                        <input type="password" id="user-password" name="user-password" style="padding: 0.5rem; width: 100%; border: 1px solid #ddd; border-radius: 4px;">
+                    </div>
+                    
+                    <button type="submit" style="background-color: var(--primary); color: white; border: none; padding: 0.5rem 1rem; border-radius: 4px; cursor: pointer;">Register</button>
+                </form>
+            </div>
+        `;
         } else {
           liveExample.innerHTML = `<p>Live examples will appear here when you select a topic or subtopic.</p>`;
         }
@@ -1193,8 +1178,8 @@
 
         if (subtopicId === "what-is-html") {
           interactiveContent.innerHTML = `
-                    <p>Try creating your first HTML page:</p>
-                    <textarea class="code-editor" id="html-editor">
+            <p>Try creating your first HTML page:</p>
+            <textarea class="code-editor" id="html-editor">
 <!DOCTYPE html>
 <html>
 <head>
@@ -1204,14 +1189,14 @@
     <h1>Welcome to My Website</h1>
     <p>This is my first web page.</p>
 </body>
-</html>
-                    </textarea>
-                `;
+</html></textarea>
+        `;
           runButton.onclick = () => runHTMLCode("html-editor");
-        } else if (subtopicId === "headings") {
+          runButton.style.display = "block";
+        } else if (subtopicId === "headings-paragraphs") {
           interactiveContent.innerHTML = `
-                    <p>Practice using different heading levels:</p>
-                    <textarea class="code-editor" id="headings-editor">
+            <p>Practice using different heading levels:</p>
+            <textarea class="code-editor" id="headings-editor">
 <!DOCTYPE html>
 <html>
 <head>
@@ -1230,13 +1215,90 @@
     <h2>Second Section</h2>
     <p>Content for the second section</p>
 </body>
-</html>
-                    </textarea>
-                `;
+</html></textarea>
+        `;
           runButton.onclick = () => runHTMLCode("headings-editor");
+          runButton.style.display = "block";
+        } else if (subtopicId === "form-elements") {
+          interactiveContent.innerHTML = `
+            <p>Try creating a form with different input types:</p>
+            <textarea class="code-editor" id="forms-editor">
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Form Practice</title>
+</head>
+<body>
+    <h1>Registration Form</h1>
+    <form>
+        <div>
+            <label for="username">Username:</label>
+            <input type="text" id="username" name="username">
+        </div>
+        <div>
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email">
+        </div>
+        <div>
+            <label for="password">Password:</label>
+            <input type="password" id="password" name="password">
+        </div>
+        <div>
+            <label>Gender:</label>
+            <input type="radio" id="male" name="gender" value="male">
+            <label for="male">Male</label>
+            <input type="radio" id="female" name="gender" value="female">
+            <label for="female">Female</label>
+        </div>
+        <div>
+            <label for="country">Country:</label>
+            <select id="country" name="country">
+                <option value="usa">United States</option>
+                <option value="canada">Canada</option>
+                <option value="uk">United Kingdom</option>
+            </select>
+        </div>
+        <div>
+            <input type="checkbox" id="terms" name="terms">
+            <label for="terms">I agree to the terms and conditions</label>
+        </div>
+        <button type="submit">Register</button>
+    </form>
+</body>
+</html></textarea>
+        `;
+          runButton.onclick = () => runHTMLCode("forms-editor");
+          runButton.style.display = "block";
+        } else if (topicId === "js-basics" || subtopicId === "data-types") {
+          interactiveContent.innerHTML = `
+            <p>Try this simple JavaScript interactive example:</p>
+            <div style="margin: 15px 0;">
+                <input type="text" id="userName" placeholder="Enter your name" style="padding: 8px; width: 200px; border: 1px solid #ddd; border-radius: 4px;">
+                <button onclick="greetUser()" class="btn">Greet Me</button>
+            </div>
+            <div id="greetingOutput" style="margin-top: 10px; font-weight: bold;"></div>
+        `;
+          runButton.style.display = "none";
+        } else if (
+          topicId === "js-dom" ||
+          subtopicId === "selecting-elements"
+        ) {
+          interactiveContent.innerHTML = `
+            <p>Try selecting and modifying elements:</p>
+            <div style="margin: 15px 0;">
+                <button onclick="changeHeading()" class="btn">Change Heading Color</button>
+                <button onclick="addParagraph()" class="btn">Add Paragraph</button>
+                <button onclick="resetDemo()" class="btn">Reset</button>
+            </div>
+            <div id="demo-area">
+                <h3 id="demo-heading">DOM Manipulation Demo</h3>
+                <p>This is a demonstration of DOM manipulation techniques.</p>
+            </div>
+        `;
+          runButton.style.display = "none";
         } else {
           interactiveContent.innerHTML = `<p>Interactive examples will appear here when you select a topic or subtopic.</p>`;
-          runButton.onclick = () => alert("Select a subtopic to run code");
+          runButton.style.display = "none";
         }
       }
 
@@ -1244,40 +1306,197 @@
       function updateGameContent(topicId, subtopicId = null) {
         const gameContent = document.getElementById("game-content");
 
-        if (subtopicId === "what-is-html") {
+        if (subtopicId === "what-is-html" || subtopicId === "elements-tags") {
           gameContent.innerHTML = `
-                    <div class="game-container">
-                        <h4>HTML Tag Matching Game</h4>
-                        <p>Match the HTML tags with their descriptions:</p>
-                        <div class="tag-match-game">
-                            <div class="tag-card" onclick="checkAnswer(this, '&lt;h1&gt;', 'Defines the most important heading')">&lt;h1&gt;</div>
-                            <div class="tag-card" onclick="checkAnswer(this, '&lt;p&gt;', 'Defines a paragraph')">&lt;p&gt;</div>
-                            <div class="tag-card" onclick="checkAnswer(this, '&lt;a&gt;', 'Defines a hyperlink')">&lt;a&gt;</div>
-                            <div class="tag-card" onclick="checkAnswer(this, '&lt;img&gt;', 'Embeds an image')">&lt;img&gt;</div>
-                        </div>
-                        <div class="tag-match-result" id="html-game-result"></div>
-                    </div>
-                `;
-        } else if (subtopicId === "headings") {
+            <div class="game-container">
+                <h4>HTML Tag Matching Game</h4>
+                <p>Match the HTML tags with their descriptions:</p>
+                <div class="tag-match-game">
+                    <div class="tag-card" onclick="matchTag(this, 'p')">&lt;p&gt;</div>
+                    <div class="tag-card" onclick="matchTag(this, 'a')">&lt;a&gt;</div>
+                    <div class="tag-card" onclick="matchTag(this, 'img')">&lt;img&gt;</div>
+                    <div class="tag-card" onclick="matchTag(this, 'h1')">&lt;h1&gt;</div>
+                </div>
+                <div class="tag-match-result" id="tag-match-result"></div>
+            </div>
+        `;
+        } else if (subtopicId === "headings-paragraphs") {
           gameContent.innerHTML = `
-                    <div class="game-container">
-                        <h4>Heading Hierarchy Game</h4>
-                        <p>Put these heading levels in the correct order (from most to least important):</p>
-                        <div class="tag-match-game">
-                            <div class="tag-card" draggable="true" ondragstart="dragStart(event)" id="h3">&lt;h3&gt;</div>
-                            <div class="tag-card" draggable="true" ondragstart="dragStart(event)" id="h1">&lt;h1&gt;</div>
-                            <div class="tag-card" draggable="true" ondragstart="dragStart(event)" id="h4">&lt;h4&gt;</div>
-                            <div class="tag-card" draggable="true" ondragstart="dragStart(event)" id="h2">&lt;h2&gt;</div>
-                        </div>
-                        <p>Drop zone (drag items here in correct order):</p>
-                        <div class="output-container" id="drop-zone" ondrop="drop(event)" ondragover="allowDrop(event)" style="min-height: 100px;"></div>
-                        <button class="btn" onclick="checkHeadingOrder()">Check Order</button>
-                        <div class="tag-match-result" id="heading-game-result"></div>
-                    </div>
-                `;
+            <div class="game-container">
+                <h4>Heading Hierarchy Game</h4>
+                <p>Put these heading levels in the correct order (from most to least important):</p>
+                <div class="tag-match-game">
+                    <div class="tag-card" draggable="true" ondragstart="dragStart(event)" data-value="h1">&lt;h1&gt;</div>
+                    <div class="tag-card" draggable="true" ondragstart="dragStart(event)" data-value="h2">&lt;h2&gt;</div>
+                    <div class="tag-card" draggable="true" ondragstart="dragStart(event)" data-value="h3">&lt;h3&gt;</div>
+                    <div class="tag-card" draggable="true" ondragstart="dragStart(event)" data-value="h4">&lt;h4&gt;</div>
+                </div>
+                <p>Drop zone (drag items here in correct order):</p>
+                <div id="drop-zone" ondragover="allowDrop(event)" ondrop="drop(event)" style="border: 2px dashed #ccc; padding: 20px; margin: 10px 0; border-radius: 4px; min-height: 50px;"></div>
+                <button class="btn" onclick="checkHeadingOrder()">Check Order</button>
+                <div id="heading-game-result" style="font-weight: bold; text-align: center; margin-top: 10px;"></div>
+            </div>
+        `;
+        } else if (topicId === "js-basics" || subtopicId === "data-types") {
+          gameContent.innerHTML = `
+            <div class="game-container">
+                <h4>Data Type Quiz</h4>
+                <p>What will be the output of the following code?</p>
+                <div class="code-example">let x = "5" + 2 + 3;</div>
+                <div style="margin: 15px 0;">
+                    <button onclick="checkDataTypeAnswer('523')" class="btn">"523"</button>
+                    <button onclick="checkDataTypeAnswer('10')" class="btn">10</button>
+                    <button onclick="checkDataTypeAnswer('55')" class="btn">55</button>
+                </div>
+                <div id="data-type-result" style="font-weight: bold; text-align: center;"></div>
+            </div>
+        `;
         } else {
           gameContent.innerHTML = `<p>Learning games will appear here when you select a topic or subtopic.</p>`;
         }
+      }
+
+      // Function to switch between tabs
+      function switchTab(tabName) {
+        // Hide all tab contents
+        document.querySelectorAll(".tab-content").forEach((tab) => {
+          tab.classList.remove("active");
+        });
+
+        // Show the selected tab content
+        document.getElementById(tabName + "-tab").classList.add("active");
+
+        // Update tab buttons
+        document.querySelectorAll(".tab").forEach((tab) => {
+          if (tab.getAttribute("data-tab") === tabName) {
+            tab.classList.add("active");
+          } else {
+            tab.classList.remove("active");
+          }
+        });
+      }
+
+      // Function for the tag matching game
+      function matchTag(element, tagName) {
+        const resultDiv = document.getElementById("tag-match-result");
+
+        const tagDescriptions = {
+          p: "Defines a paragraph",
+          a: "Defines a hyperlink",
+          img: "Embeds an image",
+          h1: "Defines a top-level heading",
+        };
+
+        const description = tagDescriptions[tagName];
+        resultDiv.innerHTML = `The &lt;${tagName}&gt; tag ${description}.`;
+
+        // Visual feedback
+        element.style.backgroundColor = "#28a745";
+        setTimeout(() => {
+          element.style.backgroundColor = "";
+        }, 1000);
+      }
+
+      // Functions for heading hierarchy game
+      function allowDrop(event) {
+        event.preventDefault();
+      }
+
+      function dragStart(event) {
+        event.dataTransfer.setData(
+          "text",
+          event.target.getAttribute("data-value")
+        );
+      }
+
+      function drop(event) {
+        event.preventDefault();
+        const data = event.dataTransfer.getData("text");
+        const dropZone = document.getElementById("drop-zone");
+
+        // Create a new element in the drop zone
+        const newElement = document.createElement("div");
+        newElement.className = "tag-card";
+        newElement.textContent = `<${data}>`;
+        newElement.setAttribute("data-value", data);
+        dropZone.appendChild(newElement);
+      }
+
+      function checkHeadingOrder() {
+        const dropZone = document.getElementById("drop-zone");
+        const children = dropZone.children;
+        const resultDiv = document.getElementById("heading-game-result");
+
+        if (children.length !== 4) {
+          resultDiv.innerHTML =
+            "Please drag all heading elements to the drop zone.";
+          resultDiv.style.color = "red";
+          return;
+        }
+
+        const correctOrder = ["h1", "h2", "h3", "h4"];
+        let isCorrect = true;
+
+        for (let i = 0; i < children.length; i++) {
+          if (children[i].getAttribute("data-value") !== correctOrder[i]) {
+            isCorrect = false;
+            break;
+          }
+        }
+
+        if (isCorrect) {
+          resultDiv.innerHTML =
+            "Correct! Heading hierarchy is in the right order.";
+          resultDiv.style.color = "green";
+        } else {
+          resultDiv.innerHTML = "Incorrect order. Remember: h1 > h2 > h3 > h4";
+          resultDiv.style.color = "red";
+        }
+      }
+
+      // Function for the data type quiz
+      function checkDataTypeAnswer(answer) {
+        const resultDiv = document.getElementById("data-type-result");
+
+        if (answer === "523") {
+          resultDiv.innerHTML =
+            "Correct! In JavaScript, the + operator concatenates strings.";
+          resultDiv.style.color = "green";
+        } else {
+          resultDiv.innerHTML =
+            'Incorrect. Remember that "5" is a string, so + will concatenate rather than add numerically.';
+          resultDiv.style.color = "red";
+        }
+      }
+
+      // Function for the interactive JavaScript example
+      function greetUser() {
+        const userName = document.getElementById("userName").value || "Guest";
+        document.getElementById(
+          "greetingOutput"
+        ).textContent = `Hello, ${userName}! Welcome to JavaScript!`;
+      }
+
+      // Functions for DOM manipulation demo
+      function changeHeading() {
+        const heading = document.getElementById("demo-heading");
+        heading.style.color = heading.style.color === "red" ? "#333" : "red";
+      }
+
+      function addParagraph() {
+        const demoArea = document.getElementById("demo-area");
+        const newParagraph = document.createElement("p");
+        newParagraph.textContent =
+          "This is a new paragraph added via JavaScript!";
+        demoArea.appendChild(newParagraph);
+      }
+
+      function resetDemo() {
+        const demoArea = document.getElementById("demo-area");
+        demoArea.innerHTML = `
+        <h3 id="demo-heading">DOM Manipulation Demo</h3>
+        <p>This is a demonstration of DOM manipulation techniques.</p>
+    `;
       }
 
       // Function to run HTML code in interactive demos
@@ -1294,7 +1513,6 @@
         iframe.style.height = "300px";
         iframe.style.border = "1px solid #ddd";
         iframe.style.borderRadius = "4px";
-
         outputContainer.appendChild(iframe);
 
         // Write the HTML to the iframe
@@ -1305,88 +1523,11 @@
         iframeDoc.close();
       }
 
-      // Function to check answers in games
-      function checkAnswer(element, correctAnswer, explanation) {
-        const resultDiv = document.getElementById("html-game-result");
-        const userAnswer = element.textContent.trim();
-
-        if (userAnswer === correctAnswer) {
-          resultDiv.innerHTML = `<span style="color: green;">Correct! ${explanation}</span>`;
-          element.style.backgroundColor = "#28a745";
-        } else {
-          resultDiv.innerHTML = `<span style="color: red;">Incorrect. Try again!</span>`;
-          element.style.backgroundColor = "#dc3545";
-        }
-
-        setTimeout(() => {
-          element.style.backgroundColor = "#e44d26";
-        }, 1000);
-      }
-
-      // Drag and drop functions for heading game
-      function allowDrop(ev) {
-        ev.preventDefault();
-      }
-
-      function dragStart(ev) {
-        ev.dataTransfer.setData("text", ev.target.id);
-      }
-
-      function drop(ev) {
-        ev.preventDefault();
-        const data = ev.dataTransfer.getData("text");
-        const draggedElement = document.getElementById(data);
-
-        // Only allow moving if it's not already in the drop zone
-        if (draggedElement.parentNode.id !== "drop-zone") {
-          ev.target.appendChild(draggedElement);
-        }
-      }
-
-      function checkHeadingOrder() {
-        const dropZone = document.getElementById("drop-zone");
-        const headings = Array.from(dropZone.children);
-        const correctOrder = ["h1", "h2", "h3", "h4"];
-        const resultDiv = document.getElementById("heading-game-result");
-
-        const currentOrder = headings.map((heading) => heading.id);
-
-        // Check if order is correct
-        let isCorrect = true;
-        for (let i = 0; i < currentOrder.length; i++) {
-          if (currentOrder[i] !== correctOrder[i]) {
-            isCorrect = false;
-            break;
-          }
-        }
-
-        if (isCorrect && currentOrder.length === correctOrder.length) {
-          resultDiv.innerHTML = `<span style="color: green;">Correct! Heading hierarchy is properly maintained.</span>`;
-        } else {
-          resultDiv.innerHTML = `<span style="color: red;">Not quite right. The correct order is: &lt;h1&gt;, &lt;h2&gt;, &lt;h3&gt;, &lt;h4&gt;</span>`;
-        }
-      }
-
-      // Function to switch between tabs
-      function switchTab(tabName) {
-        // Hide all tab contents
-        document.querySelectorAll(".tab-content").forEach((tab) => {
-          tab.classList.remove("active");
-        });
-
-        // Deactivate all tabs
-        document.querySelectorAll(".tab").forEach((tab) => {
-          tab.classList.remove("active");
-        });
-
-        // Activate selected tab
-        document.getElementById(tabName + "-tab").classList.add("active");
-
-        // Activate tab button
-        document.querySelectorAll(".tab").forEach((tab) => {
-          if (tab.textContent.toLowerCase() === tabName) {
-            tab.classList.add("active");
-          }
+      // Store original content of elements for search functionality
+      function storeOriginalContent() {
+        const topics = document.querySelectorAll(".topic-card, .subtopic");
+        topics.forEach((topic) => {
+          originalContents.set(topic, topic.innerHTML);
         });
       }
 
@@ -1394,9 +1535,20 @@
       function searchTopics() {
         const searchText = document
           .getElementById("searchInput")
-          .value.toLowerCase();
+          .value.toLowerCase()
+          .trim();
 
         if (searchText) {
+          // Remove previous highlights
+          document.querySelectorAll(".search-highlight").forEach((el) => {
+            el.classList.remove("search-highlight");
+          });
+
+          // Restore original content first
+          originalContents.forEach((content, element) => {
+            element.innerHTML = content;
+          });
+
           // Simple search implementation
           const topics = document.querySelectorAll(".topic-card, .subtopic");
           let found = false;
@@ -1404,11 +1556,13 @@
           topics.forEach((topic) => {
             const topicText = topic.textContent.toLowerCase();
             if (topicText.includes(searchText)) {
-              topic.style.backgroundColor = "#fff3cd";
+              // Scroll to the topic
               topic.scrollIntoView({ behavior: "smooth", block: "center" });
+
+              // Highlight the text
+              highlightText(topic, searchText);
+
               found = true;
-            } else {
-              topic.style.backgroundColor = "";
             }
           });
 
@@ -1420,13 +1574,74 @@
         }
       }
 
+      // Function to highlight searched text without breaking HTML structure
+      function highlightText(element, searchText) {
+        const text = element.textContent;
+        const regex = new RegExp(searchText, "gi");
+
+        // Create a temporary element to work with
+        const tempDiv = document.createElement("div");
+        tempDiv.innerHTML = element.innerHTML;
+
+        // Recursively highlight text in all text nodes
+        highlightTextNodes(tempDiv, regex, searchText);
+
+        // Update the element's HTML
+        element.innerHTML = tempDiv.innerHTML;
+      }
+
+      // Recursive function to highlight text in all text nodes
+      function highlightTextNodes(element, regex, searchText) {
+        // Process child nodes
+        for (let i = 0; i < element.childNodes.length; i++) {
+          const node = element.childNodes[i];
+
+          if (node.nodeType === Node.TEXT_NODE) {
+            // This is a text node
+            const text = node.nodeValue;
+            if (regex.test(text)) {
+              // Create highlighted span
+              const span = document.createElement("span");
+              span.className = "search-highlight";
+
+              // Reset regex state
+              regex.lastIndex = 0;
+
+              // Replace matched text with highlighted version
+              const newText = text.replace(regex, (match) => {
+                return `<span class="search-highlight">${match}</span>`;
+              });
+
+              // Create a temporary element to parse the HTML
+              const temp = document.createElement("div");
+              temp.innerHTML = newText;
+
+              // Replace the text node with the highlighted content
+              while (temp.firstChild) {
+                element.parentNode.insertBefore(temp.firstChild, node);
+              }
+
+              // Remove the original text node
+              element.removeChild(node);
+              i--; // Adjust index after removal
+            }
+          } else if (node.nodeType === Node.ELEMENT_NODE) {
+            // Recursively process element nodes
+            highlightTextNodes(node, regex, searchText);
+          }
+        }
+      }
+
       // Initialize page
       document.addEventListener("DOMContentLoaded", function () {
+        // Store original content for search functionality
+        storeOriginalContent();
+
         // Add event listener for the run button
         document
           .getElementById("run-button")
           .addEventListener("click", function () {
-            // This is handled in updateInteractiveContent now
+            // This will be overridden by specific handlers in updateInteractiveContent
           });
 
         // Make Enter key trigger search
