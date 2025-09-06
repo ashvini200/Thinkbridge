@@ -1,0 +1,1186 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Learn CSS</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+      }
+
+      body {
+        background-color: #f9f9f9;
+        color: #333;
+        line-height: 1.6;
+      }
+
+      header {
+        background: linear-gradient(135deg, #ff6b9d, #df2771);
+        color: white;
+        padding: 2rem;
+        text-align: center;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      }
+
+      h1 {
+        font-size: 2.5rem;
+        margin-bottom: 0.5rem;
+      }
+
+      .subtitle {
+        font-size: 1.2rem;
+        opacity: 0.9;
+      }
+
+      .container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 2rem;
+      }
+
+      .search-container {
+        background-color: white;
+        padding: 1.5rem;
+        border-radius: 10px;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+        margin-bottom: 2rem;
+        text-align: center;
+      }
+
+      #searchInput {
+        width: 70%;
+        padding: 12px 20px;
+        border: 2px solid #e0e0e0;
+        border-radius: 30px;
+        font-size: 1rem;
+        outline: none;
+        transition: border-color 0.3s;
+      }
+
+      #searchInput:focus {
+        border-color: #ff6b9d;
+      }
+
+      .topics-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+        gap: 1.5rem;
+        margin-top: 2rem;
+      }
+
+      .topic-card {
+        background-color: white;
+        border-radius: 10px;
+        overflow: hidden;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+        transition: transform 0.3s, box-shadow 0.3s;
+        cursor: pointer;
+      }
+
+      .topic-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+      }
+
+      .topic-header {
+        background-color: #ff6b9d;
+        color: white;
+        padding: 1.2rem;
+        font-size: 1.2rem;
+        font-weight: 600;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+
+      .topic-content {
+        padding: 1.5rem;
+      }
+
+      .subtopic {
+        padding: 0.8rem 1rem;
+        margin: 0.5rem 0;
+        background-color: #f5f5f5;
+        border-radius: 6px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        transition: background-color 0.2s;
+        cursor: pointer;
+      }
+
+      .subtopic:hover {
+        background-color: #e9e9e9;
+      }
+
+      .subtopic i {
+        color: #ff6b9d;
+      }
+
+      .theory-section {
+        display: none;
+        background-color: white;
+        border-radius: 10px;
+        padding: 2rem;
+        margin-top: 2rem;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+      }
+
+      .theory-section h3 {
+        color: #ff6b9d;
+        margin-bottom: 1rem;
+        border-bottom: 2px solid #f0f0f0;
+        padding-bottom: 0.5rem;
+      }
+
+      .code-example {
+        background-color: #2d2d2d;
+        color: #f8f8f2;
+        padding: 1rem;
+        border-radius: 6px;
+        margin: 1rem 0;
+        overflow-x: auto;
+        font-family: "Courier New", monospace;
+      }
+
+      .interactive-demo {
+        background-color: #f9f9f9;
+        border: 1px solid #e0e0e0;
+        border-radius: 6px;
+        padding: 1.5rem;
+        margin: 1rem 0;
+      }
+
+      .btn {
+        background-color: #ff6b9d;
+        color: white;
+        border: none;
+        padding: 10px 20px;
+        border-radius: 30px;
+        cursor: pointer;
+        font-size: 1rem;
+        transition: background-color 0.3s;
+        margin: 5px;
+      }
+
+      .btn:hover {
+        background-color: #ff6b9d;
+      }
+
+      footer {
+        text-align: center;
+        padding: 2rem;
+        margin-top: 3rem;
+        background-color: #2d2d2d;
+        color: white;
+      }
+
+      .game-container {
+        background-color: #f0f8ff;
+        padding: 1.5rem;
+        border-radius: 8px;
+        margin: 1rem 0;
+      }
+
+      .tag-match-game {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+        justify-content: center;
+        margin: 15px 0;
+      }
+
+      .tag-card {
+        background-color: #ff6b9d;
+        color: white;
+        padding: 10px 15px;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: transform 0.2s;
+      }
+
+      .tag-card:hover {
+        transform: scale(1.05);
+      }
+
+      .tag-match-result {
+        margin-top: 15px;
+        font-weight: bold;
+        text-align: center;
+      }
+
+      .content-tabs {
+        display: flex;
+        margin-bottom: 1rem;
+        border-bottom: 1px solid #e0e0e0;
+      }
+
+      .tab {
+        padding: 8px 16px;
+        cursor: pointer;
+        border-bottom: 3px solid transparent;
+      }
+
+      .tab.active {
+        border-bottom: 3px solid #ff6b9d;
+        color: #ff6b9d;
+        font-weight: bold;
+      }
+
+      .tab-content {
+        display: none;
+      }
+
+      .tab-content.active {
+        display: block;
+      }
+
+      .demo-box {
+        width: 100px;
+        height: 100px;
+        background-color: #ff6b9d;
+        margin: 10px;
+        display: inline-block;
+      }
+
+      .color-box {
+        width: 50px;
+        height: 50px;
+        display: inline-block;
+        margin: 5px;
+        border: 1px solid #ccc;
+      }
+
+      .flex-container {
+        display: flex;
+        gap: 10px;
+        margin: 10px 0;
+      }
+
+      .flex-item {
+        background-color: #ff6b9d;
+        color: white;
+        padding: 10px;
+        border-radius: 4px;
+        flex: 1;
+        text-align: center;
+      }
+
+      .grid-container {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 10px;
+        margin: 10px 0;
+      }
+
+      .grid-item {
+        background-color: #ff6b9d;
+        color: white;
+        padding: 10px;
+        border-radius: 4px;
+        text-align: center;
+      }
+
+      @media (max-width: 768px) {
+        .topics-grid {
+          grid-template-columns: 1fr;
+        }
+
+        #searchInput {
+          width: 90%;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <h1>CSS Learning Hub</h1>
+      <p class="subtitle">
+        Master styling and layout with interactive tutorials
+      </p>
+    </header>
+
+    <div class="container">
+      <div class="search-container">
+        <h2>What do you want to learn today?</h2>
+        <input
+          type="text"
+          id="searchInput"
+          placeholder="Search for topics (e.g., Flexbox, Grid, Selectors)"
+        />
+        <button class="btn" onclick="searchTopics()">Search</button>
+      </div>
+
+      <h2>CSS Topics</h2>
+      <div class="topics-grid">
+        <!-- CSS Topic Cards -->
+        <div class="topic-card" onclick="showTheory('css-basics')">
+          <div class="topic-header">
+            <span>1. Basics of CSS</span>
+            <i class="fas fa-paint-brush"></i>
+          </div>
+          <div class="topic-content">
+            <div
+              class="subtopic"
+              onclick="event.stopPropagation(); showSubtopic('css-basics', 'what-is-css')"
+            >
+              <span>What is CSS?</span>
+              <i class="fas fa-chevron-right"></i>
+            </div>
+            <div
+              class="subtopic"
+              onclick="event.stopPropagation(); showSubtopic('css-basics', 'ways-to-use-css')"
+            >
+              <span>Ways to use CSS</span>
+              <i class="fas fa-chevron-right"></i>
+            </div>
+            <div
+              class="subtopic"
+              onclick="event.stopPropagation(); showSubtopic('css-basics', 'css-syntax')"
+            >
+              <span>CSS Syntax</span>
+              <i class="fas fa-chevron-right"></i>
+            </div>
+            <div
+              class="subtopic"
+              onclick="event.stopPropagation(); showSubtopic('css-basics', 'comments')"
+            >
+              <span>Comments</span>
+              <i class="fas fa-chevron-right"></i>
+            </div>
+          </div>
+        </div>
+
+        <div class="topic-card" onclick="showTheory('css-selectors')">
+          <div class="topic-header">
+            <span>2. CSS Selectors</span>
+            <i class="fas fa-mouse-pointer"></i>
+          </div>
+          <div class="topic-content">
+            <div
+              class="subtopic"
+              onclick="event.stopPropagation(); showSubtopic('css-selectors', 'basic-selectors')"
+            >
+              <span>Basic Selectors</span>
+              <i class="fas fa-chevron-right"></i>
+            </div>
+            <div
+              class="subtopic"
+              onclick="event.stopPropagation(); showSubtopic('css-selectors', 'combinators')"
+            >
+              <span>Combinators</span>
+              <i class="fas fa-chevron-right"></i>
+            </div>
+            <div
+              class="subtopic"
+              onclick="event.stopPropagation(); showSubtopic('css-selectors', 'pseudo-classes')"
+            >
+              <span>Pseudo-classes</span>
+              <i class="fas fa-chevron-right"></i>
+            </div>
+            <div
+              class="subtopic"
+              onclick="event.stopPropagation(); showSubtopic('css-selectors', 'pseudo-elements')"
+            >
+              <span>Pseudo-elements</span>
+              <i class="fas fa-chevron-right"></i>
+            </div>
+          </div>
+        </div>
+
+        <div class="topic-card" onclick="showTheory('css-colors-units')">
+          <div class="topic-header">
+            <span>3. CSS Colors and Units</span>
+            <i class="fas fa-palette"></i>
+          </div>
+          <div class="topic-content">
+            <div
+              class="subtopic"
+              onclick="event.stopPropagation(); showSubtopic('css-colors-units', 'color-formats')"
+            >
+              <span>Color Formats</span>
+              <i class="fas fa-chevron-right"></i>
+            </div>
+            <div
+              class="subtopic"
+              onclick="event.stopPropagation(); showSubtopic('css-colors-units', 'absolute-units')"
+            >
+              <span>Absolute Units</span>
+              <i class="fas fa-chevron-right"></i>
+            </div>
+            <div
+              class="subtopic"
+              onclick="event.stopPropagation(); showSubtopic('css-colors-units', 'relative-units')"
+            >
+              <span>Relative Units</span>
+              <i class="fas fa-chevron-right"></i>
+            </div>
+          </div>
+        </div>
+
+        <div class="topic-card" onclick="showTheory('css-box-model')">
+          <div class="topic-header">
+            <span>4. CSS Box Model</span>
+            <i class="fas fa-square"></i>
+          </div>
+          <div class="topic-content">
+            <div
+              class="subtopic"
+              onclick="event.stopPropagation(); showSubtopic('css-box-model', 'box-model-parts')"
+            >
+              <span>Box Model Parts</span>
+              <i class="fas fa-chevron-right"></i>
+            </div>
+            <div
+              class="subtopic"
+              onclick="event.stopPropagation(); showSubtopic('css-box-model', 'box-sizing')"
+            >
+              <span>Box Sizing</span>
+              <i class="fas fa-chevron-right"></i>
+            </div>
+            <div
+              class="subtopic"
+              onclick="event.stopPropagation(); showSubtopic('css-box-model', 'overflow')"
+            >
+              <span>Overflow</span>
+              <i class="fas fa-chevron-right"></i>
+            </div>
+          </div>
+        </div>
+
+        <div class="topic-card" onclick="showTheory('css-flexbox')">
+          <div class="topic-header">
+            <span>10. CSS Flexbox</span>
+            <i class="fas fa-th"></i>
+          </div>
+          <div class="topic-content">
+            <div
+              class="subtopic"
+              onclick="event.stopPropagation(); showSubtopic('css-flexbox', 'flex-container')"
+            >
+              <span>Flex Container</span>
+              <i class="fas fa-chevron-right"></i>
+            </div>
+            <div
+              class="subtopic"
+              onclick="event.stopPropagation(); showSubtopic('css-flexbox', 'flex-items')"
+            >
+              <span>Flex Items</span>
+              <i class="fas fa-chevron-right"></i>
+            </div>
+            <div
+              class="subtopic"
+              onclick="event.stopPropagation(); showSubtopic('css-flexbox', 'flex-examples')"
+            >
+              <span>Flex Examples</span>
+              <i class="fas fa-chevron-right"></i>
+            </div>
+          </div>
+        </div>
+
+        <div class="topic-card" onclick="showTheory('css-grid')">
+          <div class="topic-header">
+            <span>11. CSS Grid</span>
+            <i class="fas fa-th-large"></i>
+          </div>
+          <div class="topic-content">
+            <div
+              class="subtopic"
+              onclick="event.stopPropagation(); showSubtopic('css-grid', 'grid-container')"
+            >
+              <span>Grid Container</span>
+              <i class="fas fa-chevron-right"></i>
+            </div>
+            <div
+              class="subtopic"
+              onclick="event.stopPropagation(); showSubtopic('css-grid', 'grid-items')"
+            >
+              <span>Grid Items</span>
+              <i class="fas fa-chevron-right"></i>
+            </div>
+            <div
+              class="subtopic"
+              onclick="event.stopPropagation(); showSubtopic('css-grid', 'grid-examples')"
+            >
+              <span>Grid Examples</span>
+              <i class="fas fa-chevron-right"></i>
+            </div>
+          </div>
+        </div>
+
+        <!-- More topic cards would go here for the remaining CSS topics -->
+      </div>
+
+      <!-- Theory Section (initially hidden) -->
+      <div id="theory-section" class="theory-section">
+        <h3 id="theory-title">CSS Basics</h3>
+
+        <div class="content-tabs">
+          <div class="tab active" onclick="switchTab('theory')">Theory</div>
+          <div class="tab" onclick="switchTab('example')">Example</div>
+          <div class="tab" onclick="switchTab('interactive')">Interactive</div>
+          <div class="tab" onclick="switchTab('game')">Game</div>
+        </div>
+
+        <div id="theory-tab" class="tab-content active">
+          <div id="theory-content">
+            <p>Select a topic to see the explanation here...</p>
+          </div>
+
+          <div class="code-example" id="code-example">
+            /* Code examples will appear here */
+          </div>
+        </div>
+
+        <div id="example-tab" class="tab-content">
+          <h4>Live Example</h4>
+          <div id="live-example">
+            <p>Examples will appear here when you select a topic.</p>
+          </div>
+        </div>
+
+        <div id="interactive-tab" class="tab-content">
+          <h4>Interactive Demo</h4>
+          <div id="interactive-content">
+            <p>Try it yourself! This area will have interactive examples.</p>
+          </div>
+          <button class="btn" id="run-button">Run Code</button>
+        </div>
+
+        <div id="game-tab" class="tab-content">
+          <h4>Learning Game</h4>
+          <div id="game-content">
+            <p>Play a game to reinforce your learning!</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <footer>
+      <p>CSS Learning Hub &copy; 2023</p>
+      <p>Interactive learning platform for CSS styling and layout</p>
+    </footer>
+
+    <script>
+      // Current active topic and subtopic
+      let currentTopic = null;
+      let currentSubtopic = null;
+
+      // Function to show theory based on topic
+      function showTheory(topicId) {
+        currentTopic = topicId;
+        currentSubtopic = null;
+
+        const theorySection = document.getElementById("theory-section");
+        const theoryTitle = document.getElementById("theory-title");
+        const theoryContent = document.getElementById("theory-content");
+        const codeExample = document.getElementById("code-example");
+        const liveExample = document.getElementById("live-example");
+        const interactiveContent = document.getElementById(
+          "interactive-content"
+        );
+        const gameContent = document.getElementById("game-content");
+
+        // Show the theory section
+        theorySection.style.display = "block";
+
+        // Scroll to the theory section
+        theorySection.scrollIntoView({ behavior: "smooth" });
+
+        // Reset tabs
+        switchTab("theory");
+
+        // Set content based on the topic
+        switch (topicId) {
+          case "css-basics":
+            theoryTitle.textContent = "CSS Basics";
+            theoryContent.innerHTML = `
+                        <p>CSS (Cascading Style Sheets) is a stylesheet language used to describe the presentation of a document written in HTML.</p>
+                        <p>CSS describes how elements should be rendered on screen, on paper, in speech, or on other media.</p>
+                        <p><strong>Key Points:</strong></p>
+                        <ul>
+                            <li>CSS separates content from presentation</li>
+                            <li>It provides control over layout, colors, fonts, and more</li>
+                            <li>CSS rules consist of selectors and declarations</li>
+                            <li>Styles cascade based on specificity and source order</li>
+                        </ul>
+                    `;
+            codeExample.textContent = `/* This is a CSS comment */
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    color: #333;
+}
+
+.header {
+    background-color: #0066cc;
+    color: white;
+    padding: 1rem;
+}`;
+            break;
+          case "css-selectors":
+            theoryTitle.textContent = "CSS Selectors";
+            theoryContent.innerHTML = `
+                        <p>CSS selectors are patterns used to select the element(s) you want to style.</p>
+                        <p><strong>Selector Types:</strong></p>
+                        <ul>
+                            <li><strong>Basic selectors:</strong> element, class, id, universal</li>
+                            <li><strong>Combinators:</strong> descendant, child, adjacent sibling, general sibling</li>
+                            <li><strong>Pseudo-classes:</strong> :hover, :focus, :first-child, etc.</li>
+                            <li><strong>Pseudo-elements:</strong> ::before, ::after, ::first-line, etc.</li>
+                            <li><strong>Attribute selectors:</strong> [attr], [attr=value], etc.</li>
+                        </ul>
+                    `;
+            codeExample.textContent = `/* Element selector */
+p {
+    color: blue;
+}
+
+/* Class selector */
+.intro {
+    font-size: 1.2rem;
+}
+
+/* ID selector */
+#header {
+    background: #333;
+}
+
+/* Descendant selector */
+article p {
+    line-height: 1.6;
+}
+
+/* Child selector */
+ul > li {
+    list-style: square;
+}
+
+/* Adjacent sibling selector */
+h2 + p {
+    margin-top: 0;
+}
+
+/* Attribute selector */
+a[target="_blank"] {
+    color: red;
+}
+
+/* Pseudo-class */
+a:hover {
+    text-decoration: underline;
+}
+
+/* Pseudo-element */
+p::first-line {
+    font-weight: bold;
+}`;
+            break;
+          case "css-flexbox":
+            theoryTitle.textContent = "CSS Flexbox";
+            theoryContent.innerHTML = `
+                        <p>Flexbox is a one-dimensional layout method for laying out items in rows or columns.</p>
+                        <p>Items flex to fill additional space or shrink to fit into smaller spaces.</p>
+                        <p><strong>Flex Container Properties:</strong></p>
+                        <ul>
+                            <li>display: flex | inline-flex</li>
+                            <li>flex-direction: row | row-reverse | column | column-reverse</li>
+                            <li>flex-wrap: nowrap | wrap | wrap-reverse</li>
+                            <li>justify-content: flex-start | flex-end | center | space-between | space-around | space-evenly</li>
+                            <li>align-items: stretch | flex-start | flex-end | center | baseline</li>
+                            <li>align-content: stretch | flex-start | flex-end | center | space-between | space-around</li>
+                        </ul>
+                        <p><strong>Flex Item Properties:</strong></p>
+                        <ul>
+                            <li>order: integer</li>
+                            <li>flex-grow: number</li>
+                            <li>flex-shrink: number</li>
+                            <li>flex-basis: length | auto</li>
+                            <li>align-self: auto | flex-start | flex-end | center | baseline | stretch</li>
+                        </ul>
+                    `;
+            codeExample.textContent = `/* Flex container */
+.container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+/* Flex items */
+.item {
+    flex: 1 0 200px; /* flex-grow, flex-shrink, flex-basis */
+    margin: 10px;
+}
+
+.item:nth-child(1) {
+    order: 2;
+    align-self: flex-start;
+}
+
+.item:nth-child(2) {
+    order: 1;
+    flex-grow: 2;
+}`;
+            break;
+          case "css-grid":
+            theoryTitle.textContent = "CSS Grid";
+            theoryContent.innerHTML = `
+                        <p>CSS Grid Layout is a two-dimensional layout system for the web.</p>
+                        <p>It lets you lay content out in rows and columns, and has many features that make building complex layouts straightforward.</p>
+                        <p><strong>Grid Container Properties:</strong></p>
+                        <ul>
+                            <li>display: grid | inline-grid</li>
+                            <li>grid-template-columns: track sizes</li>
+                            <li>grid-template-rows: track sizes</li>
+                            <li>grid-template-areas: grid area names</li>
+                            <li>grid-column-gap, grid-row-gap: sizes</li>
+                            <li>justify-items: start | end | center | stretch</li>
+                            <li>align-items: start | end | center | stretch</li>
+                        </ul>
+                        <p><strong>Grid Item Properties:</strong></p>
+                        <ul>
+                            <li>grid-column: start / end</li>
+                            <li>grid-row: start / end</li>
+                            <li>grid-area: name | row-start / column-start / row-end / column-end</li>
+                            <li>justify-self: start | end | center | stretch</li>
+                            <li>align-self: start | end | center | stretch</li>
+                        </ul>
+                    `;
+            codeExample.textContent = `/* Grid container */
+.container {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 100px 200px;
+    grid-gap: 10px;
+    grid-template-areas: 
+        "header header header"
+        "sidebar content content";
+}
+
+/* Grid items */
+.item-a {
+    grid-area: header;
+    grid-column: 1 / span 2;
+    grid-row: 1;
+}
+
+.item-b {
+    grid-area: sidebar;
+    grid-column: 1;
+    grid-row: 2 / span 2;
+}
+
+.item-c {
+    grid-area: content;
+    grid-column: 2 / span 2;
+    grid-row: 2;
+}
+
+/* Using named lines */
+.container {
+    grid-template-columns: [first] 40px [line2] 50px [line3] auto [col4-start] 50px [five] 40px [end];
+    grid-template-rows: [row1-start] 25% [row1-end] 100px [third-line] auto [last-line];
+}
+
+.item {
+    grid-column: first / col4-start;
+    grid-row: row1-start / row1-end;
+}`;
+            break;
+          default:
+            theoryTitle.textContent = "Topic Overview";
+            theoryContent.textContent = "Select a topic to view its content.";
+            codeExample.textContent = "/* Code examples will appear here */";
+        }
+
+        // Update live example based on topic
+        updateLiveExample(topicId);
+
+        // Update interactive content based on topic
+        updateInteractiveContent(topicId);
+
+        // Update game content based on topic
+        updateGameContent(topicId);
+      }
+
+      // Function to show subtopic content
+      function showSubtopic(topicId, subtopicId) {
+        currentTopic = topicId;
+        currentSubtopic = subtopicId;
+
+        const theorySection = document.getElementById("theory-section");
+        const theoryTitle = document.getElementById("theory-title");
+        const theoryContent = document.getElementById("theory-content");
+        const codeExample = document.getElementById("code-example");
+
+        // Show the theory section
+        theorySection.style.display = "block";
+
+        // Scroll to the theory section
+        theorySection.scrollIntoView({ behavior: "smooth" });
+
+        // Reset tabs
+        switchTab("theory");
+
+        // Set content based on the subtopic
+        switch (subtopicId) {
+          case "what-is-css":
+            theoryTitle.textContent = "What is CSS?";
+            theoryContent.innerHTML = `
+                        <p>CSS (Cascading Style Sheets) is a stylesheet language used to describe the presentation of a document written in HTML or XML.</p>
+                        <p>CSS describes how elements should be rendered on screen, on paper, in speech, or on other media.</p>
+                        <p><strong>Key Characteristics:</strong></p>
+                        <ul>
+                            <li>CSS separates content from presentation</li>
+                            <li>It provides control over layout, colors, fonts, and more</li>
+                            <li>CSS rules consist of selectors and declarations</li>
+                            <li>Styles cascade based on specificity and source order</li>
+                            <li>CSS can be applied to HTML, SVG, and XML documents</li>
+                        </ul>
+                    `;
+            codeExample.textContent = `/* CSS rule structure */
+selector {
+    property: value;
+    another-property: value;
+}
+
+/* Example */
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+    color: #333;
+}
+
+h1 {
+    color: #0066cc;
+    font-size: 2.5rem;
+}`;
+            break;
+          case "ways-to-use-css":
+            theoryTitle.textContent = "Ways to Use CSS";
+            theoryContent.innerHTML = `
+                        <p>There are three main ways to apply CSS to HTML:</p>
+                        <p><strong>1. Inline CSS:</strong> Using the style attribute directly on HTML elements</p>
+                        <p><strong>2. Internal CSS:</strong> Using the &lt;style&gt; tag in the &lt;head&gt; section of an HTML document</p>
+                        <p><strong>3. External CSS:</strong> Linking to an external .css file using the &lt;link&gt; tag</p>
+                        <p><strong>Best Practice:</strong> External CSS is generally preferred as it separates content from presentation and allows for better maintainability and reusability.</p>
+                    `;
+            codeExample.textContent = `<!-- Inline CSS -->
+<p style="color: blue; font-size: 16px;">This is a paragraph with inline styles.</p>
+
+<!-- Internal CSS -->
+<head>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+        }
+        h1 {
+            color: #0066cc;
+        }
+    </style>
+</head>
+
+<!-- External CSS -->
+<head>
+    <link rel="stylesheet" href="styles.css">
+</head>`;
+            break;
+          case "css-syntax":
+            theoryTitle.textContent = "CSS Syntax";
+            theoryContent.innerHTML = `
+                        <p>CSS consists of style rules that are interpreted by the browser and applied to the corresponding elements.</p>
+                        <p><strong>CSS Rule Structure:</strong></p>
+                        <ul>
+                            <li><strong>Selector:</strong> Points to the HTML element you want to style</li>
+                            <li><strong>Declaration Block:</strong> Contains one or more declarations separated by semicolons</li>
+                            <li><strong>Declaration:</strong> A property: value pair that applies a style to the selected element</li>
+                        </ul>
+                        <p><strong>Example:</strong> <code>h1 { color: blue; font-size: 12px; }</code></p>
+                        <ul>
+                            <li><code>h1</code> is the selector</li>
+                            <li>Everything between <code>{}</code> is the declaration block</li>
+                            <li><code>color: blue;</code> and <code>font-size: 12px;</code> are declarations</li>
+                            <li><code>color</code> and <code>font-size</code> are properties</li>
+                            <li><code>blue</code> and <code>12px</code> are values</li>
+                        </ul>
+                    `;
+            codeExample.textContent = `/* Selector */
+p {
+    /* Declaration block */
+    color: red; /* Declaration: property-value pair */
+    text-align: center;
+}
+
+/* Multiple selectors */
+h1, h2, h3 {
+    font-family: "Arial", sans-serif;
+    color: #333;
+}
+
+/* Grouping declarations */
+div {
+    margin: 0;
+    padding: 10px;
+    border: 1px solid black;
+}`;
+            break;
+          // More subtopics would be added here
+          default:
+            theoryTitle.textContent = "Subtopic Details";
+            theoryContent.textContent =
+              "Detailed content for this subtopic will appear here.";
+            codeExample.textContent = "/* Code examples for this subtopic */";
+        }
+
+        // Update other tabs based on the subtopic
+        updateLiveExample(topicId, subtopicId);
+        updateInteractiveContent(topicId, subtopicId);
+        updateGameContent(topicId, subtopicId);
+      }
+
+      // Function to update live example based on topic/subtopic
+      function updateLiveExample(topicId, subtopicId = null) {
+        const liveExample = document.getElementById("live-example");
+
+        if (subtopicId === "ways-to-use-css") {
+          liveExample.innerHTML = `
+                    <h3>Inline CSS Example:</h3>
+                    <p style="color: blue; font-size: 18px;">This paragraph has inline styles applied.</p>
+                    
+                    <h3>Internal CSS Example:</h3>
+                    <p class="internal-example">This paragraph is styled by internal CSS.</p>
+                    <style>
+                        .internal-example {
+                            color: green;
+                            font-weight: bold;
+                            border-left: 3px solid green;
+                            padding-left: 10px;
+                        }
+                    </style>
+                    
+                    <h3>External CSS Example:</h3>
+                    <p class="external-example">This would be styled by an external CSS file.</p>
+                `;
+        } else if (topicId === "css-flexbox") {
+          liveExample.innerHTML = `
+                    <h3>Flexbox Examples:</h3>
+                    
+                    <h4>Flex Container (row)</h4>
+                    <div class="flex-container" style="background-color: #f0f0f0; padding: 10px;">
+                        <div class="flex-item">Item 1</div>
+                        <div class="flex-item">Item 2</div>
+                        <div class="flex-item">Item 3</div>
+                    </div>
+                    
+                    <h4>Flex Container (column)</h4>
+                    <div class="flex-container" style="flex-direction: column; background-color: #f0f0f0; padding: 10px; height: 200px;">
+                        <div class="flex-item">Item 1</div>
+                        <div class="flex-item">Item 2</div>
+                        <div class="flex-item">Item 3</div>
+                    </div>
+                    
+                    <h4>Justify Content (space-between)</h4>
+                    <div class="flex-container" style="justify-content: space-between; background-color: #f0f0f0; padding: 10px;">
+                        <div class="flex-item">Item 1</div>
+                        <div class="flex-item">Item 2</div>
+                        <div class="flex-item">Item 3</div>
+                    </div>
+                `;
+        } else if (topicId === "css-grid") {
+          liveExample.innerHTML = `
+                    <h3>Grid Examples:</h3>
+                    
+                    <h4>Basic Grid (3 columns)</h4>
+                    <div class="grid-container" style="background-color: #f0f0f0; padding: 10px;">
+                        <div class="grid-item">Item 1</div>
+                        <div class="grid-item">Item 2</div>
+                        <div class="grid-item">Item 3</div>
+                        <div class="grid-item">Item 4</div>
+                        <div class="grid-item">Item 5</div>
+                        <div class="grid-item">Item 6</div>
+                    </div>
+                    
+                    <h4>Grid with Areas</h4>
+                    <div class="grid-container" style="grid-template-areas: 
+                        'header header header'
+                        'sidebar content content'
+                        'footer footer footer';
+                        grid-template-rows: 50px 150px 50px;
+                        background-color: #f0f0f0; padding: 10px; gap: 10px;">
+                        <div class="grid-item" style="grid-area: header; background-color: #cc0000;">Header</div>
+                        <div class="grid-item" style="grid-area: sidebar; background-color: #00cc00;">Sidebar</div>
+                        <div class="grid-item" style="grid-area: content; background-color: #0000cc;">Content</div>
+                        <div class="grid-item" style="grid-area: footer; background-color: #cccc00;">Footer</div>
+                    </div>
+                `;
+        } else {
+          liveExample.innerHTML = `<p>Live examples will appear here when you select a topic or subtopic.</p>`;
+        }
+      }
+
+      // Function to update interactive content
+      function updateInteractiveContent(topicId, subtopicId = null) {
+        const interactiveContent = document.getElementById(
+          "interactive-content"
+        );
+
+        if (topicId === "css-basics") {
+          interactiveContent.innerHTML = `
+                    <p>Try changing CSS properties for the box below:</p>
+                    <div style="margin: 15px 0;">
+                        <div id="interactive-box" style="width: 100px; height: 100px; background-color: #0066cc; margin: 10px auto;"></div>
+                    </div>
+                    <div style="margin: 15px 0;">
+                        <label>Background Color: 
+                            <input type="color" id="bgColor" value="#0066cc" onchange="changeBoxStyle('backgroundColor', this.value)">
+                        </label>
+                        <label>Width: 
+                            <input type="range" id="boxWidth" min="50" max="200" value="100" oninput="changeBoxStyle('width', this.value + 'px')">
+                        </label>
+                        <label>Border Radius: 
+                            <input type="range" id="boxRadius" min="0" max="50" value="0" oninput="changeBoxStyle('borderRadius', this.value + 'px')">
+                        </label>
+                    </div>
+                `;
+        } else {
+          interactiveContent.innerHTML = `<p>Interactive examples will appear here when you select a topic or subtopic.</p>`;
+        }
+      }
+
+      // Function to update game content
+      function updateGameContent(topicId, subtopicId = null) {
+        const gameContent = document.getElementById("game-content");
+
+        if (subtopicId === "css-syntax" || topicId === "css-basics") {
+          gameContent.innerHTML = `
+                    <div class="game-container">
+                        <h4>CSS Property Matching Game</h4>
+                        <p>Match the CSS properties with their correct values:</p>
+                        <div class="tag-match-game">
+                            <div class="tag-card" onclick="matchProperty(this, 'color')">color</div>
+                            <div class="tag-card" onclick="matchProperty(this, 'font-size')">font-size</div>
+                            <div class="tag-card" onclick="matchProperty(this, 'margin')">margin</div>
+                            <div class="tag-card" onclick="matchProperty(this, 'display')">display</div>
+                        </div>
+                        <div class="tag-match-result" id="property-match-result"></div>
+                    </div>
+                `;
+        } else {
+          gameContent.innerHTML = `<p>Learning games will appear here when you select a topic or subtopic.</p>`;
+        }
+      }
+
+      // Function to change box style in interactive demo
+      function changeBoxStyle(property, value) {
+        document.getElementById("interactive-box").style[property] = value;
+      }
+
+      // Function to switch between tabs
+      function switchTab(tabName) {
+        // Hide all tab contents
+        document.querySelectorAll(".tab-content").forEach((tab) => {
+          tab.classList.remove("active");
+        });
+
+        // Deactivate all tabs
+        document.querySelectorAll(".tab").forEach((tab) => {
+          tab.classList.remove("active");
+        });
+
+        // Activate selected tab
+        document.getElementById(tabName + "-tab").classList.add("active");
+
+        // Activate tab button
+        document.querySelectorAll(".tab").forEach((tab) => {
+          if (tab.textContent.toLowerCase() === tabName) {
+            tab.classList.add("active");
+          }
+        });
+      }
+
+      // Function for the property matching game
+      function matchProperty(element, propertyName) {
+        const resultDiv = document.getElementById("property-match-result");
+
+        const propertyValues = {
+          color: "red, blue, #ffffff, rgb(0,0,0)",
+          "font-size": "12px, 1.2em, larger, 120%",
+          margin: "10px, 5%, auto, 1em 2em",
+          display: "block, inline, flex, grid, none",
+        };
+
+        const values = propertyValues[propertyName];
+        resultDiv.innerHTML = `<strong>${propertyName}</strong> can have values like: ${values}`;
+
+        // Visual feedback
+        element.style.backgroundColor = "#28a745";
+        setTimeout(() => {
+          element.style.backgroundColor = "#0066cc";
+        }, 1000);
+      }
+
+      // Function to search topics
+      function searchTopics() {
+        const searchText = document
+          .getElementById("searchInput")
+          .value.toLowerCase();
+
+        if (searchText) {
+          // Simple search implementation
+          const topics = document.querySelectorAll(".topic-card, .subtopic");
+          let found = false;
+
+          topics.forEach((topic) => {
+            const topicText = topic.textContent.toLowerCase();
+            if (topicText.includes(searchText)) {
+              topic.style.backgroundColor = "#fff3cd";
+              topic.scrollIntoView({ behavior: "smooth", block: "center" });
+              found = true;
+            } else {
+              topic.style.backgroundColor = "";
+            }
+          });
+
+          if (!found) {
+            alert(
+              `No results found for "${searchText}". Try a different search term.`
+            );
+          }
+        }
+      }
+
+      // Initialize page
+      document.addEventListener("DOMContentLoaded", function () {
+        // Add event listener for the run button
+        document
+          .getElementById("run-button")
+          .addEventListener("click", function () {
+            alert("This would run the code in a full implementation.");
+          });
+
+        // Make Enter key trigger search
+        document
+          .getElementById("searchInput")
+          .addEventListener("keypress", function (e) {
+            if (e.key === "Enter") {
+              searchTopics();
+            }
+          });
+      });
+    </script>
+  </body>
+</html>
