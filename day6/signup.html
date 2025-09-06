@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sign Up | BrandName</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+      }
+
+      body {
+        background-color: #ffffff;
+        color: #333;
+        line-height: 1.6;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: 100vh;
+        padding: 20px;
+      }
+
+      .container {
+        display: flex;
+        max-width: 1000px;
+        width: 100%;
+        background: #fff;
+        border-radius: 12px;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+        overflow: hidden;
+      }
+
+      .left-section {
+        flex: 1;
+        background: linear-gradient(
+          135deg,
+          rgba(223, 39, 113, 0.9) 0%,
+          rgba(223, 39, 113, 0.7) 100%
+        );
+        color: white;
+        padding: 50px 40px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .left-section::before {
+        content: "";
+        position: absolute;
+        width: 200px;
+        height: 200px;
+        background: rgba(255, 255, 255, 0.15);
+        border-radius: 50%;
+        top: -50px;
+        left: -50px;
+      }
+
+      .left-section::after {
+        content: "";
+        position: absolute;
+        width: 150px;
+        height: 150px;
+        background: rgba(255, 255, 255, 0.1);
+        border-radius: 50%;
+        bottom: -50px;
+        right: -50px;
+      }
+
+      .welcome-text h1 {
+        font-size: 2.2rem;
+        margin-bottom: 20px;
+        font-weight: 700;
+      }
+
+      .welcome-text p {
+        font-size: 1.1rem;
+        margin-bottom: 30px;
+        max-width: 90%;
+      }
+
+      .features {
+        margin-top: 30px;
+      }
+
+      .feature {
+        display: flex;
+        align-items: center;
+        margin-bottom: 20px;
+      }
+
+      .feature i {
+        margin-right: 15px;
+        font-size: 1.3rem;
+        background: rgba(255, 255, 255, 0.2);
+        width: 40px;
+        height: 40px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 50%;
+      }
+
+      .right-section {
+        flex: 1;
+        padding: 50px 40px;
+      }
+
+      .signup-form h2 {
+        font-size: 2rem;
+        margin-bottom: 10px;
+        color: #333;
+      }
+
+      .signup-form p {
+        color: #666;
+        margin-bottom: 30px;
+      }
+
+      .form-group {
+        margin-bottom: 20px;
+      }
+
+      .form-group label {
+        display: block;
+        margin-bottom: 8px;
+        font-weight: 500;
+        color: #444;
+      }
+
+      .form-group input {
+        width: 100%;
+        padding: 15px;
+        border: 1px solid #ddd;
+        border-radius: 6px;
+        font-size: 1rem;
+        transition: all 0.3s ease;
+      }
+
+      .form-group input:focus {
+        outline: none;
+        border-color: #df2771;
+        box-shadow: 0 0 0 3px rgba(223, 39, 113, 0.2);
+      }
+
+      .password-field {
+        position: relative;
+      }
+
+      .toggle-password {
+        position: absolute;
+        right: 15px;
+        top: 50%;
+        transform: translateY(-50%);
+        color: #999;
+        cursor: pointer;
+      }
+
+      .terms {
+        display: flex;
+        align-items: flex-start;
+        margin-bottom: 25px;
+      }
+
+      .terms input {
+        margin-right: 10px;
+        margin-top: 4px;
+      }
+
+      .terms label {
+        font-size: 0.9rem;
+        color: #666;
+      }
+
+      .terms a {
+        color: #df2771;
+        text-decoration: none;
+      }
+
+      .btn-signup {
+        width: 100%;
+        padding: 15px;
+        background-color: #df2771;
+        color: white;
+        border: none;
+        border-radius: 6px;
+        font-size: 1.1rem;
+        font-weight: 600;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+      }
+
+      .btn-signup:hover {
+        background-color: #c41a60;
+      }
+
+      .divider {
+        text-align: center;
+        margin: 25px 0;
+        position: relative;
+      }
+
+      .divider::before {
+        content: "";
+        position: absolute;
+        left: 0;
+        top: 50%;
+        width: 100%;
+        height: 1px;
+        background: #eee;
+      }
+
+      .divider span {
+        background: white;
+        padding: 0 15px;
+        position: relative;
+        color: #777;
+      }
+
+      .social-login {
+        display: flex;
+        justify-content: center;
+        gap: 15px;
+        margin-bottom: 25px;
+      }
+
+      .social-btn {
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border: 1px solid #ddd;
+        background: white;
+        cursor: pointer;
+        transition: all 0.3s ease;
+      }
+
+      .social-btn:hover {
+        background: #f5f5f5;
+        transform: translateY(-2px);
+      }
+
+      .login-link {
+        text-align: center;
+        margin-top: 20px;
+        color: #666;
+      }
+
+      .login-link a {
+        color: #df2771;
+        text-decoration: none;
+        font-weight: 600;
+      }
+
+      @media (max-width: 768px) {
+        .container {
+          flex-direction: column;
+          max-width: 100%;
+        }
+
+        .left-section,
+        .right-section {
+          padding: 30px;
+        }
+
+        .left-section {
+          order: 2;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="left-section">
+        <div class="welcome-text">
+          <h1>Join Our Community</h1>
+          <p>
+            Create an account to access exclusive features, personalized
+            content, and more.
+          </p>
+        </div>
+        <div class="features">
+          <div class="feature">
+            <i class="fas fa-check-circle"></i>
+            <div>Access exclusive content and features</div>
+          </div>
+          <div class="feature">
+            <i class="fas fa-check-circle"></i>
+            <div>Personalized experience tailored for you</div>
+          </div>
+          <div class="feature">
+            <i class="fas fa-check-circle"></i>
+            <div>Save your preferences and progress</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="right-section">
+        <form class="signup-form">
+          <h2>Create Account</h2>
+          <p>Fill in the details below to create your account.</p>
+
+          <div class="form-group">
+            <label for="fullname">Full Name</label>
+            <input
+              type="text"
+              id="fullname"
+              placeholder="Enter your full name"
+              required
+            />
+          </div>
+
+          <div class="form-group">
+            <label for="email">Email Address</label>
+            <input
+              type="email"
+              id="email"
+              placeholder="Enter your email"
+              required
+            />
+          </div>
+
+          <div class="form-group">
+            <label for="password">Password</label>
+            <div class="password-field">
+              <input
+                type="password"
+                id="password"
+                placeholder="Create a strong password"
+                required
+              />
+              <span class="toggle-password" id="togglePassword">
+                <i class="far fa-eye"></i>
+              </span>
+            </div>
+          </div>
+
+          <div class="terms">
+            <input type="checkbox" id="agree-terms" required />
+            <label for="agree-terms"
+              >I agree to the <a href="#">Terms of Service</a> and
+              <a href="#">Privacy Policy</a></label
+            >
+          </div>
+
+          <button type="submit" class="btn-signup">Create Account</button>
+
+          <div class="divider">
+            <span>Or sign up with</span>
+          </div>
+
+          <div class="social-login">
+            <div class="social-btn">
+              <i class="fab fa-google"></i>
+            </div>
+            <div class="social-btn">
+              <i class="fab fa-facebook-f"></i>
+            </div>
+            <div class="social-btn">
+              <i class="fab fa-twitter"></i>
+            </div>
+          </div>
+
+          <div class="login-link">
+            Already have an account? <a href="#">Log In</a>
+          </div>
+        </form>
+      </div>
+    </div>
+
+    <script>
+      // Toggle password visibility
+      const togglePassword = document.querySelector("#togglePassword");
+      const password = document.querySelector("#password");
+
+      togglePassword.addEventListener("click", function () {
+        // Toggle the type attribute
+        const type =
+          password.getAttribute("type") === "password" ? "text" : "password";
+        password.setAttribute("type", type);
+
+        // Toggle the eye icon
+        this.querySelector("i").classList.toggle("fa-eye");
+        this.querySelector("i").classList.toggle("fa-eye-slash");
+      });
+
+      // Form submission
+      const form = document.querySelector(".signup-form");
+      form.addEventListener("submit", function (e) {
+        e.preventDefault();
+        // Here you would normally handle form submission to your server
+        alert("Account created successfully! (This is just a demo)");
+      });
+    </script>
+  </body>
+</html>
