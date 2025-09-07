@@ -31,3 +31,19 @@ window.onload = () => {
     header.classList.add("fade-in");
   });
 };
+// Handle search input
+document
+  .getElementById("searchInput")
+  .addEventListener("keypress", function (e) {
+    if (e.key === "Enter") {
+      e.preventDefault();
+      let query = this.value.trim();
+
+      if (query) {
+        window.location.href =
+          "randomconcept.html?search=" + encodeURIComponent(query);
+      } else {
+        window.location.href = "randomconcept.html";
+      }
+    }
+  });
