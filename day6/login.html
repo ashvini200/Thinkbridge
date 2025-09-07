@@ -280,15 +280,24 @@
       </div>
 
       <div class="social-login">
-        <div class="social-button">
+        <a href="https://www.google.com" target="_blank" class="social-button">
           <i class="fab fa-google"></i>
-        </div>
-        <div class="social-button">
+        </a>
+
+        <a
+          href="https://www.facebook.com"
+          target="_blank"
+          class="social-button"
+        >
           <i class="fab fa-facebook-f"></i>
-        </div>
-        <div class="social-button">
+        </a>
+        <a
+          href="https://www.linkedin.com"
+          target="_blank"
+          class="social-button"
+        >
           <i class="fab fa-linkedin-in"></i>
-        </div>
+        </a>
       </div>
 
       <div class="signup-link">
@@ -297,37 +306,38 @@
     </div>
 
     <script>
-                  // Toggle password visibility
-                  const passwordToggle = document.getElementById("passwordToggle");
-                  const passwordInput = document.getElementById("password");
+      // Toggle password visibility
+      const passwordToggle = document.getElementById("passwordToggle");
+      const passwordInput = document.getElementById("password");
 
-                  passwordToggle.addEventListener("click", function () {
-                    if (passwordInput.type === "password") {
-                      passwordInput.type = "text";
-                      passwordToggle.innerHTML = '<i class="far fa-eye-slash"></i>';
-                    } else {
-                      passwordInput.type = "password";
-                      passwordToggle.innerHTML = '<i class="far fa-eye"></i>';
-                    }
-                  });
+      passwordToggle.addEventListener("click", function () {
+        if (passwordInput.type === "password") {
+          passwordInput.type = "text";
+          passwordToggle.innerHTML = '<i class="far fa-eye-slash"></i>';
+        } else {
+          passwordInput.type = "password";
+          passwordToggle.innerHTML = '<i class="far fa-eye"></i>';
+        }
+      });
 
-                  // Form submission
-                  document
-                    .getElementById("loginForm")
-                    .addEventListener("submit", function (e) {
-                      e.preventDefault();
-                      const email = document.getElementById("email").value;
-                      const password = document.getElementById("password").value;
+      // Form submission
+      document
+        .getElementById("loginForm")
+        .addEventListener("submit", function (e) {
+          e.preventDefault();
+          const email = document.getElementById("email").value;
+          const password = document.getElementById("password").value;
 
-                      // In a real application, you would send this data to a server
-                      console.log("Login attempted with:", { email, password });
+          // In a real application, you would send this data to a server
+          console.log("Login attempted with:", { email, password });
 
-                      // Simple validation
-            // Simple validation
-      if (email && password) {
-        alert("Login successful! (This is just a demo)");
-        window.location.href = "index.html"; // Redirect to main page after alert
-      }
+          // Simple validation
+          // Simple validation
+          if (email && password) {
+            alert("Login successful! (This is just a demo)");
+            window.location.href = "index.html"; // Redirect to main page after alert
+          }
+        });
     </script>
   </body>
 </html>
