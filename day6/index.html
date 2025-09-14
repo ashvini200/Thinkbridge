@@ -26,9 +26,14 @@
           <li><a href="#services">Services</a></li>
           <li><a href="#contact">Contact</a></li>
         </ul>
-        <button class="theme-toggle" id="themeToggle">
-          <i class="fas fa-moon"></i>
-        </button>
+        <div class="auth-buttons">
+          <button class="auth-btn" onclick="window.location.href='login.html'">
+            Log In
+          </button>
+          <button class="auth-btn" onclick="window.location.href='signup.html'">
+            Sign Up
+          </button>
+        </div>
       </nav>
 
       <div class="hero">
@@ -53,7 +58,10 @@
         </div>
 
         <div class="cta-buttons">
-          <button class="btn btn-primary" onclick="scrollToSection('html')">
+          <button
+            class="btn btn-primary"
+            onclick="scrollToSection('popular-subjects')"
+          >
             <i class="fas fa-play"></i> Get Started
           </button>
           <button class="btn btn-secondary" onclick="showRandomConcept()">
@@ -101,13 +109,25 @@
     </section>
 
     <!-- Popular Subjects Section -->
-    <section>
+    <section id="popular-subjects">
       <div class="section-header">
         <h2>Popular Subjects on WebTeche</h2>
         <p>Explore the fundamental technologies of the web</p>
       </div>
       <div class="cards">
-        <div class="card fade-in">
+        <!-- HTML Card -->
+        <a
+          href="HTML.html"
+          class="card fade-in"
+          style="
+            text-decoration: none;
+            color: inherit;
+            display: block;
+            transition: transform 0.2s, box-shadow 0.2s;
+          "
+          onmouseover="this.style.transform='scale(1.03)'; this.style.boxShadow='0 4px 15px rgba(0,0,0,0.2)'"
+          onmouseout="this.style.transform='scale(1)'; this.style.boxShadow='none'"
+        >
           <div class="card-header">
             <h3><i class="fab fa-html5"></i> HTML</h3>
           </div>
@@ -116,13 +136,23 @@
               HyperText Markup Language is the standard markup language for
               documents designed to be displayed in a web browser.
             </p>
-            <button class="btn-primary" onclick="scrollToSection('html')">
-              Learn More
-            </button>
+            <button class="btn-primary">Learn More</button>
           </div>
-        </div>
+        </a>
 
-        <div class="card fade-in">
+        <!-- CSS Card -->
+        <a
+          href="CSS.html"
+          class="card fade-in"
+          style="
+            text-decoration: none;
+            color: inherit;
+            display: block;
+            transition: transform 0.2s, box-shadow 0.2s;
+          "
+          onmouseover="this.style.transform='scale(1.03)'; this.style.boxShadow='0 4px 15px rgba(0,0,0,0.2)'"
+          onmouseout="this.style.transform='scale(1)'; this.style.boxShadow='none'"
+        >
           <div class="card-header">
             <h3><i class="fab fa-css3-alt"></i> CSS</h3>
           </div>
@@ -131,13 +161,23 @@
               Cascading Style Sheets is used to describe the presentation of a
               document written in HTML or XML.
             </p>
-            <button class="btn-primary" onclick="scrollToSection('css')">
-              Learn More
-            </button>
+            <button class="btn-primary">Learn More</button>
           </div>
-        </div>
+        </a>
 
-        <div class="card fade-in">
+        <!-- JavaScript Card -->
+        <a
+          href="JAVASCRIPT.html"
+          class="card fade-in"
+          style="
+            text-decoration: none;
+            color: inherit;
+            display: block;
+            transition: transform 0.2s, box-shadow 0.2s;
+          "
+          onmouseover="this.style.transform='scale(1.03)'; this.style.boxShadow='0 4px 15px rgba(0,0,0,0.2)'"
+          onmouseout="this.style.transform='scale(1)'; this.style.boxShadow='none'"
+        >
           <div class="card-header">
             <h3><i class="fab fa-js-square"></i> JavaScript</h3>
           </div>
@@ -146,48 +186,10 @@
               JavaScript is a programming language that enables interactive web
               pages and is an essential part of web applications.
             </p>
-            <button class="btn-primary" onclick="scrollToSection('js')">
-              Learn More
-            </button>
+            <button class="btn-primary">Learn More</button>
           </div>
-        </div>
+        </a>
       </div>
-    </section>
-
-    <!-- HTML Section -->
-    <section id="html">
-      <div class="section-header">
-        <h2><i class="fab fa-html5"></i> HTML Keywords</h2>
-        <p>
-          HyperText Markup Language is the standard markup language for
-          documents designed to be displayed in a web browser.
-        </p>
-      </div>
-      <div class="cards" id="html-cards"></div>
-    </section>
-
-    <!-- CSS Section -->
-    <section id="css">
-      <div class="section-header">
-        <h2><i class="fab fa-css3-alt"></i> CSS Keywords</h2>
-        <p>
-          Cascading Style Sheets is used to describe the presentation of a
-          document written in HTML or XML.
-        </p>
-      </div>
-      <div class="cards" id="css-cards"></div>
-    </section>
-
-    <!-- JavaScript Section -->
-    <section id="js">
-      <div class="section-header">
-        <h2><i class="fab fa-js-square"></i> JavaScript Keywords</h2>
-        <p>
-          JavaScript is a programming language that enables interactive web
-          pages and is an essential part of web applications.
-        </p>
-      </div>
-      <div class="cards" id="js-cards"></div>
     </section>
 
     <!-- About Section -->
@@ -301,9 +303,9 @@
         <p>Making web technologies accessible to everyone</p>
 
         <ul class="footer-links">
-          <li><a href="#html">HTML</a></li>
-          <li><a href="#css">CSS</a></li>
-          <li><a href="#js">JavaScript</a></li>
+          <li><a href="#popular-subjects">HTML</a></li>
+          <li><a href="#popular-subjects">CSS</a></li>
+          <li><a href="#popular-subjects">JavaScript</a></li>
           <li><a href="#about">About</a></li>
           <li><a href="#services">Services</a></li>
           <li><a href="#contact">Contact</a></li>
