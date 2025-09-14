@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>HTML Learning Hub</title>
+    <title>Learn Html</title>
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
@@ -23,7 +23,7 @@
       }
 
       header {
-        background: linear-gradient(135deg, #dd387a, #df2771);
+        background: linear-gradient(135deg, #d0437b, #df2771);
         color: white;
         padding: 2rem;
         text-align: center;
@@ -251,14 +251,6 @@
         display: inline-block;
       }
 
-      .color-box {
-        width: 50px;
-        height: 50px;
-        display: inline-block;
-        margin: 5px;
-        border: 1px solid #ccc;
-      }
-
       .flex-container {
         display: flex;
         gap: 10px;
@@ -289,6 +281,73 @@
         text-align: center;
       }
 
+      .box-model-demo {
+        width: 200px;
+        height: 100px;
+        padding: 20px;
+        border: 10px solid #df2771;
+        margin: 30px;
+        background-color: #f0f0f0;
+        position: relative;
+      }
+
+      .box-model-label {
+        position: absolute;
+        font-size: 12px;
+        background: rgba(255, 255, 255, 0.8);
+        padding: 2px 4px;
+        border-radius: 3px;
+      }
+
+      .color-game {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+        margin: 15px 0;
+      }
+
+      .color-option {
+        width: 50px;
+        height: 50px;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: transform 0.2s;
+      }
+
+      .color-option:hover {
+        transform: scale(1.1);
+      }
+
+      .selector-game {
+        border: 1px solid #ddd;
+        padding: 15px;
+        border-radius: 8px;
+        margin: 15px 0;
+      }
+
+      .element-to-style {
+        padding: 10px;
+        margin: 5px 0;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+      }
+
+      .console-output {
+        background-color: #2d2d2d;
+        color: #f8f8f2;
+        padding: 1rem;
+        border-radius: 6px;
+        margin: 1rem 0;
+        overflow-x: auto;
+        font-family: "Courier New", monospace;
+        height: 200px;
+        overflow-y: auto;
+      }
+
+      .console-line {
+        margin-bottom: 5px;
+      }
+
       .code-editor {
         width: 100%;
         height: 200px;
@@ -297,35 +356,6 @@
         border: 1px solid #ddd;
         border-radius: 4px;
         resize: vertical;
-      }
-
-      .output-container {
-        margin-top: 15px;
-        padding: 15px;
-        background-color: #f5f5f5;
-        border-radius: 4px;
-        border-left: 4px solid #df2771;
-      }
-
-      .html-preview {
-        border: 1px solid #ddd;
-        padding: 15px;
-        margin: 10px 0;
-        min-height: 100px;
-        background-color: white;
-      }
-
-      .html-tag {
-        color: #df2771;
-        font-weight: bold;
-      }
-
-      .html-attr {
-        color: #6f42c1;
-      }
-
-      .html-comment {
-        color: #6a737d;
       }
 
       @media (max-width: 768px) {
@@ -341,8 +371,8 @@
   </head>
   <body>
     <header>
-      <h1>HTML Learning Hub</h1>
-      <p class="subtitle">Master HTML with interactive tutorials</p>
+      <h1>Html Learning Hub</h1>
+      <p class="subtitle">Master html with interactive tutorials</p>
     </header>
 
     <div class="container">
@@ -351,435 +381,203 @@
         <input
           type="text"
           id="searchInput"
-          placeholder="Search for topics (e.g., Forms, Tables, Semantic HTML)"
+          placeholder="Search for topics (e.g., Closures, Promises, Prototypes)"
         />
         <button class="btn" onclick="searchTopics()">Search</button>
       </div>
 
-      <h2>HTML Topics</h2>
+      <h2>JavaScript Topics</h2>
       <div class="topics-grid">
-        <!-- Basics of HTML -->
-        <div class="topic-card" onclick="showTheory('html-basics')">
+        <!-- Execution Context & Call Stack -->
+        <div class="topic-card" onclick="showTheory('execution-context')">
           <div class="topic-header">
-            <span>Basics of HTML</span>
+            <span>1. Execution Context & Call Stack</span>
             <i class="fas fa-code"></i>
           </div>
           <div class="topic-content">
             <div
               class="subtopic"
-              onclick="event.stopPropagation(); showSubtopic('html-basics', 'what-is-html')"
+              onclick="event.stopPropagation(); showSubtopic('execution-context', 'how-js-runs')"
             >
-              <span>What is HTML</span>
+              <span>How JavaScript code runs internally</span>
               <i class="fas fa-chevron-right"></i>
             </div>
             <div
               class="subtopic"
-              onclick="event.stopPropagation(); showSubtopic('html-basics', 'syntax-structure')"
+              onclick="event.stopPropagation(); showSubtopic('execution-context', 'execution-context-types')"
             >
-              <span>HTML Syntax & Structure</span>
+              <span>Types of execution contexts</span>
               <i class="fas fa-chevron-right"></i>
             </div>
             <div
               class="subtopic"
-              onclick="event.stopPropagation(); showSubtopic('html-basics', 'elements-tags')"
+              onclick="event.stopPropagation(); showSubtopic('execution-context', 'call-stack')"
             >
-              <span>HTML Elements & Tags</span>
-              <i class="fas fa-chevron-right"></i>
-            </div>
-            <div
-              class="subtopic"
-              onclick="event.stopPropagation(); showSubtopic('html-basics', 'attributes')"
-            >
-              <span>Attributes</span>
+              <span>Call stack management</span>
               <i class="fas fa-chevron-right"></i>
             </div>
           </div>
         </div>
 
-        <!-- Text Formatting -->
-        <div class="topic-card" onclick="showTheory('text-formatting')">
+        <!-- Hoisting & Variable Scope -->
+        <div class="topic-card" onclick="showTheory('hoisting-scope')">
           <div class="topic-header">
-            <span>Text Formatting</span>
-            <i class="fas fa-text-height"></i>
+            <span>2. Hoisting & Variable Scope</span>
+            <i class="fas fa-arrow-up"></i>
           </div>
           <div class="topic-content">
             <div
               class="subtopic"
-              onclick="event.stopPropagation(); showSubtopic('text-formatting', 'headings')"
+              onclick="event.stopPropagation(); showSubtopic('hoisting-scope', 'var-let-const')"
             >
-              <span>Headings</span>
+              <span>var, let, and const differences</span>
               <i class="fas fa-chevron-right"></i>
             </div>
             <div
               class="subtopic"
-              onclick="event.stopPropagation(); showSubtopic('text-formatting', 'paragraphs')"
+              onclick="event.stopPropagation(); showSubtopic('hoisting-scope', 'temporal-dead-zone')"
             >
-              <span>Paragraphs & Text</span>
+              <span>Temporal Dead Zone (TDZ)</span>
               <i class="fas fa-chevron-right"></i>
             </div>
             <div
               class="subtopic"
-              onclick="event.stopPropagation(); showSubtopic('text-formatting', 'text-styles')"
+              onclick="event.stopPropagation(); showSubtopic('hoisting-scope', 'function-vs-variable-hoisting')"
             >
-              <span>Text Styles</span>
-              <i class="fas fa-chevron-right"></i>
-            </div>
-            <div
-              class="subtopic"
-              onclick="event.stopPropagation(); showSubtopic('text-formatting', 'block-inline')"
-            >
-              <span>Block vs Inline</span>
+              <span>Function vs variable hoisting</span>
               <i class="fas fa-chevron-right"></i>
             </div>
           </div>
         </div>
 
-        <!-- Links & Navigation -->
-        <div class="topic-card" onclick="showTheory('links-navigation')">
+        <!-- Closures -->
+        <div class="topic-card" onclick="showTheory('closures')">
           <div class="topic-header">
-            <span>Links & Navigation</span>
+            <span>3. Closures</span>
             <i class="fas fa-link"></i>
           </div>
           <div class="topic-content">
             <div
               class="subtopic"
-              onclick="event.stopPropagation(); showSubtopic('links-navigation', 'anchor-tags')"
+              onclick="event.stopPropagation(); showSubtopic('closures', 'what-are-closures')"
             >
-              <span>Anchor Tags</span>
+              <span>What are closures</span>
               <i class="fas fa-chevron-right"></i>
             </div>
             <div
               class="subtopic"
-              onclick="event.stopPropagation(); showSubtopic('links-navigation', 'url-types')"
+              onclick="event.stopPropagation(); showSubtopic('closures', 'closure-examples')"
             >
-              <span>URL Types</span>
+              <span>Practical examples</span>
               <i class="fas fa-chevron-right"></i>
             </div>
             <div
               class="subtopic"
-              onclick="event.stopPropagation(); showSubtopic('links-navigation', 'link-targets')"
+              onclick="event.stopPropagation(); showSubtopic('closures', 'closure-use-cases')"
             >
-              <span>Link Targets</span>
-              <i class="fas fa-chevron-right"></i>
-            </div>
-            <div
-              class="subtopic"
-              onclick="event.stopPropagation(); showSubtopic('links-navigation', 'fragment-identifiers')"
-            >
-              <span>Fragment Identifiers</span>
+              <span>Use cases</span>
               <i class="fas fa-chevron-right"></i>
             </div>
           </div>
         </div>
 
-        <!-- Lists -->
-        <div class="topic-card" onclick="showTheory('lists')">
+        <!-- Asynchronous JavaScript -->
+        <div class="topic-card" onclick="showTheory('async-js')">
           <div class="topic-header">
-            <span>Lists</span>
-            <i class="fas fa-list"></i>
+            <span>4. Asynchronous JavaScript</span>
+            <i class="fas fa-clock"></i>
           </div>
           <div class="topic-content">
             <div
               class="subtopic"
-              onclick="event.stopPropagation(); showSubtopic('lists', 'ordered-lists')"
+              onclick="event.stopPropagation(); showSubtopic('async-js', 'event-loop')"
             >
-              <span>Ordered Lists</span>
+              <span>Event loop and task queues</span>
               <i class="fas fa-chevron-right"></i>
             </div>
             <div
               class="subtopic"
-              onclick="event.stopPropagation(); showSubtopic('lists', 'unordered-lists')"
+              onclick="event.stopPropagation(); showSubtopic('async-js', 'promises')"
             >
-              <span>Unordered Lists</span>
+              <span>Promises</span>
               <i class="fas fa-chevron-right"></i>
             </div>
             <div
               class="subtopic"
-              onclick="event.stopPropagation(); showSubtopic('lists', 'description-lists')"
+              onclick="event.stopPropagation(); showSubtopic('async-js', 'async-await')"
             >
-              <span>Description Lists</span>
-              <i class="fas fa-chevron-right"></i>
-            </div>
-            <div
-              class="subtopic"
-              onclick="event.stopPropagation(); showSubtopic('lists', 'nested-lists')"
-            >
-              <span>Nested Lists</span>
+              <span>Async/await</span>
               <i class="fas fa-chevron-right"></i>
             </div>
           </div>
         </div>
 
-        <!-- Images & Multimedia -->
-        <div class="topic-card" onclick="showTheory('images-multimedia')">
+        <!-- Prototypes & Inheritance -->
+        <div class="topic-card" onclick="showTheory('prototypes')">
           <div class="topic-header">
-            <span>Images & Multimedia</span>
-            <i class="fas fa-image"></i>
+            <span>5. Prototypes & Inheritance</span>
+            <i class="fas fa-project-diagram"></i>
           </div>
           <div class="topic-content">
             <div
               class="subtopic"
-              onclick="event.stopPropagation(); showSubtopic('images-multimedia', 'image-tag')"
+              onclick="event.stopPropagation(); showSubtopic('prototypes', 'prototype-chain')"
             >
-              <span>Image Tag</span>
+              <span>Prototype chain</span>
               <i class="fas fa-chevron-right"></i>
             </div>
             <div
               class="subtopic"
-              onclick="event.stopPropagation(); showSubtopic('images-multimedia', 'picture-element')"
+              onclick="event.stopPropagation(); showSubtopic('prototypes', 'classical-vs-prototypal')"
             >
-              <span>Picture Element</span>
+              <span>Classical vs prototypal inheritance</span>
               <i class="fas fa-chevron-right"></i>
             </div>
             <div
               class="subtopic"
-              onclick="event.stopPropagation(); showSubtopic('images-multimedia', 'audio-video')"
+              onclick="event.stopPropagation(); showSubtopic('prototypes', 'object-create')"
             >
-              <span>Audio & Video</span>
-              <i class="fas fa-chevron-right"></i>
-            </div>
-            <div
-              class="subtopic"
-              onclick="event.stopPropagation(); showSubtopic('images-multimedia', 'lazy-loading')"
-            >
-              <span>Lazy Loading</span>
+              <span>Object.create() and prototypes</span>
               <i class="fas fa-chevron-right"></i>
             </div>
           </div>
         </div>
 
-        <!-- Tables -->
-        <div class="topic-card" onclick="showTheory('tables')">
+        <!-- This Keyword & Binding -->
+        <div class="topic-card" onclick="showTheory('this-keyword')">
           <div class="topic-header">
-            <span>Tables</span>
-            <i class="fas fa-table"></i>
+            <span>6. This Keyword & Binding</span>
+            <i class="fas fa-hand-point-right"></i>
           </div>
           <div class="topic-content">
             <div
               class="subtopic"
-              onclick="event.stopPropagation(); showSubtopic('tables', 'table-structure')"
+              onclick="event.stopPropagation(); showSubtopic('this-keyword', 'this-context')"
             >
-              <span>Table Structure</span>
+              <span>Understanding 'this' context</span>
               <i class="fas fa-chevron-right"></i>
             </div>
             <div
               class="subtopic"
-              onclick="event.stopPropagation(); showSubtopic('tables', 'table-headers')"
+              onclick="event.stopPropagation(); showSubtopic('this-keyword', 'call-apply-bind')"
             >
-              <span>Table Headers</span>
+              <span>call, apply, and bind</span>
               <i class="fas fa-chevron-right"></i>
             </div>
             <div
               class="subtopic"
-              onclick="event.stopPropagation(); showSubtopic('tables', 'rowspan-colspan')"
+              onclick="event.stopPropagation(); showSubtopic('this-keyword', 'arrow-function-this')"
             >
-              <span>Rowspan & Colspan</span>
-              <i class="fas fa-chevron-right"></i>
-            </div>
-            <div
-              class="subtopic"
-              onclick="event.stopPropagation(); showSubtopic('tables', 'table-accessibility')"
-            >
-              <span>Table Accessibility</span>
-              <i class="fas fa-chevron-right"></i>
-            </div>
-          </div>
-        </div>
-
-        <!-- Forms -->
-        <div class="topic-card" onclick="showTheory('forms')">
-          <div class="topic-header">
-            <span>Forms</span>
-            <i class="fas fa-window-restore"></i>
-          </div>
-          <div class="topic-content">
-            <div
-              class="subtopic"
-              onclick="event.stopPropagation(); showSubtopic('forms', 'form-elements')"
-            >
-              <span>Form Elements</span>
-              <i class="fas fa-chevron-right"></i>
-            </div>
-            <div
-              class="subtopic"
-              onclick="event.stopPropagation(); showSubtopic('forms', 'input-types')"
-            >
-              <span>Input Types</span>
-              <i class="fas fa-chevron-right"></i>
-            </div>
-            <div
-              class="subtopic"
-              onclick="event.stopPropagation(); showSubtopic('forms', 'form-validation')"
-            >
-              <span>Form Validation</span>
-              <i class="fas fa-chevron-right"></i>
-            </div>
-            <div
-              class="subtopic"
-              onclick="event.stopPropagation(); showSubtopic('forms', 'form-accessibility')"
-            >
-              <span>Form Accessibility</span>
-              <i class="fas fa-chevron-right"></i>
-            </div>
-          </div>
-        </div>
-
-        <!-- Semantic HTML -->
-        <div class="topic-card" onclick="showTheory('semantic-html')">
-          <div class="topic-header">
-            <span>Semantic HTML</span>
-            <i class="fas fa-cube"></i>
-          </div>
-          <div class="topic-content">
-            <div
-              class="subtopic"
-              onclick="event.stopPropagation(); showSubtopic('semantic-html', 'semantic-elements')"
-            >
-              <span>Semantic Elements</span>
-              <i class="fas fa-chevron-right"></i>
-            </div>
-            <div
-              class="subtopic"
-              onclick="event.stopPropagation(); showSubtopic('semantic-html', 'semantic-benefits')"
-            >
-              <span>Benefits of Semantics</span>
-              <i class="fas fa-chevron-right"></i>
-            </div>
-            <div
-              class="subtopic"
-              onclick="event.stopPropagation(); showSubtopic('semantic-html', 'aria-roles')"
-            >
-              <span>ARIA Roles</span>
-              <i class="fas fa-chevron-right"></i>
-            </div>
-            <div
-              class="subtopic"
-              onclick="event.stopPropagation(); showSubtopic('semantic-html', 'accessibility')"
-            >
-              <span>Accessibility</span>
-              <i class="fas fa-chevron-right"></i>
-            </div>
-          </div>
-        </div>
-
-        <!-- Meta & SEO -->
-        <div class="topic-card" onclick="showTheory('meta-seo')">
-          <div class="topic-header">
-            <span>Meta & SEO</span>
-            <i class="fas fa-search"></i>
-          </div>
-          <div class="topic-content">
-            <div
-              class="subtopic"
-              onclick="event.stopPropagation(); showSubtopic('meta-seo', 'meta-tags')"
-            >
-              <span>Meta Tags</span>
-              <i class="fas fa-chevron-right"></i>
-            </div>
-            <div
-              class="subtopic"
-              onclick="event.stopPropagation(); showSubtopic('meta-seo', 'seo-basics')"
-            >
-              <span>SEO Basics</span>
-              <i class="fas fa-chevron-right"></i>
-            </div>
-            <div
-              class="subtopic"
-              onclick="event.stopPropagation(); showSubtopic('meta-seo', 'viewport')"
-            >
-              <span>Viewport Meta Tag</span>
-              <i class="fas fa-chevron-right"></i>
-            </div>
-            <div
-              class="subtopic"
-              onclick="event.stopPropagation(); showSubtopic('meta-seo', 'social-meta')"
-            >
-              <span>Social Media Meta Tags</span>
-              <i class="fas fa-chevron-right"></i>
-            </div>
-          </div>
-        </div>
-
-        <!-- HTML APIs & Advanced Features -->
-        <div class="topic-card" onclick="showTheory('html-apis')">
-          <div class="topic-header">
-            <span>HTML APIs & Advanced</span>
-            <i class="fas fa-cogs"></i>
-          </div>
-          <div class="topic-content">
-            <div
-              class="subtopic"
-              onclick="event.stopPropagation(); showSubtopic('html-apis', 'geolocation')"
-            >
-              <span>Geolocation API</span>
-              <i class="fas fa-chevron-right"></i>
-            </div>
-            <div
-              class="subtopic"
-              onclick="event.stopPropagation(); showSubtopic('html-apis', 'web-storage')"
-            >
-              <span>Web Storage</span>
-              <i class="fas fa-chevron-right"></i>
-            </div>
-            <div
-              class="subtopic"
-              onclick="event.stopPropagation(); showSubtopic('html-apis', 'canvas')"
-            >
-              <span>Canvas API</span>
-              <i class="fas fa-chevron-right"></i>
-            </div>
-            <div
-              class="subtopic"
-              onclick="event.stopPropagation(); showSubtopic('html-apis', 'drag-drop')"
-            >
-              <span>Drag & Drop</span>
-              <i class="fas fa-chevron-right"></i>
-            </div>
-          </div>
-        </div>
-
-        <!-- HTML Best Practices -->
-        <div class="topic-card" onclick="showTheory('best-practices')">
-          <div class="topic-header">
-            <span>Best Practices</span>
-            <i class="fas fa-check-circle"></i>
-          </div>
-          <div class="topic-content">
-            <div
-              class="subtopic"
-              onclick="event.stopPropagation(); showSubtopic('best-practices', 'proper-nesting')"
-            >
-              <span>Proper Nesting</span>
-              <i class="fas fa-chevron-right"></i>
-            </div>
-            <div
-              class="subtopic"
-              onclick="event.stopPropagation(); showSubtopic('best-practices', 'semantic-usage')"
-            >
-              <span>Semantic Usage</span>
-              <i class="fas fa-chevron-right"></i>
-            </div>
-            <div
-              class="subtopic"
-              onclick="event.stopPropagation(); showSubtopic('best-practices', 'performance')"
-            >
-              <span>Performance Optimization</span>
-              <i class="fas fa-chevron-right"></i>
-            </div>
-            <div
-              class="subtopic"
-              onclick="event.stopPropagation(); showSubtopic('best-practices', 'security')"
-            >
-              <span>Security Basics</span>
+              <span>Arrow functions and 'this'</span>
               <i class="fas fa-chevron-right"></i>
             </div>
           </div>
         </div>
       </div>
 
-      <!-- Theory Section (initially hidden) -->
+      <!-- Theory Section -->
       <div id="theory-section" class="theory-section">
-        <h3 id="theory-title">HTML Basics</h3>
+        <h3 id="theory-title">JavaScript Basics</h3>
 
         <div class="content-tabs">
           <div class="tab active" onclick="switchTab('theory')">Theory</div>
@@ -794,7 +592,7 @@
           </div>
 
           <div class="code-example" id="code-example">
-            <!-- Code examples will appear here -->
+            // Code examples will appear here
           </div>
         </div>
 
@@ -810,10 +608,9 @@
           <div id="interactive-content">
             <p>Try it yourself! This area will have interactive examples.</p>
           </div>
-          <button class="btn" id="run-button">Run Code</button>
-          <div class="output-container" id="output-container">
-            <strong>Output:</strong>
-            <div id="output"></div>
+          <button class="btn" onclick="runCode()">Run Code</button>
+          <div class="console-output" id="console-output">
+            <div class="console-line">Console output will appear here...</div>
           </div>
         </div>
 
@@ -827,8 +624,8 @@
     </div>
 
     <footer>
-      <p>HTML Learning Hub &copy; 2023</p>
-      <p>Interactive learning platform for HTML markup language</p>
+      <p>JavaScript Learning Hub &copy; 2025</p>
+      <p>Interactive learning platform for JavaScript programming</p>
     </footer>
 
     <script>
@@ -862,111 +659,375 @@
 
         // Set content based on the topic
         switch (topicId) {
-          case "html-basics":
-            theoryTitle.textContent = "HTML Basics";
+          case "execution-context":
+            theoryTitle.textContent = "Execution Context & Call Stack";
             theoryContent.innerHTML = `
-                        <p>HTML (HyperText Markup Language) is the standard markup language for documents designed to be displayed in a web browser.</p>
-                        <p>It defines the structure and content of web pages. HTML consists of a series of elements that you use to enclose, wrap, or mark up different parts of content to make it appear or act in a certain way.</p>
+                        <p>JavaScript code execution happens inside the execution context. This is the environment where JavaScript code is evaluated and executed.</p>
+                        <p><strong>Types of Execution Context:</strong></p>
+                        <ul>
+                            <li><strong>Global Execution Context:</strong> Default context where code is executed when it's not inside any function</li>
+                            <li><strong>Function Execution Context:</strong> Context created whenever a function is called</li>
+                            <li><strong>Eval Execution Context:</strong> Context inside eval function (less common)</li>
+                        </ul>
+                        <p><strong>Call Stack:</strong> JavaScript uses a call stack to manage execution contexts. It's a stack data structure that follows LIFO (Last In, First Out) principle.</p>
+                    `;
+            codeExample.textContent = `// Example of execution context and call stack
+function first() {
+    console.log("Inside first function");
+    second();
+    console.log("Back to first function");
+}
+
+function second() {
+    console.log("Inside second function");
+    third();
+    console.log("Back to second function");
+}
+
+function third() {
+    console.log("Inside third function");
+}
+
+console.log("Global context");
+first();
+console.log("Back to global context");
+
+// The call stack would be:
+// 1. Global context
+// 2. first() is added to stack
+// 3. second() is added to stack
+// 4. third() is added to stack
+// 5. third() completes and is removed
+// 6. second() completes and is removed
+// 7. first() completes and is removed
+// 8. Back to global context`;
+            break;
+          case "hoisting-scope":
+            theoryTitle.textContent = "Hoisting & Variable Scope";
+            theoryContent.innerHTML = `
+                        <p>Hoisting is JavaScript's default behavior of moving declarations to the top of their containing scope.</p>
                         <p><strong>Key Points:</strong></p>
                         <ul>
-                            <li>HTML is not a programming language; it's a markup language</li>
-                            <li>HTML uses tags to define elements within the document</li>
-                            <li>Each HTML element tells the browser something about the information it contains</li>
-                            <li>HTML documents are saved with .html extension</li>
+                            <li>Variable declarations (var) are hoisted but not initialized (default value: undefined)</li>
+                            <li>let and const declarations are hoisted but not initialized (Temporal Dead Zone)</li>
+                            <li>Function declarations are hoisted with their definition</li>
+                            <li>Function expressions follow variable hoisting rules</li>
                         </ul>
+                        <p><strong>Temporal Dead Zone (TDZ):</strong> The time between entering scope and being declared where variables (let/const) cannot be accessed.</p>
                     `;
-            codeExample.textContent = `<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My First HTML Page</title>
-</head>
-<body>
-    <h1>Welcome to HTML</h1>
-    <p>This is a paragraph of text on my first web page.</p>
-    <a href="https://www.example.com">Visit Example.com</a>
-</body>
-</html>`;
+            codeExample.textContent = `// Hoisting examples
+console.log(x); // undefined (var is hoisted)
+var x = 5;
+
+// console.log(y); // ReferenceError: Cannot access 'y' before initialization
+let y = 10;
+
+// console.log(z); // ReferenceError: Cannot access 'z' before initialization
+const z = 15;
+
+// Function hoisting
+foo(); // "foo called" - function declaration is hoisted
+
+function foo() {
+    console.log("foo called");
+}
+
+// bar(); // TypeError: bar is not a function - variable hoisting
+var bar = function() {
+    console.log("bar called");
+};
+
+// Temporal Dead Zone example
+{
+    // Start of TDZ for tmp
+    // console.log(tmp); // ReferenceError
+    
+    let tmp; // End of TDZ for tmp
+    console.log(tmp); // undefined
+    
+    tmp = 123;
+    console.log(tmp); // 123
+}`;
             break;
-          case "text-formatting":
-            theoryTitle.textContent = "HTML Text Formatting";
+          case "closures":
+            theoryTitle.textContent = "Closures";
             theoryContent.innerHTML = `
-                        <p>HTML provides various elements for formatting text with special meaning.</p>
-                        <p>These elements help convey the semantic meaning of text content to both browsers and developers.</p>
-                        <p><strong>Text Formatting Elements:</strong></p>
+                        <p>A closure is a function that has access to its outer function's scope even after the outer function has returned.</p>
+                        <p><strong>Key Characteristics:</strong></p>
                         <ul>
-                            <li><strong>Headings:</strong> &lt;h1&gt; to &lt;h6&gt; for section headings</li>
-                            <li><strong>Paragraphs:</strong> &lt;p&gt; for blocks of text</li>
-                            <li><strong>Emphasis:</strong> &lt;em&gt; for emphasized text (typically italic)</li>
-                            <li><strong>Strong:</strong> &lt;strong&gt; for important text (typically bold)</li>
-                            <li><strong>Other:</strong> &lt;mark&gt;, &lt;small&gt;, &lt;del&gt;, &lt;ins&gt;, &lt;sub&gt;, &lt;sup&gt;</li>
+                            <li>JavaScript functions form closures when they are created</li>
+                            <li>Closures allow functions to "remember" the environment in which they were created</li>
+                            <li>They're created every time a function is created, at function creation time</li>
+                        </ul>
+                        <p><strong>Common Use Cases:</strong></p>
+                        <ul>
+                            <li>Data privacy and encapsulation</li>
+                            <li>Function factories and currying</li>
+                            <li>Event handlers and callbacks</li>
+                            <li>Maintaining state in async operations</li>
                         </ul>
                     `;
-            codeExample.textContent = `<h1>Main Heading (h1)</h1>
-<h2>Secondary Heading (h2)</h2>
-<h3>Tertiary Heading (h3)</h3>
+            codeExample.textContent = `// Basic closure example
+function outer() {
+    let count = 0;
+    
+    return function inner() {
+        count++;
+        return count;
+    };
+}
 
-<p>This is a regular paragraph of text. It can contain <em>emphasized text</em> and <strong>strongly important text</strong>.</p>
+const counter = outer();
+console.log(counter()); // 1
+console.log(counter()); // 2
+console.log(counter()); // 3
 
-<p>We can also have <mark>highlighted text</mark>, <small>small text</small>, <del>deleted text</del>, and <ins>inserted text</ins>.</p>
+// Another example with private variables
+function createBankAccount(initialBalance) {
+    let balance = initialBalance;
+    
+    return {
+        deposit: function(amount) {
+            balance += amount;
+            return balance;
+        },
+        withdraw: function(amount) {
+            if (amount <= balance) {
+                balance -= amount;
+                return balance;
+            } else {
+                return "Insufficient funds";
+            }
+        },
+        getBalance: function() {
+            return balance;
+        }
+    };
+}
 
-<p>Scientific notation: H<sub>2</sub>O, E=mc<sup>2</sup></p>`;
+const account = createBankAccount(100);
+console.log(account.getBalance()); // 100
+console.log(account.deposit(50)); // 150
+console.log(account.withdraw(30)); // 120
+console.log(account.withdraw(150)); // "Insufficient funds"`;
             break;
-          case "forms":
-            theoryTitle.textContent = "HTML Forms";
+          case "async-js":
+            theoryTitle.textContent = "Asynchronous JavaScript";
             theoryContent.innerHTML = `
-                        <p>HTML forms are used to collect user input. A form contains input elements like text fields, checkboxes, radio buttons, submit buttons, etc.</p>
-                        <p>Forms are submitted to a server for processing, typically using the POST or GET method.</p>
-                        <p><strong>Form Elements:</strong></p>
+                        <p>JavaScript is single-threaded but handles asynchronous operations using an event loop, callback queue, and other features.</p>
+                        <p><strong>Event Loop:</strong> Continuously checks the call stack and callback queue. If the stack is empty, it moves callbacks from the queue to the stack.</p>
+                        <p><strong>Task Queue (Macrotask Queue):</strong> Holds tasks to be processed (setTimeout, setInterval, I/O operations)</p>
+                        <p><strong>Microtask Queue:</strong> Holds higher priority tasks (Promise callbacks, MutationObserver)</p>
+                        <p><strong>Execution Order:</strong> Microtasks are executed before macrotasks when the call stack is empty.</p>
+                    `;
+            codeExample.textContent = `// Asynchronous JavaScript examples
+
+// Callbacks (the old way)
+function fetchData(callback) {
+    setTimeout(() => {
+        callback("Data received");
+    }, 1000);
+}
+
+fetchData((data) => {
+    console.log(data);
+});
+
+// Promises (better way)
+function fetchDataPromise() {
+    return new Promise((resolve, reject) => {
+        setTimeout(() => {
+            resolve("Data received via promise");
+            // reject("Error occurred"); // In case of error
+        }, 1000);
+    });
+}
+
+fetchDataPromise()
+    .then(data => console.log(data))
+    .catch(error => console.error(error));
+
+// Async/await (modern way)
+async function getData() {
+    try {
+        const data = await fetchDataPromise();
+        console.log(data);
+    } catch (error) {
+        console.error(error);
+    }
+}
+
+getData();
+
+// Event loop example
+console.log("Start");
+
+setTimeout(() => {
+    console.log("Timeout callback");
+}, 0);
+
+Promise.resolve().then(() => {
+    console.log("Promise resolved");
+});
+
+console.log("End");
+
+// Output order:
+// "Start"
+// "End"
+// "Promise resolved" (microtask)
+// "Timeout callback" (macrotask)`;
+            break;
+          case "prototypes":
+            theoryTitle.textContent = "Prototypes & Inheritance";
+            theoryContent.innerHTML = `
+                        <p>JavaScript uses prototypal inheritance rather than classical inheritance found in languages like Java or C++.</p>
+                        <p><strong>Prototype Chain:</strong> Every object has a private property ([[Prototype]]) that links to another object. This object has its own prototype, forming a chain.</p>
+                        <p><strong>Key Concepts:</strong></p>
                         <ul>
-                            <li><strong>&lt;form&gt;:</strong> The container for all form elements</li>
-                            <li><strong>&lt;input&gt;:</strong> The most important form element with many types (text, password, radio, checkbox, etc.)</li>
-                            <li><strong>&lt;textarea&gt;:</strong> For multi-line text input</li>
-                            <li><strong>&lt;select&gt;:</strong> For drop-down lists</li>
-                            <li><strong>&lt;button&gt;:</strong> For clickable buttons</li>
-                            <li><strong>&lt;label&gt;:</strong> Defines a label for an input element</li>
+                            <li><strong>__proto__:</strong> Property that points to an object's prototype (deprecated but widely supported)</li>
+                            <li><strong>Object.getPrototypeOf():</strong> Recommended way to get an object's prototype</li>
+                            <li><strong>prototype property:</strong> Exists on functions and is used when the function is used as a constructor</li>
+                            <li><strong>Object.create():</strong> Creates a new object with the specified prototype</li>
                         </ul>
                     `;
-            codeExample.textContent = `<form action="/submit-form" method="post">
-    <label for="fname">First Name:</label><br>
-    <input type="text" id="fname" name="fname" required><br><br>
+            codeExample.textContent = `// Prototype examples
+
+// Constructor function
+function Person(name, age) {
+    this.name = name;
+    this.age = age;
+}
+
+// Adding method to prototype
+Person.prototype.greet = function() {
+    return \`Hello, my name is \${this.name} and I'm \${this.age} years old.\`;
+};
+
+const john = new Person("John", 30);
+console.log(john.greet()); // "Hello, my name is John and I'm 30 years old."
+
+// Prototype chain
+console.log(john.__proto__ === Person.prototype); // true
+console.log(Person.prototype.__proto__ === Object.prototype); // true
+console.log(Object.prototype.__proto__); // null
+
+// Object.create for prototypal inheritance
+const personPrototype = {
+    greet() {
+        return \`Hello, my name is \${this.name}.\`;
+    }
+};
+
+const mary = Object.create(personPrototype);
+mary.name = "Mary";
+console.log(mary.greet()); // "Hello, my name is Mary."
+
+// Class syntax (syntactic sugar over prototypes)
+class Animal {
+    constructor(name) {
+        this.name = name;
+    }
     
-    <label for="lname">Last Name:</label><br>
-    <input type="text" id="lname" name="lname"><br><br>
+    speak() {
+        return \`\${this.name} makes a sound.\`;
+    }
+}
+
+class Dog extends Animal {
+    constructor(name, breed) {
+        super(name);
+        this.breed = breed;
+    }
     
-    <label for="email">Email:</label><br>
-    <input type="email" id="email" name="email" required><br><br>
-    
-    <label for="password">Password:</label><br>
-    <input type="password" id="password" name="password" minlength="8" required><br><br>
-    
-    <label for="gender">Gender:</label><br>
-    <input type="radio" id="male" name="gender" value="male">
-    <label for="male">Male</label>
-    <input type="radio" id="female" name="gender" value="female">
-    <label for="female">Female</label><br><br>
-    
-    <label for="country">Country:</label><br>
-    <select id="country" name="country">
-        <option value="usa">United States</option>
-        <option value="canada">Canada</option>
-        <option value="uk">United Kingdom</option>
-    </select><br><br>
-    
-    <label for="message">Message:</label><br>
-    <textarea id="message" name="message" rows="4" cols="50"></textarea><br><br>
-    
-    <input type="checkbox" id="subscribe" name="subscribe" value="yes">
-    <label for="subscribe">Subscribe to newsletter</label><br><br>
-    
-    <input type="submit" value="Submit">
-</form>`;
+    speak() {
+        return \`\${this.name} barks!\`;
+    }
+}
+
+const dog = new Dog("Rex", "German Shepherd");
+console.log(dog.speak()); // "Rex barks!"`;
+            break;
+          case "this-keyword":
+            theoryTitle.textContent = "This Keyword & Binding";
+            theoryContent.innerHTML = `
+                        <p>The value of <code>this</code> in JavaScript depends on how a function is called, not where it's defined.</p>
+                        <p><strong>Binding Rules:</strong></p>
+                        <ul>
+                            <li><strong>Default binding:</strong> In strict mode, <code>this</code> is undefined. In non-strict mode, <code>this</code> refers to the global object (window in browsers)</li>
+                            <li><strong>Implicit binding:</strong> When a function is called as a method of an object, <code>this</code> refers to that object</li>
+                            <li><strong>Explicit binding:</strong> Using <code>call()</code>, <code>apply()</code>, or <code>bind()</code> to explicitly set <code>this</code></li>
+                            <li><strong>New binding:</strong> When a function is called with <code>new</code>, <code>this</code> refers to the newly created object</li>
+                            <li><strong>Arrow functions:</strong> Don't have their own <code>this</code> binding. They inherit <code>this</code> from the surrounding lexical context</li>
+                        </ul>
+                    `;
+            codeExample.textContent = `// 'this' keyword examples
+
+// Default binding
+function showThis() {
+    console.log(this);
+}
+
+showThis(); // In browser: Window object (or undefined in strict mode)
+
+// Implicit binding
+const obj = {
+    name: "My Object",
+    showThis: function() {
+        console.log(this);
+    }
+};
+
+obj.showThis(); // {name: "My Object", showThis: ƒ}
+
+// Explicit binding
+function greet() {
+    console.log(\`Hello, \${this.name}\`);
+}
+
+const person1 = { name: "Alice" };
+const person2 = { name: "Bob" };
+
+greet.call(person1); // "Hello, Alice"
+greet.apply(person2); // "Hello, Bob"
+
+const greetAlice = greet.bind(person1);
+greetAlice(); // "Hello, Alice"
+
+// New binding
+function Car(make, model) {
+    this.make = make;
+    this.model = model;
+    this.display = function() {
+        console.log(\`\${this.make} \${this.model}\`);
+    };
+}
+
+const myCar = new Car("Toyota", "Camry");
+myCar.display(); // "Toyota Camry"
+
+// Arrow functions and 'this'
+const outerObj = {
+    name: "Outer",
+    regularFunction: function() {
+        console.log("Regular function:", this.name);
+        
+        const arrowFunction = () => {
+            console.log("Arrow function:", this.name);
+        };
+        
+        arrowFunction();
+    }
+};
+
+outerObj.regularFunction();
+// "Regular function: Outer"
+// "Arrow function: Outer"`;
             break;
           default:
             theoryTitle.textContent = "Topic Overview";
             theoryContent.textContent = "Select a topic to view its content.";
-            codeExample.textContent = "<!-- Code examples will appear here -->";
+            codeExample.textContent = "// Code examples will appear here";
         }
 
         // Update live example based on topic
@@ -1000,114 +1061,429 @@
 
         // Set content based on the subtopic
         switch (subtopicId) {
-          case "what-is-html":
-            theoryTitle.textContent = "What is HTML?";
+          case "how-js-runs":
+            theoryTitle.textContent = "How JavaScript Code Runs Internally";
             theoryContent.innerHTML = `
-                        <p>HTML (HyperText Markup Language) is the standard markup language for creating web pages and web applications.</p>
-                        <p>It describes the structure of a web page semantically and originally included cues for the appearance of the document.</p>
-                        <p><strong>Key Characteristics:</strong></p>
+                        <p>JavaScript execution involves several components working together:</p>
+                        <p><strong>JavaScript Engine:</strong> (V8 in Chrome, SpiderMonkey in Firefox) consists of:</p>
                         <ul>
-                            <li>HTML is not a programming language; it's a markup language</li>
-                            <li>HTML uses a system of tags and attributes to define elements</li>
-                            <li>HTML documents are interpreted by web browsers to display content</li>
-                            <li>HTML works alongside CSS (styling) and JavaScript (behavior)</li>
+                            <li><strong>Call Stack:</strong> Where function calls are stacked and executed</li>
+                            <li><strong>Memory Heap:</strong> Where objects are allocated in memory</li>
                         </ul>
-                        <p><strong>History:</strong> HTML was created by Tim Berners-Lee in 1991. The first standard was HTML 2.0 (1995). 
-                        The current version is HTML5, which introduced many new semantic elements and APIs.</p>
+                        <p><strong>Runtime Environment:</strong> Provides additional features like:</p>
+                        <ul>
+                            <li><strong>Web APIs:</strong> Provided by browsers (DOM, setTimeout, XMLHttpRequest, etc.)</li>
+                            <li><strong>Callback Queue:</strong> Holds callback functions waiting to be executed</li>
+                            <li><strong>Event Loop:</strong> Continuously checks if the call stack is empty and moves callbacks from the queue to the stack</li>
+                        </ul>
                     `;
-            codeExample.textContent = `<!DOCTYPE html>
-<html>
-<head>
-    <title>Page Title</title>
-</head>
-<body>
-    <h1>My First Heading</h1>
-    <p>My first paragraph.</p>
-</body>
-</html>`;
+            codeExample.textContent = `// Example demonstrating JavaScript execution order
+console.log("Start");
+
+// Web API - setTimeout
+setTimeout(function timeoutCallback() {
+    console.log("Timeout callback");
+}, 0);
+
+// Microtask - Promise
+Promise.resolve().then(function promiseCallback() {
+    console.log("Promise callback");
+});
+
+console.log("End");
+
+// Output order:
+// "Start"
+// "End"
+// "Promise callback" (microtask has higher priority)
+// "Timeout callback" (macrotask)`;
             break;
-          case "headings":
-            theoryTitle.textContent = "HTML Headings";
+          case "var-let-const":
+            theoryTitle.textContent = "var, let, and const Differences";
             theoryContent.innerHTML = `
-                        <p>HTML headings are titles or subtitles that you want to display on a webpage.</p>
-                        <p>HTML provides six levels of headings, from &lt;h1&gt; to &lt;h6&gt;, with &lt;h1&gt; being the most important and &lt;h6&gt; the least important.</p>
-                        <p><strong>Best Practices:</strong></p>
+                        <p>JavaScript offers three ways to declare variables: var, let, and const.</p>
+                        <p><strong>var:</strong></p>
                         <ul>
-                            <li>Use headings to structure content, not just for styling</li>
-                            <li>Maintain a logical hierarchy (h1 followed by h2, then h3, etc.)</li>
-                            <li>Each page should have only one &lt;h1&gt; element</li>
-                            <li>Search engines use headings to index the structure and content of web pages</li>
+                            <li>Function-scoped or globally-scoped</li>
+                            <li>Hoisted and initialized with undefined</li>
+                            <li>Can be redeclared and updated</li>
+                        </ul>
+                        <p><strong>let:</strong></p>
+                        <ul>
+                            <li>Block-scoped ({})</li>
+                            <li>Hoisted but not initialized (TDZ)</li>
+                            <li>Cannot be redeclared in the same scope but can be updated</li>
+                        </ul>
+                        <p><strong>const:</strong></p>
+                        <ul>
+                            <li>Block-scoped ({})</li>
+                            <li>Hoisted but not initialized (TDZ)</li>
+                            <li>Cannot be redeclared or reassigned</li>
+                            <li>Must be initialized during declaration</li>
+                            <li>Object properties can be updated (the object itself is constant, not its contents)</li>
                         </ul>
                     `;
-            codeExample.textContent = `<h1>This is heading 1 - Most Important</h1>
-<h2>This is heading 2</h2>
-<h3>This is heading 3</h3>
-<h4>This is heading 4</h4>
-<h5>This is heading 5</h5>
-<h6>This is heading 6 - Least Important</h6>`;
+            codeExample.textContent = `// var, let, const examples
+
+// var - function scoped, can be redeclared
+var x = 1;
+var x = 2; // No error
+console.log(x); // 2
+
+function testVar() {
+    var y = 10;
+    if (true) {
+        var y = 20; // Same variable
+        console.log(y); // 20
+    }
+    console.log(y); // 20
+}
+testVar();
+
+// let - block scoped, cannot be redeclared
+let a = 1;
+// let a = 2; // SyntaxError: Identifier 'a' has already been declared
+
+function testLet() {
+    let b = 10;
+    if (true) {
+        let b = 20; // Different variable
+        console.log(b); // 20
+    }
+    console.log(b); // 10
+}
+testLet();
+
+// const - block scoped, cannot be reassigned
+const c = 1;
+// c = 2; // TypeError: Assignment to constant variable
+
+const obj = { name: "John" };
+// obj = { name: "Jane" }; // Error - cannot reassign
+obj.name = "Jane"; // Allowed - property can be updated
+console.log(obj.name); // "Jane"
+
+// Temporal Dead Zone examples
+{
+    // console.log(tdzVar); // ReferenceError: Cannot access 'tdzVar' before initialization
+    let tdzVar = 10;
+}`;
             break;
-          case "form-elements":
-            theoryTitle.textContent = "HTML Form Elements";
+          case "what-are-closures":
+            theoryTitle.textContent = "What Are Closures";
             theoryContent.innerHTML = `
-                        <p>HTML forms contain various elements that allow users to enter data.</p>
-                        <p>Each form element serves a specific purpose and has different attributes to control its behavior.</p>
-                        <p><strong>Common Form Elements:</strong></p>
+                        <p>A closure is the combination of a function and the lexical environment within which that function was declared.</p>
+                        <p><strong>Key Points:</strong></p>
                         <ul>
-                            <li><strong>&lt;input&gt;:</strong> The most versatile form element with many types (text, password, checkbox, radio, etc.)</li>
-                            <li><strong>&lt;textarea&gt;:</strong> For multi-line text input</li>
-                            <li><strong>&lt;select&gt;:</strong> Creates a drop-down list with &lt;option&gt; elements</li>
-                            <li><strong>&lt;button&gt;:</strong> Defines a clickable button</li>
-                            <li><strong>&lt;fieldset&gt;:</strong> Groups related elements in a form</li>
-                            <li><strong>&lt;legend&gt;:</strong> Defines a caption for a &lt;fieldset&gt;</li>
-                            <li><strong>&lt;datalist&gt;:</strong> Specifies a list of pre-defined options for input elements</li>
-                            <li><strong>&lt;output&gt;:</strong> Represents the result of a calculation</li>
+                            <li>Closures allow functions to access variables from an outer function that has already returned</li>
+                            <li>They maintain a reference to their outer scope, preserving the variables within that scope</li>
+                            <li>In JavaScript, all functions are naturally closures (they have access to the scope in which they were created)</li>
+                        </ul>
+                        <p><strong>How They Work:</strong></p>
+                        <ol>
+                            <li>When a function is created, it gets a reference to its current lexical environment</li>
+                            <li>This reference allows the function to access variables from that environment even after the outer function has finished executing</li>
+                            <li>The JavaScript engine keeps the variables in memory as long as there's a closure that might use them</li>
+                        </ol>
+                    `;
+            codeExample.textContent = `// Closure examples
+
+// Example 1: Basic closure
+function createCounter() {
+    let count = 0; // This variable is "closed over"
+    
+    return function() {
+        count++;
+        return count;
+    };
+}
+
+const counter = createCounter();
+console.log(counter()); // 1
+console.log(counter()); // 2
+console.log(counter()); // 3
+
+// Example 2: Multiple closures
+function createMultiplier(factor) {
+    return function(number) {
+        return number * factor;
+    };
+}
+
+const double = createMultiplier(2);
+const triple = createMultiplier(3);
+
+console.log(double(5)); // 10
+console.log(triple(5)); // 15
+
+// Example 3: Closures in loops (common pitfall)
+for (var i = 0; i < 3; i++) {
+    setTimeout(function() {
+        console.log(i); // Outputs: 3, 3, 3 (not 0, 1, 2)
+    }, 100);
+}
+
+// Solution 1: Use let (block scoping)
+for (let i = 0; i < 3; i++) {
+    setTimeout(function() {
+        console.log(i); // Outputs: 0, 1, 2
+    }, 100);
+}
+
+// Solution 2: IIFE to create a new scope
+for (var i = 0; i < 3; i++) {
+    (function(j) {
+        setTimeout(function() {
+            console.log(j); // Outputs: 0, 1, 2
+        }, 100);
+    })(i);
+}`;
+            break;
+          case "event-loop":
+            theoryTitle.textContent = "Event Loop and Task Queues";
+            theoryContent.innerHTML = `
+                        <p>The event loop is what allows JavaScript to handle asynchronous operations despite being single-threaded.</p>
+                        <p><strong>How It Works:</strong></p>
+                        <ol>
+                            <li>Synchronous code is executed immediately and added to the call stack</li>
+                            <li>Asynchronous operations (setTimeout, fetch, etc.) are handled by Web APIs and their callbacks are placed in task queues</li>
+                            <li>The event loop continuously checks if the call stack is empty</li>
+                            <li>When the call stack is empty, it takes the first task from the queue and pushes it to the call stack</li>
+                        </ol>
+                        <p><strong>Task Queues:</strong></p>
+                        <ul>
+                            <li><strong>Microtask Queue:</strong> For Promise callbacks, MutationObserver. Has higher priority than the macrotask queue</li>
+                            <li><strong>Macrotask Queue:</strong> For setTimeout, setInterval, setImmediate, I/O, UI rendering</li>
+                        </ul>
+                        <p><strong>Execution Priority:</strong> Microtasks are executed before macrotasks when the call stack is empty.</p>
+                    `;
+            codeExample.textContent = `// Event loop example
+console.log("Script start");
+
+setTimeout(function() {
+    console.log("setTimeout");
+}, 0);
+
+Promise.resolve()
+    .then(function() {
+        console.log("Promise 1");
+    })
+    .then(function() {
+        console.log("Promise 2");
+    });
+
+console.log("Script end");
+
+// Output order:
+// "Script start"
+// "Script end"
+// "Promise 1"
+// "Promise 2"
+// "setTimeout"
+
+// Explanation:
+// 1. Synchronous code runs first: "Script start", "Script end"
+// 2. Microtasks (Promise callbacks) run next: "Promise 1", "Promise 2"
+// 3. Macrotasks (setTimeout) run last: "setTimeout"
+
+// Another example with more complexity
+console.log("Start");
+
+setTimeout(function() {
+    console.log("Timeout 1");
+}, 0);
+
+Promise.resolve().then(function() {
+    console.log("Promise 1");
+    
+    setTimeout(function() {
+        console.log("Timeout from Promise");
+    }, 0);
+});
+
+setTimeout(function() {
+    console.log("Timeout 2");
+    
+    Promise.resolve().then(function() {
+        console.log("Promise from Timeout");
+    });
+}, 0);
+
+console.log("End");
+
+// Output order:
+// "Start"
+// "End"
+// "Promise 1"
+// "Timeout 1"
+// "Timeout 2"
+// "Promise from Timeout"
+// "Timeout from Promise"`;
+            break;
+          case "prototype-chain":
+            theoryTitle.textContent = "Prototype Chain";
+            theoryContent.innerHTML = `
+                        <p>JavaScript objects have an internal property called [[Prototype]] (accessible via __proto__) that links to another object.</p>
+                        <p><strong>Prototype Chain:</strong> When trying to access a property on an object, JavaScript will:</p>
+                        <ol>
+                            <li>Look for the property on the object itself</li>
+                            <li>If not found, look at the object's prototype ([[Prototype]])</li>
+                            <li>Continue up the prototype chain until the property is found or until the chain ends (null)</li>
+                        </ol>
+                        <p><strong>Object.prototype:</strong> The top of most prototype chains. Contains methods like toString(), valueOf(), etc.</p>
+                        <p><strong>Setting Prototypes:</strong></p>
+                        <ul>
+                            <li><strong>Object.create(proto):</strong> Creates a new object with the specified prototype</li>
+                            <li><strong>Object.setPrototypeOf(obj, proto):</strong> Sets the prototype of an existing object (not recommended for performance)</li>
+                            <li><strong>Constructor functions:</strong> Functions used with 'new' set the prototype of the created object to the function's prototype property</li>
                         </ul>
                     `;
-            codeExample.textContent = `<form>
-    <fieldset>
-        <legend>Personal Information</legend>
+            codeExample.textContent = `// Prototype chain examples
+
+// Creating objects with prototypes
+const animal = {
+    eats: true,
+    walk() {
+        console.log("Animal walk");
+    }
+};
+
+const rabbit = Object.create(animal);
+rabbit.jumps = true;
+rabbit.walk(); // "Animal walk" - inherited from animal
+
+console.log(rabbit.eats); // true - inherited from animal
+console.log(rabbit.jumps); // true - own property
+
+// The prototype chain
+console.log(rabbit.__proto__ === animal); // true
+console.log(animal.__proto__ === Object.prototype); // true
+console.log(Object.prototype.__proto__); // null
+
+// Adding to prototype
+animal.sleep = function() {
+    console.log("Animal sleep");
+};
+
+rabbit.sleep(); // "Animal sleep" - now available through prototype
+
+// Constructor function and prototype
+function Person(name) {
+    this.name = name;
+}
+
+Person.prototype.greet = function() {
+    console.log(\`Hello, I'm \${this.name}\`);
+};
+
+const john = new Person("John");
+john.greet(); // "Hello, I'm John"
+
+console.log(john.__proto__ === Person.prototype); // true
+console.log(Person.prototype.__proto__ === Object.prototype); // true
+
+// Checking properties
+console.log(john.hasOwnProperty("name")); // true
+console.log(john.hasOwnProperty("greet")); // false (inherited)
+console.log("greet" in john); // true (exists in prototype chain)`;
+            break;
+          case "this-context":
+            theoryTitle.textContent = "Understanding 'this' Context";
+            theoryContent.innerHTML = `
+                        <p>The value of <code>this</code> is determined by how a function is called, not where it's defined.</p>
+                        <p><strong>Binding Rules:</strong></p>
+                        <ul>
+                            <li><strong>Default binding:</strong> In non-strict mode, <code>this</code> refers to the global object. In strict mode, it's undefined.</li>
+                            <li><strong>Implicit binding:</strong> When called as a method of an object, <code>this</code> refers to that object.</li>
+                            <li><strong>Explicit binding:</strong> Using call(), apply(), or bind() to explicitly set <code>this</code>.</li>
+                            <li><strong>New binding:</strong> When called with <code>new</code>, <code>this</code> refers to the newly created instance.</li>
+                            <li><strong>Arrow functions:</strong> Don't have their own <code>this</code> binding. They inherit <code>this</code> from the surrounding scope.</li>
+                        </ul>
+                        <p><strong>Common Pitfalls:</strong></p>
+                        <ul>
+                            <li>Losing <code>this</code> context when passing methods as callbacks</li>
+                            <li>Using <code>this</code> in nested functions inside methods</li>
+                        </ul>
+                    `;
+            codeExample.textContent = `// 'this' context examples
+
+// Default binding
+function showDefaultThis() {
+    console.log(this);
+}
+
+showDefaultThis(); // In browser: Window (or undefined in strict mode)
+
+// Implicit binding
+const person = {
+    name: "Alice",
+    greet() {
+        console.log(\`Hello, \${this.name}\`);
+    }
+};
+
+person.greet(); // "Hello, Alice" - 'this' is the person object
+
+// Losing context
+const greet = person.greet;
+greet(); // "Hello, undefined" - 'this' is now global/undefined
+
+// Explicit binding
+function introduce(lang1, lang2) {
+    console.log(\`My name is \${this.name} and I know \${lang1} and \${lang2}\`);
+}
+
+const person1 = { name: "Bob" };
+const person2 = { name: "Charlie" };
+
+introduce.call(person1, "JavaScript", "Python");
+// "My name is Bob and I know JavaScript and Python"
+
+introduce.apply(person2, ["Java", "C++"]);
+// "My name is Charlie and I know Java and C++"
+
+const boundIntroduce = introduce.bind(person1, "Ruby");
+boundIntroduce("PHP"); // "My name is Bob and I know Ruby and PHP"
+
+// New binding
+function Car(make, model) {
+    this.make = make;
+    this.model = model;
+    this.display = function() {
+        console.log(\`\${this.make} \${this.model}\`);
+    };
+}
+
+const myCar = new Car("Honda", "Civic");
+myCar.display(); // "Honda Civic"
+
+// Arrow functions
+const obj = {
+    name: "Arrow Example",
+    regularFunc: function() {
+        console.log("Regular:", this.name);
         
-        <label for="name">Name:</label>
-        <input type="text" id="name" name="name" required><br><br>
+        setTimeout(function() {
+            console.log("Regular in setTimeout:", this.name); // undefined
+        }, 100);
+    },
+    arrowFunc: function() {
+        console.log("Arrow outer:", this.name);
         
-        <label for="email">Email:</label>
-        <input type="email" id="email" name="email" required><br><br>
-        
-        <label for="birthdate">Birthdate:</label>
-        <input type="date" id="birthdate" name="birthdate"><br><br>
-        
-        <label for="avatar">Profile Picture:</label>
-        <input type="file" id="avatar" name="avatar" accept="image/png, image/jpeg"><br><br>
-    </fieldset>
-    
-    <fieldset>
-        <legend>Preferences</legend>
-        
-        <label for="colors">Favorite Color:</label>
-        <input type="color" id="colors" name="colors" value="#e44d26"><br><br>
-        
-        <label for="browser">Favorite Browser:</label>
-        <select id="browser" name="browser">
-            <option value="chrome">Chrome</option>
-            <option value="firefox">Firefox</option>
-            <option value="safari">Safari</option>
-            <option value="edge">Edge</option>
-        </select><br><br>
-        
-        <label for="comments">Comments:</label><br>
-        <textarea id="comments" name="comments" rows="4" cols="50"></textarea><br><br>
-    </fieldset>
-    
-    <input type="submit" value="Submit">
-    <input type="reset" value="Reset">
-</form>`;
+        setTimeout(() => {
+            console.log("Arrow in setTimeout:", this.name); // "Arrow Example"
+        }, 100);
+    }
+};
+
+obj.regularFunc();
+obj.arrowFunc();`;
             break;
           default:
             theoryTitle.textContent = "Subtopic Details";
             theoryContent.textContent =
               "Detailed content for this subtopic will appear here.";
-            codeExample.textContent =
-              "<!-- Code examples for this subtopic -->";
+            codeExample.textContent = "// Code examples for this subtopic";
         }
 
         // Update other tabs based on the subtopic
@@ -1120,64 +1496,75 @@
       function updateLiveExample(topicId, subtopicId = null) {
         const liveExample = document.getElementById("live-example");
 
-        if (subtopicId === "what-is-html") {
+        if (subtopicId === "how-js-runs") {
           liveExample.innerHTML = `
-                    <h3>Basic HTML Document Structure:</h3>
-                    <div class="html-preview">
-                        <h1>Welcome to HTML</h1>
-                        <p>This is a paragraph demonstrating basic HTML structure.</p>
-                        <a href="#" style="color: #e44d26;">This is a link</a>
-                    </div>
-                    <p>The example above shows a simple HTML document with a heading, paragraph, and link.</p>
+                    <h3>JavaScript Execution Order Example:</h3>
+                    <p>Open your browser's console to see the execution order.</p>
+                    <button class="btn" onclick="runExecutionExample()">Run Execution Example</button>
+                    <div id="execution-output"></div>
                 `;
-        } else if (subtopicId === "headings") {
+        } else if (subtopicId === "var-let-const") {
           liveExample.innerHTML = `
-                    <h3>HTML Headings Example:</h3>
-                    <div class="html-preview">
-                        <h1>Main Title (h1)</h1>
-                        <h2>Section Heading (h2)</h2>
-                        <h3>Subsection Heading (h3)</h3>
-                        <h4>Minor Heading (h4)</h4>
-                        <h5>Small Heading (h5)</h5>
-                        <h6>Tiny Heading (h6)</h6>
+                    <h3>Variable Declaration Examples:</h3>
+                    <div class="code-example">
+                        // Try these in your console:<br><br>
+                        // var example<br>
+                        var x = 1;<br>
+                        var x = 2; // No error<br>
+                        console.log(x); // 2<br><br>
+                        
+                        // let example<br>
+                        let y = 1;<br>
+                        // let y = 2; // Error: Identifier 'y' has already been declared<br>
+                        y = 2; // This is fine<br><br>
+                        
+                        // const example<br>
+                        const z = 1;<br>
+                        // z = 2; // Error: Assignment to constant variable<br><br>
+                        
+                        // Scope example<br>
+                        if (true) {<br>
+                        &nbsp;&nbsp;var a = 1;<br>
+                        &nbsp;&nbsp;let b = 2;<br>
+                        &nbsp;&nbsp;const c = 3;<br>
+                        }<br>
+                        console.log(a); // 1 (var is function-scoped)<br>
+                        console.log(b); // Error: b is not defined (let is block-scoped)<br>
+                        console.log(c); // Error: c is not defined (const is block-scoped)
                     </div>
-                    <p>Notice how the font size decreases as the heading level increases.</p>
                 `;
-        } else if (subtopicId === "form-elements") {
+        } else if (subtopicId === "what-are-closures") {
           liveExample.innerHTML = `
-                    <h3>HTML Form Elements Example:</h3>
-                    <div class="html-preview">
-                        <form style="max-width: 500px;">
-                            <fieldset>
-                                <legend>Sample Form</legend>
-                                
-                                <label for="sample-name">Name:</label>
-                                <input type="text" id="sample-name" name="sample-name" placeholder="Enter your name"><br><br>
-                                
-                                <label for="sample-email">Email:</label>
-                                <input type="email" id="sample-email" name="sample-email" placeholder="email@example.com"><br><br>
-                                
-                                <label for="sample-password">Password:</label>
-                                <input type="password" id="sample-password" name="sample-password"><br><br>
-                                
-                                <label>Gender:</label><br>
-                                <input type="radio" id="male" name="gender" value="male">
-                                <label for="male">Male</label>
-                                <input type="radio" id="female" name="gender" value="female">
-                                <label for="female">Female</label><br><br>
-                                
-                                <label for="comments">Comments:</label><br>
-                                <textarea id="comments" name="comments" rows="3" cols="40"></textarea><br><br>
-                                
-                                <input type="checkbox" id="agree" name="agree">
-                                <label for="agree">I agree to the terms</label><br><br>
-                                
-                                <input type="submit" value="Submit" class="btn">
-                                <input type="reset" value="Clear" class="btn" style="background-color: #6c757d;">
-                            </fieldset>
-                        </form>
+                    <h3>Closure Example:</h3>
+                    <button class="btn" onclick="runClosureExample()">Run Closure Example</button>
+                    <div id="closure-output"></div>
+                    <p>Each time you click the button, the counter increases thanks to closure.</p>
+                `;
+        } else if (topicId === "closures") {
+          liveExample.innerHTML = `
+                    <h3>Closure Examples:</h3>
+                    <div class="code-example">
+                        function createCounter() {<br>
+                        &nbsp;&nbsp;let count = 0;<br>
+                        &nbsp;&nbsp;return function() {<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;count++;<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;return count;<br>
+                        &nbsp;&nbsp;};<br>
+                        }<br><br>
+                        
+                        const counter = createCounter();<br>
+                        console.log(counter()); // 1<br>
+                        console.log(counter()); // 2<br>
+                        console.log(counter()); // 3
                     </div>
-                    <p>Try interacting with the different form elements above.</p>
+                    <button class="btn" onclick="runCounter()">Run Counter</button>
+                    <div id="counter-output"></div>
+                `;
+        } else if (topicId === "async-js") {
+          liveExample.innerHTML = `
+                    <h3>Async JavaScript Example:</h3>
+                    <button class="btn" onclick="runAsyncExample()">Run Async Example</button>
+                    <div id="async-output"></div>
                 `;
         } else {
           liveExample.innerHTML = `<p>Live examples will appear here when you select a topic or subtopic.</p>`;
@@ -1189,54 +1576,90 @@
         const interactiveContent = document.getElementById(
           "interactive-content"
         );
-        const runButton = document.getElementById("run-button");
+        const consoleOutput = document.getElementById("console-output");
 
-        if (subtopicId === "what-is-html") {
+        if (topicId === "closures") {
           interactiveContent.innerHTML = `
-                    <p>Try creating your first HTML page:</p>
-                    <textarea class="code-editor" id="html-editor">
-<!DOCTYPE html>
-<html>
-<head>
-    <title>My Page</title>
-</head>
-<body>
-    <h1>Welcome to My Website</h1>
-    <p>This is my first web page.</p>
-</body>
-</html>
+                    <h4>Closure Playground</h4>
+                    <p>Try creating your own closure:</p>
+                    <textarea class="code-editor" id="closure-code">
+function createMultiplier(factor) {
+    return function(number) {
+        return number * factor;
+    };
+}
+
+// Example usage:
+const double = createMultiplier(2);
+console.log(double(5)); // 10
+
+const triple = createMultiplier(3);
+console.log(triple(5)); // 15
                     </textarea>
                 `;
-          runButton.onclick = () => runHTMLCode("html-editor");
-        } else if (subtopicId === "headings") {
+        } else if (topicId === "async-js") {
           interactiveContent.innerHTML = `
-                    <p>Practice using different heading levels:</p>
-                    <textarea class="code-editor" id="headings-editor">
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Heading Practice</title>
-</head>
-<body>
-    <h1>Main Title</h1>
-    <p>Introduction to the topic</p>
-    
-    <h2>First Section</h2>
-    <p>Content for the first section</p>
-    
-    <h3>Subsection</h3>
-    <p>More detailed information</p>
-    
-    <h2>Second Section</h2>
-    <p>Content for the second section</p>
-</body>
-</html>
+                    <h4>Async/Await Playground</h4>
+                    <p>Try working with async functions:</p>
+                    <textarea class="code-editor" id="async-code">
+// Simulate fetching data
+function fetchData() {
+    return new Promise((resolve) => {
+        setTimeout(() => {
+            resolve("Data received!");
+        }, 1000);
+    });
+}
+
+// Async function example
+async function getData() {
+    console.log("Fetching data...");
+    const result = await fetchData();
+    console.log(result);
+    return result;
+}
+
+// Call the async function
+getData().then(data => {
+    console.log("Processed:", data.toUpperCase());
+});
                     </textarea>
                 `;
-          runButton.onclick = () => runHTMLCode("headings-editor");
+        } else if (topicId === "this-keyword") {
+          interactiveContent.innerHTML = `
+                    <h4>'this' Keyword Playground</h4>
+                    <p>Experiment with different 'this' contexts:</p>
+                    <textarea class="code-editor" id="this-code">
+const person = {
+    name: "John",
+    greet: function() {
+        console.log(\`Hello, my name is \${this.name}\`);
+    }
+};
+
+// Different ways to call the same function
+person.greet(); // "Hello, my name is John"
+
+const greet = person.greet;
+greet(); // "Hello, my name is undefined" (or global name)
+
+// Using bind to set context
+const boundGreet = person.greet.bind(person);
+boundGreet(); // "Hello, my name is John"
+
+// Using call and apply
+person.greet.call({ name: "Alice" }); // "Hello, my name is Alice"
+person.greet.apply({ name: "Bob" }); // "Hello, my name is Bob"
+                    </textarea>
+                `;
         } else {
-          interactiveContent.innerHTML = `<p>Interactive examples will appear here when you select a topic or subtopic.</p>`;
-          runButton.onclick = () => alert("Select a subtopic to run code");
+          interactiveContent.innerHTML = `
+                    <p>Interactive examples will appear here when you select a topic or subtopic.</p>
+                    <textarea class="code-editor" id="default-code">
+// Write your JavaScript code here
+console.log("Hello, JavaScript!");
+                    </textarea>
+                `;
         }
       }
 
@@ -1244,35 +1667,60 @@
       function updateGameContent(topicId, subtopicId = null) {
         const gameContent = document.getElementById("game-content");
 
-        if (subtopicId === "what-is-html") {
+        if (topicId === "closures") {
           gameContent.innerHTML = `
                     <div class="game-container">
-                        <h4>HTML Tag Matching Game</h4>
-                        <p>Match the HTML tags with their descriptions:</p>
-                        <div class="tag-match-game">
-                            <div class="tag-card" onclick="checkAnswer(this, '&lt;h1&gt;', 'Defines the most important heading')">&lt;h1&gt;</div>
-                            <div class="tag-card" onclick="checkAnswer(this, '&lt;p&gt;', 'Defines a paragraph')">&lt;p&gt;</div>
-                            <div class="tag-card" onclick="checkAnswer(this, '&lt;a&gt;', 'Defines a hyperlink')">&lt;a&gt;</div>
-                            <div class="tag-card" onclick="checkAnswer(this, '&lt;img&gt;', 'Embeds an image')">&lt;img&gt;</div>
+                        <h4>Closure Challenge</h4>
+                        <p>What will be logged to the console?</p>
+                        <div class="code-example">
+                            function createCounter() {<br>
+                            &nbsp;&nbsp;let count = 0;<br>
+                            &nbsp;&nbsp;return function() {<br>
+                            &nbsp;&nbsp;&nbsp;&nbsp;count++;<br>
+                            &nbsp;&nbsp;&nbsp;&nbsp;return count;<br>
+                            &nbsp;&nbsp;};<br>
+                            }<br><br>
+                            
+                            const counter1 = createCounter();<br>
+                            const counter2 = createCounter();<br><br>
+                            
+                            console.log(counter1());<br>
+                            console.log(counter1());<br>
+                            console.log(counter2());<br>
+                            console.log(counter1());
                         </div>
-                        <div class="tag-match-result" id="html-game-result"></div>
+                        <div class="flex-container">
+                            <button class="btn" onclick="checkAnswer(1, 'a')">A: 1,2,1,3</button>
+                            <button class="btn" onclick="checkAnswer(1, 'b')">B: 1,2,3,4</button>
+                            <button class="btn" onclick="checkAnswer(1, 'c')">C: 1,1,1,1</button>
+                        </div>
+                        <div id="game-result-1"></div>
                     </div>
                 `;
-        } else if (subtopicId === "headings") {
+        } else if (topicId === "async-js") {
           gameContent.innerHTML = `
                     <div class="game-container">
-                        <h4>Heading Hierarchy Game</h4>
-                        <p>Put these heading levels in the correct order (from most to least important):</p>
-                        <div class="tag-match-game">
-                            <div class="tag-card" draggable="true" ondragstart="dragStart(event)" id="h3">&lt;h3&gt;</div>
-                            <div class="tag-card" draggable="true" ondragstart="dragStart(event)" id="h1">&lt;h1&gt;</div>
-                            <div class="tag-card" draggable="true" ondragstart="dragStart(event)" id="h4">&lt;h4&gt;</div>
-                            <div class="tag-card" draggable="true" ondragstart="dragStart(event)" id="h2">&lt;h2&gt;</div>
+                        <h4>Event Loop Challenge</h4>
+                        <p>What will be the output order?</p>
+                        <div class="code-example">
+                            console.log("Start");<br><br>
+                            
+                            setTimeout(() => {<br>
+                            &nbsp;&nbsp;console.log("Timeout");<br>
+                            }, 0);<br><br>
+                            
+                            Promise.resolve().then(() => {<br>
+                            &nbsp;&nbsp;console.log("Promise");<br>
+                            });<br><br>
+                            
+                            console.log("End");
                         </div>
-                        <p>Drop zone (drag items here in correct order):</p>
-                        <div class="output-container" id="drop-zone" ondrop="drop(event)" ondragover="allowDrop(event)" style="min-height: 100px;"></div>
-                        <button class="btn" onclick="checkHeadingOrder()">Check Order</button>
-                        <div class="tag-match-result" id="heading-game-result"></div>
+                        <div class="flex-container">
+                            <button class="btn" onclick="checkAnswer(2, 'a')">A: Start, End, Timeout, Promise</button>
+                            <button class="btn" onclick="checkAnswer(2, 'b')">B: Start, End, Promise, Timeout</button>
+                            <button class="btn" onclick="checkAnswer(2, 'c')">C: Start, Timeout, End, Promise</button>
+                        </div>
+                        <div id="game-result-2"></div>
                     </div>
                 `;
         } else {
@@ -1280,91 +1728,45 @@
         }
       }
 
-      // Function to run HTML code in interactive demos
-      function runHTMLCode(editorId) {
-        const code = document.getElementById(editorId).value;
-        const outputContainer = document.getElementById("output");
+      // Function to run code in the interactive console
+      function runCode() {
+        const consoleOutput = document.getElementById("console-output");
+        consoleOutput.innerHTML = "";
 
-        // Clear previous output
-        outputContainer.innerHTML = "";
-
-        // Create an iframe to render the HTML
-        const iframe = document.createElement("iframe");
-        iframe.style.width = "100%";
-        iframe.style.height = "300px";
-        iframe.style.border = "1px solid #ddd";
-        iframe.style.borderRadius = "4px";
-
-        outputContainer.appendChild(iframe);
-
-        // Write the HTML to the iframe
-        const iframeDoc =
-          iframe.contentDocument || iframe.contentWindow.document;
-        iframeDoc.open();
-        iframeDoc.write(code);
-        iframeDoc.close();
-      }
-
-      // Function to check answers in games
-      function checkAnswer(element, correctAnswer, explanation) {
-        const resultDiv = document.getElementById("html-game-result");
-        const userAnswer = element.textContent.trim();
-
-        if (userAnswer === correctAnswer) {
-          resultDiv.innerHTML = `<span style="color: green;">Correct! ${explanation}</span>`;
-          element.style.backgroundColor = "#28a745";
+        let code = "";
+        if (currentTopic === "closures") {
+          code = document.getElementById("closure-code").value;
+        } else if (currentTopic === "async-js") {
+          code = document.getElementById("async-code").value;
+        } else if (currentTopic === "this-keyword") {
+          code = document.getElementById("this-code").value;
         } else {
-          resultDiv.innerHTML = `<span style="color: red;">Incorrect. Try again!</span>`;
-          element.style.backgroundColor = "#dc3545";
+          code = document.getElementById("default-code").value;
         }
 
-        setTimeout(() => {
-          element.style.backgroundColor = "#e44d26";
-        }, 1000);
-      }
+        // Override console.log to capture output
+        const originalConsoleLog = console.log;
+        console.log = function () {
+          const args = Array.prototype.slice.call(arguments);
+          const line = document.createElement("div");
+          line.className = "console-line";
+          line.textContent = args.join(" ");
+          consoleOutput.appendChild(line);
+          originalConsoleLog.apply(console, arguments);
+        };
 
-      // Drag and drop functions for heading game
-      function allowDrop(ev) {
-        ev.preventDefault();
-      }
-
-      function dragStart(ev) {
-        ev.dataTransfer.setData("text", ev.target.id);
-      }
-
-      function drop(ev) {
-        ev.preventDefault();
-        const data = ev.dataTransfer.getData("text");
-        const draggedElement = document.getElementById(data);
-
-        // Only allow moving if it's not already in the drop zone
-        if (draggedElement.parentNode.id !== "drop-zone") {
-          ev.target.appendChild(draggedElement);
-        }
-      }
-
-      function checkHeadingOrder() {
-        const dropZone = document.getElementById("drop-zone");
-        const headings = Array.from(dropZone.children);
-        const correctOrder = ["h1", "h2", "h3", "h4"];
-        const resultDiv = document.getElementById("heading-game-result");
-
-        const currentOrder = headings.map((heading) => heading.id);
-
-        // Check if order is correct
-        let isCorrect = true;
-        for (let i = 0; i < currentOrder.length; i++) {
-          if (currentOrder[i] !== correctOrder[i]) {
-            isCorrect = false;
-            break;
-          }
+        try {
+          eval(code);
+        } catch (error) {
+          const errorLine = document.createElement("div");
+          errorLine.className = "console-line";
+          errorLine.style.color = "red";
+          errorLine.textContent = "Error: " + error.message;
+          consoleOutput.appendChild(errorLine);
         }
 
-        if (isCorrect && currentOrder.length === correctOrder.length) {
-          resultDiv.innerHTML = `<span style="color: green;">Correct! Heading hierarchy is properly maintained.</span>`;
-        } else {
-          resultDiv.innerHTML = `<span style="color: red;">Not quite right. The correct order is: &lt;h1&gt;, &lt;h2&gt;, &lt;h3&gt;, &lt;h4&gt;</span>`;
-        }
+        // Restore console.log
+        console.log = originalConsoleLog;
       }
 
       // Function to switch between tabs
@@ -1388,6 +1790,111 @@
             tab.classList.add("active");
           }
         });
+      }
+
+      // Function to check answers in games
+      function checkAnswer(questionId, answer) {
+        const resultDiv = document.getElementById(`game-result-${questionId}`);
+
+        if (questionId === 1) {
+          if (answer === "a") {
+            resultDiv.innerHTML =
+              "Correct! 🎉 Each closure has its own scope, so counter1 and counter2 maintain separate count variables.";
+            resultDiv.style.color = "green";
+          } else {
+            resultDiv.innerHTML =
+              "Try again! Remember that each call to createCounter creates a new closure with its own scope.";
+            resultDiv.style.color = "red";
+          }
+        } else if (questionId === 2) {
+          if (answer === "b") {
+            resultDiv.innerHTML =
+              "Correct! 🎉 Promises (microtasks) execute before setTimeout (macrotasks).";
+            resultDiv.style.color = "green";
+          } else {
+            resultDiv.innerHTML =
+              "Try again! Remember the event loop order: synchronous code → microtasks → macrotasks.";
+            resultDiv.style.color = "red";
+          }
+        }
+      }
+
+      // Function to run execution example
+      function runExecutionExample() {
+        const outputDiv = document.getElementById("execution-output");
+        outputDiv.innerHTML =
+          "<p>Check your browser console to see the execution order.</p>";
+
+        console.log("Start");
+
+        setTimeout(function () {
+          console.log("Timeout callback");
+        }, 0);
+
+        Promise.resolve().then(function () {
+          console.log("Promise resolved");
+        });
+
+        console.log("End");
+      }
+
+      // Function to run closure example
+      function runClosureExample() {
+        const outputDiv = document.getElementById("closure-output");
+
+        if (typeof window.closureCounter === "undefined") {
+          window.closureCounter = (function () {
+            let count = 0;
+            return function () {
+              count++;
+              return count;
+            };
+          })();
+        }
+
+        const count = window.closureCounter();
+        outputDiv.innerHTML = `<p>Counter: ${count}</p>`;
+      }
+
+      // Function to run counter example
+      function runCounter() {
+        const outputDiv = document.getElementById("counter-output");
+
+        if (typeof window.exampleCounter === "undefined") {
+          window.exampleCounter = (function () {
+            let count = 0;
+            return function () {
+              count++;
+              return count;
+            };
+          })();
+        }
+
+        const count = window.exampleCounter();
+        outputDiv.innerHTML = `<p>Counter: ${count}</p>`;
+      }
+
+      // Function to run async example
+      function runAsyncExample() {
+        const outputDiv = document.getElementById("async-output");
+        outputDiv.innerHTML =
+          "<p>Check your browser console to see the async execution.</p>";
+
+        console.log("Script start");
+
+        setTimeout(function () {
+          console.log("setTimeout callback");
+        }, 0);
+
+        Promise.resolve()
+          .then(function () {
+            console.log("Promise 1");
+          })
+          .then(function () {
+            console.log("Promise 2");
+          });
+
+        console.log("Script end");
       }
 
       // Function to search topics
@@ -1422,13 +1929,6 @@
 
       // Initialize page
       document.addEventListener("DOMContentLoaded", function () {
-        // Add event listener for the run button
-        document
-          .getElementById("run-button")
-          .addEventListener("click", function () {
-            // This is handled in updateInteractiveContent now
-          });
-
         // Make Enter key trigger search
         document
           .getElementById("searchInput")

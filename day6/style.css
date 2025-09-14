@@ -28,7 +28,53 @@
         color: var(--text);
         line-height: 1.6;
         transition: var(--transition);
+      
       }
+      .try-code {
+      padding: 3rem 2rem;
+}
+
+.compiler-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 2rem;
+}
+
+.compiler-content {
+  flex: 1;
+}
+
+.compiler-image {
+  flex: 1;
+  text-align: center;
+}
+
+.compiler-image img {
+  max-width: 100%;
+  border-radius: 10px;
+}
+
+.features {
+  display: flex;
+  gap: 2rem;
+  margin: 1.5rem 0;
+}
+
+.feature {
+  flex: 1;
+}
+
+.feature i {
+  font-size: 2rem;
+  color: #007bff;
+  margin-bottom: 0.5rem;
+}
+
+
+
+
+      
 
       /* Header styles */
       header {
